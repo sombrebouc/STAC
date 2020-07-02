@@ -1,0 +1,180 @@
+body
+{
+    margin: 0;
+    padding: 0;
+}
+header
+{
+    position: relative;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 450px;
+    background-color: transparent;
+    overflow: hidden;
+}
+.titleheader
+{
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    color: #3562dc00;
+    font-size: 28em;
+    font-family: Impact;
+    background-image: url('/assets/img/titleBackgroundStac.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-stroke: 2px #a5a5a594;
+    letter-spacing: 25px;
+    transform: translateY(-80px);
+}
+
+
+/*===== Barre de navigation ===== */
+.nav-link{
+    padding: 0;
+    margin: 0;
+}
+.nav-link:hover{
+    padding: 0;
+    margin: 0;
+    background:#3365a7d3;
+}
+
+
+
+/*===== Article Central ===== */
+
+.containerInfosFftir
+{
+    box-shadow: 1px 1px #00000025;
+}
+
+/*//====== MEDIA-QUERIES =====//*/
+@media all and (max-width: 320px)
+{
+    header
+    {
+        position: relative;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 94px;
+        overflow: hidden;
+    }
+    .titleheader
+    {
+        padding: 0;
+        margin: 0;
+        color: transparent;
+        font-size: 120px;
+        font-family: Impact;
+        background-image: url('/assets/img/titleBackgroundStac.png');
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        -webkit-background-clip: text;
+    }
+
+}
+@media all and (max-width: 360px)
+{
+    header
+    {
+        position: relative;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 120px;
+        overflow: hidden;
+    }
+    .titleheader
+    {
+        padding: 0;
+        margin: 0;
+        color: transparent;
+        font-size: 140px;
+        font-family: Impact;
+        background-image: url('/assets/img/titleBackgroundStac.png');
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        -webkit-background-clip: text;
+    }
+}
+@media all and (max-width: 375px)
+{
+    header
+    {
+        position: relative;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 120px;
+        overflow: hidden;
+    }
+    .titleheader
+    {
+        padding: 0;
+        margin: 0;
+        text-align: center;
+        transform: translateY(-31px);
+        color: transparent;
+        font-size: 150px;
+        font-family: Impact;
+        background-image: url('/assets/img/titleBackgroundStac.png');
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        -webkit-background-clip: text;
+    }
+}
+@media all and (max-width: 768px)
+{
+    header
+    {
+        position: relative;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 30em;
+        overflow: hidden;
+    }
+    .titleheader
+    {
+        padding: 0;
+        margin: auto;
+        color: transparent;
+        font-size: 30em;
+        font-family: Impact;
+        background-image: url('/assets/img/titleBackgroundStac.png');
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        -webkit-background-clip: text;
+        letter-spacing: 25px;
+    }
+}
+@media all and (max-width: 1024px)
+{
+    header
+    {
+        position: relative;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 25em;
+        overflow: hidden;
+    }
+    .titleheader
+    {
+        padding: 0;
+        margin: auto;
+        color: transparent;
+        font-size: 30em;
+        font-family: Impact;
+        background-image: url('/assets/img/titleBackgroundStac.png');
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        -webkit-background-clip: text;
+        letter-spacing: 25px;
+        transform: translateY(-90px);
+    }
+}*/
