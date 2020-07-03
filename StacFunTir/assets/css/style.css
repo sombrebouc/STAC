@@ -50,9 +50,10 @@ header
 {
     box-shadow: 1px 1px #00000025;
 }
-
+/*
 /*//====== MEDIA-QUERIES =====//*/
-@media all and (max-width: 320px)
+
+@media screen and (max-width: 320px)
 {
     header
     {
@@ -77,7 +78,7 @@ header
     }
 
 }
-@media all and (max-width: 360px)
+@media screen and (max-width: 360px)
 {
     header
     {
@@ -101,7 +102,7 @@ header
         -webkit-background-clip: text;
     }
 }
-@media all and (max-width: 375px)
+@media screen and (max-width: 375px)
 {
     header
     {
@@ -127,7 +128,7 @@ header
         -webkit-background-clip: text;
     }
 }
-@media all and (max-width: 768px)
+@media screen and (max-width: 768px)
 {
     header
     {
@@ -152,7 +153,7 @@ header
         letter-spacing: 25px;
     }
 }
-@media all and (max-width: 1024px)
+@media screen and (max-width: 1024px)
 {
     header
     {
@@ -177,4 +178,5 @@ header
         letter-spacing: 25px;
         transform: translateY(-90px);
     }
-}*/
+}
+*/

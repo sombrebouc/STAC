@@ -15,7 +15,7 @@
 
 <header class="headerbanner">
     <div class="containerHeader">
-        <h1 class="titleheader">STAC</h1>
+        <h1 class="titleheader img-fluid">STAC</h1>
     </div>
 </header>
 
