@@ -13,10 +13,4 @@
     <title>STAC Members</title>
 </head>
 
-<header class="headerbanner">
-    <div class="containerHeader">
-        <h1 class="titleheader img-fluid">STAC</h1>
-    </div>
-</header>
-
 <body>
