@@ -27,6 +27,8 @@ header
 /*===== Barre de navigation ===== */
 .nav-item:hover
 {
+    width: 100%;
+    text-align: center;
     background-color: rgb(55, 97, 153);
 }
 .collapse:not(.show) {
@@ -43,3 +45,5 @@ header
     background-size: 75px;
     background-repeat: no-repeat;
 }
+
+/*===== Log-In ===== */

@@ -36,7 +36,16 @@
 				</button>
 			</div>
 			<div class="modal-body">
-				...
+                <form action="">
+                    <div class="inputBox">
+                        <input type="text" name="" required="">
+                        <label for="">Utilisateur</label>
+                    </div>
+                    <div class="inputBox">
+                        <input type="password" name="" required="">
+                        <label for=""">MdP</label>
+                    </div>
+                </form>
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-dark">Valider</button> 
