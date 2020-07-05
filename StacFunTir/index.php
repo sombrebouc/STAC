@@ -4,33 +4,75 @@
 
 <!-- \\\\\ NAVIGATION BAR ///// -->
 
-<nav class="navbar navbar-expand-md col-12 navbar-dark bg-dark p-2">
-    <a href="#" class="navbar-brand">Menu</a>
+<nav class="navbar fixed-top navbar-expand-md col-12 navbar-dark bg-dark p-2">
+    <a href="#" class="navbar-brand">Utilisateur</a>
     <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarMenu">
     <ul class="navbar-nav">
-        <li class="nav-item">
-            <a href="#" class="nav-link">Utilisateur</a>
+        <li class="nav-item m-auto">
+            <a class="nav-link" id="modalInscription" href="#modal-container-inscritpion" role="button" class="btn" data-toggle="modal">Inscription</a>
         </li>
-        <li class="nav-item">
-            <a href="login.php" class="nav-link">Connexion</a>
+        <li class="nav-item m-auto">
+            <a class="nav-link" id="modalConnexion" href="#modal-container-connexion" role="button" class="btn" data-toggle="modal">Connexion</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item m-auto">
             <a href="#" class="nav-link">Déconnexion</a>
         </li>
     </ul>
     </div>
 </nav>
+<!-- // Modales // -->
+
+<!-- =====\\= CONNEXION =//===== -->
+<div class="modal fade" id="modal-container-connexion" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="myModalLabel">Connexion</h5> 
+				<button type="button" class="close" data-dismiss="modal">
+					<span aria-hidden="true">×</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				...
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-dark">Valider</button> 
+				<button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- =====\\= INSCRIPTION =//===== -->
+<div class="modal fade" id="modal-container-inscritpion" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="myModalLabel">Inscription</h5> 
+				<button type="button" class="close" data-dismiss="modal">
+					<span aria-hidden="true">×</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				...
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-dark">Valider</button> 
+				<button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button>
+			</div>
+		</div>
+	</div>
+</div>
 
 <!-- \\\\\ HEADER TITLE ///// -->
 
-<div class="container-fluid col-md-12">
+<div class="container-fluid col-md-12 p-0">
     <div class="row">
-        <header class="headerbanner m-md-auto">
-                    <!-- <img class="logoSTAC justify-content-md-center" src="/assets/img/STAC_logo-1000x512.png"
-                        alt="logoSTAC"> -->
+        <header class="headerbanner bg-dark">
+            <img class="logoSTAC img-fluid expand-md-8" src="/assets/img/STAC_logo-1000x512.png" alt="logoSTAC">
         </header>
     </div>
 
