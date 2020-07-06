@@ -4,7 +4,7 @@
 
 <!-- \\\\\ NAVIGATION BAR ///// -->
 <nav class="navbar fixed-top navbar-expand-md col-12 navbar-dark bg-dark p-2">
-    <a href="#" class="navbar-brand"><?= $userlogin ?></a>
+    <a href="#" class="navbar-brand">UTILISATEUR</a>
     <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -27,7 +27,7 @@
 <!-- =====\\= CONNEXION =//===== -->
 <div class="modal fade" id="modal-container-connexion" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	<div class="modal-dialog" role="document">
-		<div class="modal-content bg-success">
+		<div class="modal-content">
 			<div class="modal-header">
 				<h5 class="modal-title" id="myModalLabel">Connexion</h5> 
 				<button type="button" class="close" data-dismiss="modal">
@@ -65,7 +65,28 @@
 				</button>
 			</div>
 			<div class="modal-body">
-				...
+                <form action="GET">
+                    <div class="inputBox p-1">
+                        <input type="text" name="" required="">
+                        <label class="m-right-2 text-lowercase" for="">NOM</label>
+                    </div>
+                    <div class="inputBox p-2">
+                        <input type="password" name="" required="">
+                        <label class="m-right-2 text-lowercase" for=""">PRENOM</label>
+                    </div>
+                    <div class="inputBox p-1">
+                        <input type="text" name="" required="">
+                        <label class="m-right-2 text-lowercase" for="">N° LICENSE</label>
+                    </div>
+                    <div class="inputBox p-1">
+                        <input type="text" name="" required="">
+                        <label class="m-right-2 text-lowercase" for="">EMAIL</label>
+                    </div>
+                    <div class="inputBox p-1">
+                        <input type="text" name="" required="">
+                        <label class="m-right-2 text-lowercase" for="">TELEPHONE</label>
+                    </div>
+                </form>
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-dark">Valider</button> 
@@ -86,7 +107,7 @@
 <!-- \\\\\ CONTENU INFORMATIONS ///// -->
 <div class="container-fluid">
     <div class="row justify-content-center">
-        <div class="containerInfosFftir p-3 m-3 bg-success text-light col-md-8 justify-content-center rounded">
+        <div class="containerInfosFftir p-3 m-3 bg-secondary text-light col-md-8 justify-content-center rounded">
             <h1 class="titlebody m-1 p-1 text-uppercase bg-dark text-light rounded">FFTir Infos</h1>
             <h3 class="p-3">Le Tir Sportif</h3>
             <div class="p-3">
