@@ -11,6 +11,9 @@
     <div class="collapse navbar-collapse" id="navbarMenu">
     <ul class="navbar-nav">
         <li class="nav-item m-auto">
+            <a href="#" class="nav-link">Fun Tir</a>
+        </li>
+        <li class="nav-item m-auto">
             <a class="nav-link" id="modalInscription" href="#modal-container-inscritpion" role="button" class="btn" data-toggle="modal">Inscription</a>
         </li>
         <li class="nav-item m-auto">
