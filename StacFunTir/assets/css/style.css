@@ -27,16 +27,32 @@ header
 /*===== Barre de navigation ===== */
 .nav-item:hover
 {
-    width: 100%;
+    width: auto;
+    border-radius: 5px;
     text-align: center;
     background-color: rgb(55, 97, 153);
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
 }
 .collapse:not(.show) {
     display: none;
-    justify-content: flex-end;
+    justify-content: space-between;
 }
-
-
+/*
+.collapse:hover(.show)
+{
+    width: auto;
+    border-radius: 10px;
+    margin-left: -5px;
+    background-color: rgb(55, 97, 153);
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+*/
 /*===== Le mot de la FEDE ===== */
 .titlebody
 {
