@@ -8,18 +8,11 @@ header
     height: 100%;
 }
 .headerbanner{
-    background-size: auto;
-    background-position: center;
-    transform: translateY(-1rem);
     overflow: hidden;
-    -webkit-transform: translateY(-1rem);
-    -moz-transform: translateY(-1rem);
-    -ms-transform: translateY(-1rem);
-    -o-transform: translateY(-1rem);
 }
 .img-fluid {
-    margin-top: 5rem;
-    max-width: 100%;
+    margin-top: 7rem;
+    margin-bottom: 7rem;
     height: auto;
 }
 
@@ -30,6 +23,7 @@ header
     width: auto;
     border-radius: 5px;
     text-align: center;
+    justify-content: space-between;
     background-color: rgb(55, 97, 153);
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
@@ -40,7 +34,13 @@ header
     display: none;
     justify-content: space-between;
 }
-/*
+.nav-link {
+    display: flex;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
 .collapse:hover(.show)
 {
     width: auto;
@@ -51,15 +51,6 @@ header
     -moz-border-radius: 10px;
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
-}
-*/
-/*===== Le mot de la FEDE ===== */
-.titlebody
-{
-    background-image: url('/assets/img/1200px-FFTir_Logo.png');
-    background-position: 95%;
-    background-size: 75px;
-    background-repeat: no-repeat;
 }
 
 /*===== Log-In ===== */

@@ -1,16 +1,3 @@
-<!DOCTYPE html>
-<html lang="fr">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.0/sandstone/bootstrap.min.css" rel="stylesheet" integrity="sha384-ztQCCdmKhYHBDMV3AyR4QGZ2/z6veowJBbsmvDJW/sTuMpB9lpoubJuD0ODGSbjh" crossorigin="anonymous">
-    
-    <link rel="stylesheet" href="/assets/css/style.css">
-
-    <title>Formulaire</title>
-
-</head>
 <?php
 // ================================== //
 // === déclaration des regex(s) ==== //
@@ -151,6 +138,3 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             <?php endif; ?>
         </div>
     </div>
-</body>
-
-</html>
