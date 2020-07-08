@@ -24,17 +24,31 @@
     </div>
 </nav>
 
-    <!-- \\\\\ HEADER TITLE ///// -->
-    <div class="container-fluid col-md-12 p-0">
-        <div class="row">
-            <header class="headerbanner bg-light">
-                <img class="logoSTAC img-fluid justify-conter-center expand-md-8"
-                    src="/assets/img/STAC_logo-1000x512.png" alt="logoSTAC">
-            </header>
-        </div>
+<!-- \\\\\ HEADER TITLE ///// -->
+<div class="container-fluid col-md-12 p-0">
+    <div class="row">
+        <header class="headerbanner bg-light">
+            <img class="logoSTAC img-fluid justify-conter-center expand-md-8" src="/assets/img/STAC_logo-1000x512.png"
+                alt="logoSTAC">
+        </header>
+    </div>
 
-    <?php
-    include 'inscription.php';
-    include 'connexion.php';
+</div>
+<!-- \\\\\ MODAL CONNECT ///// -->
+    <div class="modal-content p-2 bg-secondary">
+        <div class="modal-wrapper">
+            <p><?php include 'connexion.php'; ?></p>
+        </div>
+    </div>
+
+<!-- \\\\\ MODAL INSCRIPTION ///// -->
+<div class="modal-content p-2 bg-secondary">
+        <div class="modal-wrapper">
+            <p><?php include 'inscription.php'; ?></p>
+        </div>
+    </div>
+
+<?php
+    
     include 'footer.php';
     ?>

@@ -63,34 +63,43 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 ?>
 
 <!-- =====\\= INSCRIPTION =//===== -->
-<div class="container-fluid">
-    <?php if(($isSubmitted == false) || ($isSubmitted && count($errors) != 0)): ?>
-    <form action="" method="post">
-        <div class="inputBox p-2">
-            <input type="text" name="pseudo" placeholder="pseudo" value="<?= $pseudo ?>" required="">
-            <label class="m-right-2 text-lowercase" for="">Pseudonyme</label>
-            <span class="error text-danger"><?= $errors['pseudo'] ?? '' ?></span>
-        </div>
-        <div class="inputBox p-2">
-            <input type="password" name="password" placeholder="Mot de passe" value="<?= $password ?>" required="">
-            <label class="m-right-2 text-lowercase" for="">MOT DE PASSE</label>
-            <span class="error text-danger"><?= $errors['password'] ?? '' ?></span>
-        </div>
-        <div class="inputBox p-2">
-            <input type="text" name="licence" placeholder="n° de licence FFTIR" value="<?= $licence ?>" required="">
-            <label class="m-right-2 text-lowercase" for="">LICENCE FFTIR</label>
-            <span class="error text-danger"><?= $errors['licence'] ?? '' ?></span>
-        </div>
-
-        <div class="inputBox p-2">
-            <input type="email" name="mail" placeholder="john.smith@email.bug" value="<?= $mail ?>" required="">
-            <label class="m-right-2 text-lowercase" for="">EMAIL</label>
-            <span class="error text-danger"><?= $errors['email'] ?? '' ?></span>
-        </div>
-        <div class="container-fluid">
-            <button type="submit" class="btn btn-dark">Valider</button>
-        </div>
-    </form>
+<div class="container">
+    <div class="row">
+        <?php if(($isSubmitted == false) || ($isSubmitted && count($errors) != 0)): ?>
+        <form action="" method="post">
+            <div class="inputBox">
+                <label class="m-right-2" for="">Pseudonyme</label>
+                <div>
+                    <input type="text" name="pseudo" placeholder="pseudo" value="<?= $pseudo ?>" required="">
+                    <span class="error text-danger"><?= $errors['pseudo'] ?? '' ?></span>
+                </div>
+            </div>
+            <div class="inputBox">
+                <label class="m-right-2" for="">Mot de passe</label>
+                <div>
+                    <input type="password" name="password" placeholder="Mot de passe" value="<?= $password ?>"
+                        required="">
+                    <span class="error text-danger"><?= $errors['password'] ?? '' ?></span>
+                </div>
+            </div>
+            <div class="inputBox">
+                <label class="m-right-2" for="">N° de licence FFTIR</label>
+                <div>
+                    <input type="text" name="licence" placeholder="n° de licence FFTIR" value="<?= $licence ?>"
+                        required="">
+                    <span class="error text-danger"><?= $errors['licence'] ?? '' ?></span>
+                </div>
+            </div>
+            <div class="inputBox">
+                <label class="m-right-2" for="">Adresse e-mail</label>
+                <div>
+                    <input type="email" name="mail" placeholder="john.smith@email.bug" value="<?= $mail ?>" required="">
+                    <span class="error text-danger"><?= $errors['email'] ?? '' ?></span>
+                </div>
+            </div>
+                <button type="submit" class="btn btn-primary">Valider</button>
+        </form>
+    </div>
 </div>
 <div>
     <?php else: ?>

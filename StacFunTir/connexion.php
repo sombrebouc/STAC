@@ -13,22 +13,22 @@ $_SESSION['password'] = '';
 ?>
 
 <!-- =====\\= CONNEXION =//===== -->
-<div class="container-fluid col-4">
+<div class="container">
 	<div class="row">
 	<form  class="formContainer" action="GET">
-		<div class="inputBox p-md-2">
+		<div class="inputBox">
 			<label for="licence">N° de licence FFTIR</label>
 			<div>
-			<input type="text" name="licence" required="">
+			<input type="text" placeholder="N° de licence FFTIR" name="licence" required="">
 			</div>
 		</div>
-		<div class="inputBox p-md-2">
+		<div class="inputBox">
 			<label for="password">Mot de passe</label>
 			<div>
-			<input type="password" name="password" required="">
+			<input type="password" placeholder="Mot de passe" name="password" required="">
 			</div>
         </div>
-			<button href="#" type="submit" class="btn btn-dark">Valider</button>
+			<button href="#" type="submit" class="btn btn-primary p-2">Valider</button>
 		</div>
 	</form>
 	</div>
