@@ -1,11 +1,11 @@
 
 /*===== Header ===== */
-
-header
-{
+header{
     margin-top: 20vh;
     padding: 0;
     height: 100%;
+    background: rgb(245,151,0);
+    background: linear-gradient(247deg, rgba(245,151,0,1) 0%, rgba(255,102,0,1) 65%);
 }
 .headerbanner{
     overflow: hidden;
@@ -16,10 +16,12 @@ header
     height: auto;
 }
 
+body{
+    background: #343A40;
+}
 
 /*===== Barre de navigation ===== */
-.nav-item:hover
-{
+.nav-item:hover{
     width: auto;
     border-radius: 5px;
     text-align: center;
@@ -41,8 +43,7 @@ header
     text-decoration: none;
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
-.collapse:hover(.show)
-{
+.collapse:hover(.show){
     width: auto;
     border-radius: 10px;
     margin-left: -5px;
@@ -52,6 +53,8 @@ header
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
 }
+
+/*===== Modales ===== */
 div.modal-body{
     display: grid;
     padding: 0.5vh;

@@ -12,8 +12,8 @@ $_SESSION['password'] = '';
 ?>
 
 <!-- \\\\\ MODAL CONNECT ///// -->
-<div class="modal" id="connectModal" tabindex="-1">
-  <div class="modal-dialog">
+<div class="modal fade" id="connectModal" tabindex="-1">
+  <div class="modal-dialog modal-sm modal-dialog-centered">
     <div class="modal-content">
             <div class="modal-body">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
