@@ -52,3 +52,10 @@ header
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
 }
+div.modal-body{
+    display: grid;
+    padding: 0.5vh;
+}
+.close{
+    color: red;
+    }

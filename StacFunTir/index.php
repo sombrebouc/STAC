@@ -12,10 +12,10 @@
                 <a href="#" class="nav-link">Fun-Tir</a>
             </li>
             <li class="nav-item m-2">
-                <a class="nav-link" href="" role="button" class="btn">Inscription</a>
+                <a class="nav-link" href="" id="signupBtn" role="button" class="btn">Inscription</a>
             </li>
             <li class="nav-item m-2">
-                <a class="nav-link" href="" role="button" class="btn">Connexion</a>
+                <a class="nav-link" href="" id="connectBtn" role="button" class="btn">Connexion</a>
             </li>
             <li class="nav-item m-2">
                 <a href="<?php session_destroy(); ?>" class="nav-link">Déconnexion</a>
@@ -34,21 +34,10 @@
     </div>
 
 </div>
-<!-- \\\\\ MODAL CONNECT ///// -->
-    <div class="modal-content p-2 bg-secondary">
-        <div class="modal-wrapper">
-            <p><?php include 'connexion.php'; ?></p>
-        </div>
-    </div>
-
-<!-- \\\\\ MODAL INSCRIPTION ///// -->
-<div class="modal-content p-2 bg-secondary">
-        <div class="modal-wrapper">
-            <p><?php include 'inscription.php'; ?></p>
-        </div>
-    </div>
 
 <?php
     
+    include 'connexion.php';
+    include 'inscription.php';
     include 'footer.php';
-    ?>
+?>

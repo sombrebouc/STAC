@@ -62,6 +62,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 }
 ?>
 
+<!-- \\\\\ MODAL INSCRIPTION ///// -->
+<div class="modal-content p-2 bg-secondary">
+        <div class="modal-wrapper">
+
 <!-- =====\\= INSCRIPTION =//===== -->
 <div class="container">
     <div class="row">
@@ -113,3 +117,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     </div>
     <?php endif; ?>
 </div>
+
+
+</div>
+    </div>
