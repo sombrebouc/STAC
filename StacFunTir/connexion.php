@@ -12,22 +12,7 @@ $_SESSION['password'] = '';
 ?>
 
 <!-- \\\\\ MODAL CONNECT ///// -->
-<!-- <div class="modal-content p-2 bg-secondary">
-	<div class="modal-wrapper">-->
-		<!-- =====\\= CONNEXION =//===== -->
-		<!-- <div class="container">
-			<div class="row">
-				
-		</div>
-	</div>
-
-</div>
-</div> -->
-
-
-
-<!-- Modal -->
-<div class="modal" id="exampleModal" tabindex="-1">
+<div class="modal" id="connectModal" tabindex="-1">
   <div class="modal-dialog">
     <div class="modal-content">
             <div class="modal-body">

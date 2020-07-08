@@ -62,10 +62,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 }
 ?>
 
-<!-- \\\\\ MODAL INSCRIPTION ///// -->
-<div class="modal-content p-2 bg-secondary">
-        <div class="modal-wrapper">
 
+<!-- \\\\\ MODAL CONNECT ///// -->
+<div class="modal" id="signupModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+            <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
 <!-- =====\\= INSCRIPTION =//===== -->
 <div class="container">
     <div class="row">
@@ -103,7 +108,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             </div>
                 <button type="submit" class="btn btn-primary">Valider</button>
         </form>
+      </div>
     </div>
+  </div>
 </div>
 <div>
     <?php else: ?>
