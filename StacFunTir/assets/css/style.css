@@ -5,7 +5,8 @@ header{
     padding: 0;
     height: 100%;
     background: rgb(245,151,0);
-    background: linear-gradient(247deg, rgba(245,151,0,1) 0%, rgba(255,102,0,1) 65%);
+    background: linear-gradient(247deg, rgba(0,151,175,0.25) 0%, rgba(30, 4, 71, 0.5) 65%), url('/assets/img/LRM_EXPORT_11657212108520_20181130_164956651.jpeg');
+    background-size: cover;
 }
 .headerbanner{
     overflow: hidden;
@@ -58,6 +59,11 @@ body{
 div.modal-body{
     display: grid;
     padding: 0.5vh;
+    justify-content: center;
+    background: grey;
+    background-image: linear-gradient(180deg, rgba(43, 160, 8, 0.45) 0%, rgba(165, 99, 0, 0.65) 65%), url('/assets/img/titleBackgroundStac.png');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .close{
     color: red;
