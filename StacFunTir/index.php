@@ -12,10 +12,10 @@
                 <a href="#" class="nav-link">Fun-Tir</a>
             </li>
             <li class="nav-item m-2">
-                <a class="nav-link" href="inscritpion.php" role="button" class="btn">Inscription</a>
+                <a class="nav-link" href="" role="button" class="btn">Inscription</a>
             </li>
             <li class="nav-item m-2">
-                <a class="nav-link" href="connexion.php" role="button" class="btn">Connexion</a>
+                <a class="nav-link" href="" role="button" class="btn">Connexion</a>
             </li>
             <li class="nav-item m-2">
                 <a href="<?php session_destroy(); ?>" class="nav-link">Déconnexion</a>
@@ -33,4 +33,8 @@
             </header>
         </div>
 
-    <?php include 'footer.php'; ?>
+    <?php
+    include 'inscription.php';
+    include 'connexion.php';
+    include 'footer.php';
+    ?>

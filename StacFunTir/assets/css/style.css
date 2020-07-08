@@ -53,7 +53,7 @@ header
     -o-border-radius: 10px;
 }
 
-/*===== Log-In ===== */
+/* ===== Log-In ===== */
 
 .formContainer{
     background-color: cadetblue;
@@ -65,4 +65,11 @@ header
     -moz-border-radius: 10px;
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
+}
+
+/* ==== Footer ==== */
+div.container-fluidFooter (div.row){
+    height: 10vh;
+    width: 100%;
+    background-color: lawngreen;
 }
