@@ -9,13 +9,31 @@
     <div class="collapse navbar-collapse" id="navbarMenu">
         <ul class="navbar-nav">
             <li class="nav-item m-2">
-                <a href="" id="shooterpage" class="nav-link">Fun-Tir</a>
+                <div class="dropdown">
+                    <a class="nav-link btn" role="button" type="button" data-toggle="dropdown" aria-expanded="false">Fun
+                        Tir</a>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                        <li><button class="dropdown-item" id="eventspage" type="button">Events</button></li>
+                        <li><button class="dropdown-item" id="membersbdd" type="button">Membres</button></li>
+                        <li><button class="dropdown-item" id="shooterpage" type="button">On Road</button></li>
+                    </ul>
+                </div>
             </li>
             <li class="nav-item m-2">
                 <a class="nav-link" href="" id="signupBtn" role="button" class="btn">Inscription</a>
             </li>
             <li class="nav-item m-2">
                 <a class="nav-link" href="" id="connectBtn" role="button" class="btn">Connexion</a>
+            </li>
+            <li class="nav-item m-2">
+                <div class="dropdown">
+                    <a class="nav-link btn" role="button" type="button" data-toggle="dropdown"
+                        aria-expanded="false">Profil</a>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                        <li><button class="dropdown-item" type="button">Renseignements</button></li>
+                        <li><button class="dropdown-item" type="button">Progression</button></li>
+                    </ul>
+                </div>
             </li>
             <li class="nav-item m-2">
                 <a href="<?php session_destroy(); ?>" class="nav-link">Déconnexion</a>

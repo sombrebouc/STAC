@@ -4,6 +4,10 @@ window.addEventListener('DOMContentLoaded', function(){
     // fonction click sur le bouton funtir
     document.querySelector('#shooterpage').addEventListener('click', function(e){
         e.preventDefault();
+        // ouverture de la modale de connection
+        var myModal = new bootstrap.Modal(document.getElementById('shooterModal'), 'show');
+        console.log(myModal);
+        myModal.show()
 });
 });
 
