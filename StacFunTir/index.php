@@ -9,7 +9,7 @@
     <div class="collapse navbar-collapse" id="navbarMenu">
         <ul class="navbar-nav">
             <li class="nav-item m-2">
-                <a href="#" class="nav-link">Fun-Tir</a>
+                <a href="" id="shooterpage" class="nav-link">Fun-Tir</a>
             </li>
             <li class="nav-item m-2">
                 <a class="nav-link" href="" id="signupBtn" role="button" class="btn">Inscription</a>
@@ -38,6 +38,7 @@
 <?php
     
     include 'infosstac.php';
+    include 'shooterpage.php';
     include 'connexion.php';
     include 'inscription.php';
     include 'footer.php';
