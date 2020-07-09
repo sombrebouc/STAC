@@ -37,6 +37,7 @@
 
 <?php
     
+    include 'infosstac.php';
     include 'connexion.php';
     include 'inscription.php';
     include 'footer.php';

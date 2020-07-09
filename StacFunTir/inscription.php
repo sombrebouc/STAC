@@ -67,46 +67,46 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 <div class="modal fade" id="signupModal" tabindex="-1">
   <div class="modal-dialog modal-sm modal-dialog-centered">
     <div class="modal-content">
-            <div class="modal-body">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+            <div class="modal-body border border-success rounded">
 <!-- =====\\= INSCRIPTION =//===== -->
 <div class="container">
     <div class="row">
         <?php if(($isSubmitted == false) || ($isSubmitted && count($errors) != 0)): ?>
         <form action="" method="post">
-            <div class="inputBox">
+            <div class="inputBox text-center text-light">
                 <label class="m-right-2" for="">Pseudonyme</label>
                 <div>
-                    <input type="text" name="pseudo" placeholder="pseudo" value="<?= $pseudo ?>" required="">
+                    <input class="text-center" type="text" name="pseudo" placeholder="pseudo" value="<?= $pseudo ?>" required="">
                     <span class="error text-danger"><?= $errors['pseudo'] ?? '' ?></span>
                 </div>
             </div>
-            <div class="inputBox">
+            <div class="inputBox text-center text-light">
                 <label class="m-right-2" for="">Mot de passe</label>
                 <div>
-                    <input type="password" name="password" placeholder="Mot de passe" value="<?= $password ?>"
+                    <input class="text-center" type="password" name="password" placeholder="Mot de passe" value="<?= $password ?>"
                         required="">
                     <span class="error text-danger"><?= $errors['password'] ?? '' ?></span>
                 </div>
             </div>
-            <div class="inputBox">
+            <div class="inputBox text-center text-light">
                 <label class="m-right-2" for="">N° de licence FFTIR</label>
                 <div>
-                    <input type="text" name="licence" placeholder="n° de licence FFTIR" value="<?= $licence ?>"
+                    <input class="text-center" type="text" name="licence" placeholder="n° de licence FFTIR" value="<?= $licence ?>"
                         required="">
                     <span class="error text-danger"><?= $errors['licence'] ?? '' ?></span>
                 </div>
             </div>
-            <div class="inputBox">
+            <div class="inputBox text-center text-light">
                 <label class="m-right-2" for="">Adresse e-mail</label>
                 <div>
-                    <input type="email" name="mail" placeholder="john.smith@email.bug" value="<?= $mail ?>" required="">
+                    <input class="text-center" type="email" name="mail" placeholder="john.smith@email.bug" value="<?= $mail ?>" required="">
                     <span class="error text-danger"><?= $errors['email'] ?? '' ?></span>
                 </div>
             </div>
-                <button type="submit" class="btn btn-primary">Valider</button>
+					<div class="validateBtn p-2">
+                <button type="submit" class="btn btn-block btn-dark text-light">Enregistrer</button>
+                </div>
+
         </form>
       </div>
     </div>

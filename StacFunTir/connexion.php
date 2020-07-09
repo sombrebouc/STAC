@@ -13,29 +13,28 @@ $_SESSION['password'] = '';
 
 <!-- \\\\\ MODAL CONNECT ///// -->
 <div class="modal fade" id="connectModal" tabindex="-1">
-  <div class="modal-dialog modal-sm modal-dialog-centered">
-    <div class="modal-content">
-            <div class="modal-body">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-	  <form class="formContainer" action="GET">
-					<div class="inputBox">
+	<div class="modal-dialog modal-md modal-dialog-centered">
+		<div class="modal-content">
+			<div class="modal-body border border-success rounded">
+				<form class="formContainer" action="GET">
+					<div class="inputBox text-center text-light">
 						<label for="licence">N° de licence FFTIR</label>
 						<div>
-							<input type="text" placeholder="N° de licence FFTIR" name="licence" required="">
+							<input class="text-center" type="text" placeholder="N° de licence FFTIR" name="licence" required="">
 						</div>
 					</div>
-					<div class="inputBox">
+					<div class="inputBox text-center text-light">
 						<label for="password">Mot de passe</label>
 						<div>
-							<input type="password" placeholder="Mot de passe" name="password" required="">
+							<input class="text-center" type="password" placeholder="Mot de passe" name="password" required="">
 						</div>
 					</div>
-					<button href="#" type="submit" class="btn btn-primary p-2">Valider</button>
-			</div>
+					<div class="validateBtn p-2">
+						<button href="#" type="submit" class="btn btn-block btn-dark text-light">Valider</button>
+					</div>
+				</div>
 			</form>
-      </div>
-    </div>
-  </div>
+		</div>
+	</div>
+</div>
 </div>
