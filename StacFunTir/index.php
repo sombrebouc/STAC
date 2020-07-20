@@ -13,9 +13,9 @@
                     <a class="nav-link btn" role="button" type="button" data-toggle="dropdown" aria-expanded="false">Fun
                         Tir</a>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                        <li><button class="dropdown-item" id="eventspage" type="button">Events</button></li>
-                        <li><button class="dropdown-item" id="membersbdd" type="button">Membres</button></li>
-                        <li><button class="dropdown-item" id="shooterpage" type="button">On Road</button></li>
+                        <li><a class="dropdown-item" id="eventspage" type="button">Events</a></li>
+                        <li><a class="dropdown-item" id="memberslist" type="button">Membres</a></li>
+                        <li><a class="dropdown-item" id="shooterpage" type="button">Start</a></li>
                     </ul>
                 </div>
             </li>
@@ -30,8 +30,8 @@
                     <a class="nav-link btn" role="button" type="button" data-toggle="dropdown"
                         aria-expanded="false">Profil</a>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                        <li><button class="dropdown-item" type="button">Renseignements</button></li>
-                        <li><button class="dropdown-item" type="button">Progression</button></li>
+                        <li><a class="dropdown-item" id="profileInfo" type="button">Renseignements</a></li>
+                        <li><a class="dropdown-item" id="progressResults" type="button">Progression</a></li>
                     </ul>
                 </div>
             </li>
@@ -56,7 +56,9 @@
 <?php
     
     include 'infosstac.php';
-    include 'shooterpage.php';
+    include 'funtir/events.php';
+    include 'funtir/membres.php';
+    include 'funtir/shooterpage.php';
     include 'connexion.php';
     include 'inscription.php';
     include 'footer.php';

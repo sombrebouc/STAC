@@ -1,9 +1,8 @@
-
 <!-- \\\\\ CONTENU INFORMATIONS ///// -->
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div
-            class="containerInfosFftir p-3 m-3 bg-secondary text-light col-md-6 justify-content-center rounded">
+            class="containerInfosFftir p-3 m-3 bg-light text-dark col-md-6 justify-content-center rounded">
             <h1 class="titlebody m-1 p-1 text-uppercase bg-dark text-light rounded">INFOS CLUB</h1>
             <h3 class="p-3">Le Fun Tir</h3>
             <div class="p-3">

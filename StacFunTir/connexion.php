@@ -1,30 +1,22 @@
 <?php
-
-// Variables nécessaires à l'écriture des cookies
-$licence='';
-$password='';
-// Ecriture du cookie contenant les éléments de connexion durant 24h
-setcookie('$licence', '$password', time() + 24*3600, null, null, false, true); 
-
 $_SESSION['licence'] = '';
 $_SESSION['password'] = '';
-
 ?>
 
 <!-- \\\\\ MODAL CONNECT ///// -->
 <div class="modal fade" id="connectModal" tabindex="-1">
-	<div class="modal-dialog modal-md modal-dialog-centered">
+	<div class="modal-dialog modal-sm modal-dialog-centered">
 		<div class="modal-content">
-			<div class="modal-body border border-success rounded">
+			<div class="modal-body rounded">
 				<form class="formContainer" action="GET">
 					<div class="inputBox text-center text-light">
-						<label for="licence">N° de licence FFTIR</label>
+						<label for="licence">n° de licence FFTIR</label>
 						<div>
 							<input class="text-center" type="text" placeholder="N° de licence FFTIR" name="licence" required="">
 						</div>
 					</div>
 					<div class="inputBox text-center text-light">
-						<label for="password">Mot de passe</label>
+						<label for="password">mot de passe</label>
 						<div>
 							<input class="text-center" type="password" placeholder="Mot de passe" name="password" required="">
 						</div>

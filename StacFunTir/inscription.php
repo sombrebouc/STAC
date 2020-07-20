@@ -12,7 +12,8 @@
 // ==== Validation du formulaire ==== //
 $isSubmitted = false;
 // ==== Initialisation des variables ==== //
-$pseudo='';
+$lastname='';
+$firstname='';
 $licence='';
 $password= '';
 $phone='';
@@ -24,12 +25,19 @@ $errors = [];
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $isSubmitted = true;
     // == validation des champs == //
-    // ============================== Pseudo
+    // ============================== Lastname
     $pseudo= trim(filter_input(INPUT_POST, 'pseudo', FILTER_SANITIZE_STRING));
-    if (empty ($pseudo)){
-        $errors['pseudo'] = 'Renseignez votre prénom';
-    }elseif (!preg_match($regexNames,$pseudo)) {
-        $errors['pseudo'] = 'Le format attendu n\'est pas respecté';
+    if (empty ($lastname)){
+        $errors['lastname'] = 'Renseignez votre prénom';
+    }elseif (!preg_match($regexNames,$lastname)) {
+        $errors['lastname'] = 'Le format attendu n\'est pas respecté';
+    }
+        // ============================== Firstname
+    $pseudo= trim(filter_input(INPUT_POST, 'firstname', FILTER_SANITIZE_STRING));
+    if (empty ($firstname)){
+        $errors['firstname'] = 'Renseignez votre prénom';
+    }elseif (!preg_match($regexNames,$firstname)) {
+        $errors['firstname'] = 'Le format attendu n\'est pas respecté';
     }
     //  ============================== n° de Licence
     $licence= trim(filter_input(INPUT_POST, 'licence', FILTER_SANITIZE_STRING));
@@ -67,23 +75,29 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 <div class="modal fade" id="signupModal" tabindex="-1">
   <div class="modal-dialog modal-sm modal-dialog-centered">
     <div class="modal-content">
-            <div class="modal-body border border-success rounded">
+            <div class="modal-body rounded">
 <!-- =====\\= INSCRIPTION =//===== -->
 <div class="container">
     <div class="row">
         <?php if(($isSubmitted == false) || ($isSubmitted && count($errors) != 0)): ?>
         <form action="" method="post">
             <div class="inputBox text-center text-light">
-                <label class="m-right-2" for="">Pseudonyme</label>
+                <label class="m-right-2" for="">Nom</label>
                 <div>
-                    <input class="text-center" type="text" name="pseudo" placeholder="pseudo" value="<?= $pseudo ?>" required="">
-                    <span class="error text-danger"><?= $errors['pseudo'] ?? '' ?></span>
+                    <input class="text-center" type="text" name="lastname" placeholder="nom" value="<?= $lastname ?>" required="">
+                    <span class="error text-danger"><?= $errors['lastname'] ?? '' ?></span>
+                </div>
+            </div><div class="inputBox text-center text-light">
+                <label class="m-right-2" for="">Prénom</label>
+                <div>
+                    <input class="text-center" type="text" name="firstname" placeholder="prénom" value="<?= $firstname ?>" required="">
+                    <span class="error text-danger"><?= $errors['firstname'] ?? '' ?></span>
                 </div>
             </div>
             <div class="inputBox text-center text-light">
                 <label class="m-right-2" for="">Mot de passe</label>
                 <div>
-                    <input class="text-center" type="password" name="password" placeholder="Mot de passe" value="<?= $password ?>"
+                    <input class="text-center" type="password" name="password" placeholder="mot de passe" value="<?= $password ?>"
                         required="">
                     <span class="error text-danger"><?= $errors['password'] ?? '' ?></span>
                 </div>

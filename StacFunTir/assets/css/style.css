@@ -60,10 +60,6 @@ div.modal-body{
     display: grid;
     padding: 0.5vh;
     justify-content: center;
-    background: grey;
-    background-image: linear-gradient(180deg, rgba(80, 109, 1, 0.8) 0%, rgba(83, 145, 3, 0.65) 65%), url('/assets/img/titleBackgroundStac.png');
-    background-repeat: no-repeat;
-    background-size: cover;
 }
 .close{
     color: red;
