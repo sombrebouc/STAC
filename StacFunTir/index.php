@@ -45,8 +45,8 @@
 <!-- \\\\\ HEADER TITLE ///// -->
 <div class="container-fluid col-md-12 p-0">
     <div class="row">
-        <header class="headerbanner bg-light">
-            <img class="logoSTAC img-fluid justify-conter-center expand-md-8" src="/assets/img/STAC_logo-1000x512.png"
+        <header class="headerbanner text-center col-md-10">
+            <img class="logoSTAC img-fluid expand-md-6" src="/assets/img/STAC_logo-1000x512.png"
                 alt="logoSTAC">
         </header>
     </div>
@@ -55,11 +55,12 @@
 
 <?php
     
-    include 'infosstac.php';
-    include 'funtir/events.php';
-    include 'funtir/membres.php';
-    include 'funtir/shooterpage.php';
-    include 'connexion.php';
-    include 'inscription.php';
-    include 'footer.php';
+    require_once 'infosstac.php';
+    require_once 'funtir/events.php';
+    require_once 'funtir/membres.php';
+    require_once 'funtir/targetnumber.php';
+    require_once 'funtir/shooterpage.php';
+    require_once 'connexion.php';
+    require_once 'inscription.php';
+    require_once 'footer.php';
 ?>

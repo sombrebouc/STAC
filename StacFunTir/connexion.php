@@ -22,7 +22,7 @@ $_SESSION['password'] = '';
 						</div>
 					</div>
 					<div class="validateBtn p-2">
-						<button href="#" type="submit" class="btn btn-block btn-dark text-light">Valider</button>
+						<button href="#" type="submit" class="btn btn-block btn-success text-light">Valider</button>
 					</div>
 				</div>
 			</form>

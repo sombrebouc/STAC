@@ -118,7 +118,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                 </div>
             </div>
 					<div class="validateBtn p-2">
-                <button type="submit" class="btn btn-block btn-dark text-light">Enregistrer</button>
+                <button type="submit" class="btn btn-block btn-success text-light">Enregistrer</button>
                 </div>
 
         </form>

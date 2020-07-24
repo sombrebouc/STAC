@@ -1,23 +1,20 @@
-<!-- Scrollable modal -->
 
 <div class="modal fade" id="shooterModal" tabindex="-1">
-    <div class="modal-dialog modal-md modal-dialog-centered">
-
-                <div class="container-fluid bg-dark">
-                    <div class="row">
-                        <div class="row">
-                            <div class="shooterIdentity bg-warning">NOM Prénom </div>
+    <div class="modal-dialog modal-sm modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body rounded">
+                <form class="formContainer" method="POST" action="">
+                    <div class="inputBox text-center text-dark p-2">
+                        <label for="#">Combien de cibles faut-il?</label>
+                        <div>
+                            <input class="text-center" type="text" placeholder="" name="numberOfTargets" required="">
                         </div>
-                        <div class="row">
-                            <div class="shooterIdentity bg-secondary">Licence FFTIR</div>
-                        </div>
-                        <div class="scoring col-md-8 bg-light">
-                            <div class="timeScore col-sm-2">TEMPS</div>
-                            <div class="pointsScore col-sm-2">POINTS</div>
-                            <div class="nonshootScore col-sm-2">NS</div>
-                        </div>
-                        <div class="ratioScoring col-sm-2">Ratio</div>
                     </div>
-                </div>
+                    <div class="validateBtn p-2">
+                        <input id="targetList" type="submit" class="btn btn-block btn-success text-light"/>
+                    </div>
+                </form>
             </div>
+        </div>
+    </div>
 </div>

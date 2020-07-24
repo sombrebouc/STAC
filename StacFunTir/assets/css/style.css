@@ -1,14 +1,16 @@
 
 /*===== Header ===== */
 header{
+    position: ;
     margin-top: 20vh;
     padding: 0;
     height: 100%;
-    background: rgb(245,151,0);
-    background: linear-gradient(247deg, rgba(0,151,175,0.25) 0%, rgba(30, 4, 71, 0.5) 65%), url('/assets/img/LRM_EXPORT_11657212108520_20181130_164956651.jpeg');
+    background: transparent;
     background-size: cover;
 }
 .headerbanner{
+    margin-left: auto;
+    margin-right: auto;
     overflow: hidden;
 }
 .img-fluid {
@@ -18,10 +20,17 @@ header{
 }
 
 body{
-    background: #343A40;
+    background: rgb(55, 97, 153);
+    background-image: linear-gradient(160deg, 
+    rgb(55, 97, 153) 50%, 
+    #00000069 100%);
 }
 
 /*===== Barre de navigation ===== */
+
+.navbar{
+box-shadow: 5px 0px 15px #000;
+}
 .nav-item:hover{
     width: auto;
     border-radius: 5px;
@@ -61,6 +70,10 @@ div.modal-body{
     padding: 0.5vh;
     justify-content: center;
 }
+.modal-dialog{
+    width: 80%;
+    margin: auto;
+ }
 .close{
     color: red;
     }
