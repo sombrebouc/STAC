@@ -4,7 +4,16 @@ $_SESSION['password'] = '';
 
 include 'connect.php';
 
+$dbStac = mysql_connect ('localhost', 'admin', 'THOR81');
+	mysql_select_db ('stac', $dbStac);
 
+	// on teste si une entrée de la base contient ce couple login / pass
+	$sql = 'SELECT count(*) FROM membres WHERE licence="'.mysql_escape_string($_POST['licence']).'" AND password="'.mysql_escape_string(md5($_POST['password'])).'"';
+	$req = mysql_query($sql) or die('Erreur SQL !<br />'.$sql.'<br />'.mysql_error());
+	$data = mysql_fetch_array($req);
+
+	mysql_free_result($req);
+	mysql_close();
 ?>
 
 <!-- \\\\\ MODAL CONNECT ///// -->

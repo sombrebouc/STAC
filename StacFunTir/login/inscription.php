@@ -27,22 +27,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $firstname= trim(filter_input(INPUT_POST, 'firstname', FILTER_SANITIZE_STRING));
     if (empty ($firstname)){
         $errors['firstname'] = 'Renseignez votre prénom';
-    }elseif (!preg_match($regexNames,$firstname)) {
-        $errors['firstname'] = 'Le format attendu n\'est pas respecté';
     }
     //  ============================== n° de Licence
     $licence= trim(filter_input(INPUT_POST, 'licence', FILTER_SANITIZE_STRING));
     if (empty ($licence)){
         $errors['licence'] = 'Renseignez votre N° de licence FFTir';
-    }elseif (!preg_match($regexNames,$licence)) {
-        $errors['licence'] = 'Le format attendu n\'est pas respecté';
     }
     //  ============================== Mot de Passe
-    $password= trim(filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING));
+    $password= trim(sha1(filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING)));
     if (empty ($password)){
         $errors['password'] = 'Renseignez un mot de passe';
-    }elseif (!preg_match($regexNames,$password)) {
-        $errors['password'] = 'Il est préférable d\'avoir un mot de passe';
     }
     //  ============================== Adresse Mail
     $mail= trim(filter_input(INPUT_POST, 'mail', FILTER_SANITIZE_STRING));
@@ -52,8 +46,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         $errors['mail'] = 'Le format attendu n\'est pas respecté.';
     }
 }
-?>
 
+$bdd = new PDO('mysql:host=localhost; dbname=stac', 'admin', 'THOR81');
+
+if(isset($_POST['validationInscription'])){
+    if(!empty($_POST['firstname']) AND !empty($_POST['licence']) AND !empty($_POST['mail']) AND !empty($_POST['password'])){
+        echo $firstname.'/'.$licence.'/'.$mail.'/'.$password;
+    }else{
+       $erreur = "Merci de remplir tous les champs";
+    }
+}
+?>
 
 <!-- \\\\\ MODAL CONNECT ///// -->
 <div class="modal fade" id="signupModal" tabindex="-1">
@@ -63,7 +66,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                 <!-- =====\\= INSCRIPTION =//===== -->
                 <div class="container">
                     <div class="row">
-                        <?php if(($isSubmitted == false) || ($isSubmitted && count($errors) != 0)): ?>
                         <form action="" method="post">
                             <div class="inputBox text-center text-dark">
                                 <label class="m-right-2" for="">Prénom</label>
@@ -72,7 +74,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                                         value="<?= $firstname ?>" required="">
                                     <span class="error text-danger"><?= $errors['firstname'] ?? '' ?></span>
                                 </div>
-                            </div><div class="inputBox text-center text-dark">
+                            </div>
+                            <div class="inputBox text-center text-dark">
                                 <label class="m-right-2" for="">N° de licence FFTIR</label>
                                 <div>
                                     <input class="text-center" type="text" name="licence"
@@ -96,29 +99,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                                     <span class="error text-danger"><?= $errors['password'] ?? '' ?></span>
                                 </div>
                             </div>
-                            
-                            <div class="validateBtn p-2">
-                                <button type="submit" class="btn btn-block btn-success text-light">Enregistrer</button>
-                            </div>
 
+                            <div class="validateBtn p-2">
+                                <button type="submit" class="btn btn-block btn-success text-light"
+                                    name="validationInscription">Enregistrer</button>
+                            </div>
                         </form>
+
+                        <?php if(isset($erreur)){ echo $erreur; } ?>
+
                     </div>
                 </div>
             </div>
         </div>
-        <div>
-            <?php else: ?>
-            <div>
-                <p>Affichage des données utilisateurs</p>
-                <p><?= $firstname ?></p>
-                <p><?= $licence ?></p>
-                <p><?= $password ?></p>
-                <p><a href="mailto:<?= $mail ?>">adresse e-mail</a></p>
-                <p><a href="tel:<?= $phone ?>">téléphone</a></p>
-            </div>
-            <?php endif; ?>
-        </div>
-
-
-    </div>
+    <div>
 </div>
