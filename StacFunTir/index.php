@@ -60,7 +60,7 @@
     require_once 'funtir/membres.php';
     require_once 'funtir/targetnumber.php';
     require_once 'funtir/shooterpage.php';
-    require_once 'connexion.php';
-    require_once 'inscription.php';
+    require_once 'login/connexion.php';
+    require_once 'login/inscription.php';
     require_once 'footer.php';
 ?>

@@ -24,16 +24,16 @@ window.addEventListener('DOMContentLoaded', function(){
 });
 
 // Chargement du DOM avant le lancement de la page
-window.addEventListener('DOMContentLoaded', function(){
-    // fonction click sur le bouton membres
-    document.querySelector('#memberslist').addEventListener('click', function(e){
-        e.preventDefault();
-        // ouverture de la modale de membres
-        var myModal = new bootstrap.Modal(document.getElementById('membersListModal'), 'show');
-        console.log(myModal);
-        myModal.show()
-});
-});
+//window.addEventListener('DOMContentLoaded', function(){
+//    // fonction click sur le bouton membres
+//    document.querySelector('#memberslist').addEventListener('click', function(e){
+//        e.preventDefault();
+//        // ouverture de la modale de membres
+//        var myModal = new bootstrap.Modal(document.getElementById('membersListModal'), 'show');
+//        console.log(myModal);
+//        myModal.show()
+//});
+//});
 
 // Chargement du DOM avant le lancement de la modal
 window.addEventListener('DOMContentLoaded', function(){
