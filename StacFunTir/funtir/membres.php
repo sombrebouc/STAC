@@ -11,16 +11,3 @@
      </div>
  </div>
 -->
-
-<?php
-
-define( 'DB_NAME', 'stac' );
-define( 'DB_USER', 'admin' );
-define( 'DB_PASSWORD', 'THOR81' );
-define( 'DB_HOST', 'localhost' );
-define( 'DB_TABLE', 'membres' );
-
-// connexion à la bdd
-$connexion = new PDO("mysql:host=".DB_HOST.";dbname=".DB_NAME, DB_USER, DB_PASSWORD);
-
-?>
