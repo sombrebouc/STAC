@@ -65,14 +65,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                     <div class="row">
                         <?php if(($isSubmitted == false) || ($isSubmitted && count($errors) != 0)): ?>
                         <form action="" method="post">
-                            <div class="inputBox text-center text-light">
+                            <div class="inputBox text-center text-dark">
                                 <label class="m-right-2" for="">Prénom</label>
                                 <div>
                                     <input class="text-center" type="text" name="firstname" placeholder="prénom"
                                         value="<?= $firstname ?>" required="">
                                     <span class="error text-danger"><?= $errors['firstname'] ?? '' ?></span>
                                 </div>
-                            </div><div class="inputBox text-center text-light">
+                            </div><div class="inputBox text-center text-dark">
                                 <label class="m-right-2" for="">N° de licence FFTIR</label>
                                 <div>
                                     <input class="text-center" type="text" name="licence"
@@ -80,7 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                                     <span class="error text-danger"><?= $errors['licence'] ?? '' ?></span>
                                 </div>
                             </div>
-                            <div class="inputBox text-center text-light">
+                            <div class="inputBox text-center text-dark">
                                 <label class="m-right-2" for="">Adresse e-mail</label>
                                 <div>
                                     <input class="text-center" type="email" name="mail"
@@ -88,7 +88,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                                     <span class="error text-danger"><?= $errors['email'] ?? '' ?></span>
                                 </div>
                             </div>
-                            <div class="inputBox text-center text-light">
+                            <div class="inputBox text-center text-dark">
                                 <label class="m-right-2" for="">Mot de passe</label>
                                 <div>
                                     <input class="text-center" type="password" name="password"
