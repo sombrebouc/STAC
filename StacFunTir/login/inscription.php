@@ -49,89 +49,89 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         $errors['mail'] = 'Le format attendu n\'est pas respecté.';
     }
 }
-
-if(isset($_POST['validationInscription'])){
-    if(!empty($_POST['firstname'])
-    AND !empty($_POST['licence'])
-    AND !empty($_POST['mail'])
-    AND !empty($_POST['password01'])    
-    AND !empty($_POST['password02']))
-    {
-        if($mdp == $mdp2) {
-           $insertmbr = $bdd->prepare("INSERT INTO membres(prénom, licence, mail, mot de passe) VALUES(?, ?, ?, ?)");
-           $insertmbr->execute(array($firstname,$licence, $mail, $password01));
-           $_SESSION['compte créé'] = "Votre compte a bien été créé ! <a href=\"connexion.php\">Me connecter</a>";
-        } else {
-       $erreur = "Merci de remplir tous les champs";
-    }
-}
 ?>
 
 <!-- \\\\\ MODAL CONNECT ///// -->
 <div class="modal fade" id="signupModal" tabindex="-1">
-    <div class="modal-dialog modal-sm modal-dialog-centered">
+    <div class="modal-dialog modal-sm modal-dialog-centered border-right-0">
         <div class="modal-content">
-            <div class="modal-header bg-secondary">
+            <div class="modal-header bg-dark">
                 <h5 class="modal-title text-light">Inscription</h5>
             </div>
             <div class="modal-body rounded">
                 <!-- =====\\= INSCRIPTION =//===== -->
-                <form action="" method="post">
+                <form action="" method="POST">
                     <table class="container">
                     <tr>
-                        <td>
-                            <label class="m-right-2" for="">Prénom</label>
-                        </td>
-                        <td>
-                            <input class="text-center" type="text" name="firstname" placeholder="prénom"
+                        <div>
+                            <label class="text-uppercase text-primary" for="">Prénom</label>
+                        </div>
+                        <div>
+                            <input class="text-left border-0 border-bottom p-2" type="text" name="firstname" placeholder="prénom"
                                 value="<?= $firstname ?>" required="">
-                        </td>
+                        </div>
                     </tr>
                     <tr>
-                        <td>
-                            <label class="m-right-2" for="">N° de licence FFTIR</label>
-                        </td>
-                        <td>
-                            <input class="text-center" type="text" name="licence" placeholder="n° de licence FFTIR"
+                        <div>
+                            <label class="text-uppercase text-primary" for="">Licence FFTIR</label>
+                        </div>
+                        <div>
+                            <input class="text-left border-0 border-bottom p-2" type="text" name="licence" placeholder="n° de licence FFTIR"
                                 value="<?= $licence ?>" required="">
-                        </td>
+                        </div>
                     </tr>
                     <tr>
-                        <td>
-                            <label class="m-right-2" for="">Adresse e-mail</label>
-                        </td>
-                        <td>
-                            <input class="text-center" type="email" name="mail" placeholder="john.smith@email.bug"
+                        <div>
+                            <label class="text-uppercase text-primary" for="">E-mail</label>
+                        </div>
+                        <div>
+                            <input class="text-left border-0 border-bottom p-2" type="email" name="mail" placeholder="john.smith@email.bug"
                                 value="<?= $mail ?>" required="">
-                        </td>
+                        </div>
                     </tr>
                     <tr>
-                        <td>
-                            <label class="m-right-2" for="">Mot de passe</label>
-                        </td>
-                        <td>
-                            <input class="text-center" type="password" name="password01" placeholder="mdp"
-                                value="<?= $password01 ?>" required="">
-                        </td>
+                        <div>
+                            <label class="text-uppercase text-primary" for="">Mot de passe</label>
+                        </div>
+                        <div>
+                            <input class="text-left border-0 border-bottom p-2" type="password" name="password01" placeholder="mdp" value="<?= $password01 ?>" required="">
+                        </div>
                     </tr>
                     <tr>
-                        <td>
-                            <label class="m-right-2" for="">Confirmation du mot de passe</label>
-                        </td>
-                        <td>
-                            <input class="text-center" type="password" name="password02" placeholder="Confirmation mdp"
-                                value="<?= $password02 ?>" required="">
-                        </td>
+                        <div>
+                            <label class="text-uppercase text-primary" for="">Confirmation</label>
+                        </div>
+                        <div>
+                            <input class="text-left border-0 border-bottom p-2" type="password" name="password02" placeholder="Confirmation mdp" value="<?= $password02 ?>" required="">
+                        </div>
                     </tr>
                     </table>
                 </form>
-                <?php if(isset($erreur)){ echo $erreur; } ?>
             </div>
-            <div class="modal-footer bg-secondary">
-                <button type="submit" class="btn btn-block btn-success text-light"
-                    name="validationInscription">Enregistrer</button>
+            <div class="modal-footer mt-3 bg-dark">
+                <input type="submit" class="btn btn-block btn-primary text-uppercase text-dark" name="validationInscription" value="Enregistrer">
             </div>
         </div>
+
+
+
+        <?php
+        
+        if(isset($_POST['validationInscription'])){
+            if(!empty($_POST['firstname']) AND !empty($_POST['licence']) AND !empty($_POST['mail']) AND !empty($_POST['password01']) AND !empty($_POST['password02'])){
+                if($password01 == $password02){
+                   $insertmbr = $bdd->prepare("INSERT INTO membres(prénom, licence, mail, mot de passe) VALUES(?, ?, ?, ?)");
+                   $insertmbr->execute(array($firstname,$licence, $mail, $password01));
+                   $_SESSION['compte créé'] = "Votre compte a bien été créé !";
+                } else {
+               $erreur = "Merci de remplir tous les champs";
+            }
+        }
+        }
+        
+        if(isset($erreur)){ echo $erreur; } 
+        
+        ?>
     </div>
 </div>
 </div>
