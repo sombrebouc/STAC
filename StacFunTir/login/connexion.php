@@ -3,33 +3,35 @@ $_SESSION['licence'] = '';
 $_SESSION['password'] = '';
 
 include 'connect.php';
-
 ?>
 
-<!-- \\\\\ MODAL CONNECT ///// -->
 <div class="modal fade" id="connectModal" tabindex="-1">
 	<div class="modal-dialog modal-sm modal-dialog-centered">
 		<div class="modal-content">
-			<div class="modal-body rounded">
-				<form class="formContainer" action="GET">
-					<div class="inputBox text-center text-dark">
-						<label for="licence">n° de licence FFTIR</label>
-						<div>
-							<input class="text-center" type="text" placeholder="N° de licence FFTIR" name="licence" required="">
-						</div>
+			<div class="modal-header bg-dark">
+				<h5 class="modal-title text-light">Connexion</h5>
+			</div>
+			<div class="modal-body">
+				<!-- =====\\= INSCRIPTION =//===== -->
+				<form action="" method="POST">
+					<div>
+						<label class="text-uppercase text-primary" for="">Licence FFTIR</label>
 					</div>
-					<div class="inputBox text-center text-dark">
-						<label for="password">mot de passe</label>
-						<div>
-							<input class="text-center" type="password" placeholder="Mot de passe" name="password" required="">
-						</div>
+					<div>
+						<input class="text-left border-0 border-bottom p-2" type="text" name="licence"
+							placeholder="licence FFTIR" value="<?= $licence ?>" required="">
 					</div>
-					<div class="validateBtn p-2">
-						<button href="#" type="submit" class="btn btn-block btn-success text-light" value="connecting">Valider</button>
+					<div>
+						<label class="text-uppercase text-primary" for="">Mot de passe</label>
 					</div>
-				</div>
-			</form>
+					<div>
+						<input class="text-left border-0 border-bottom p-2" type="text" name="password"
+							placeholder="mot de passe" value="<?= $password ?>" required="">
+					</div>
+				</form>
+			</div>
+			<div class="modal-footer mt-3 bg-dark">
+				<button href="#" type="submit" class="btn btn-block btn-primary text-dark text-uppercase"
+					value="connecting">Valider</button>
+			</div>
 		</div>
-	</div>
-</div>
-</div>

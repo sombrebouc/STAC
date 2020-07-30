@@ -33,11 +33,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         $errors['licence'] = 'Renseignez votre N° de licence FFTir';
     }
     //  ============================== Mot de Passe
-    $password01= trim(sha1(filter_input(INPUT_POST, 'password01', FILTER_SANITIZE_STRING)));
+    $password01= trim(password_hash($_POST['password01'], PASSWORD_BCRYPT));
     if (empty ($password01)){
         $errors['password01'] = 'Renseignez un mot de passe';
     }
-    $password02= trim(sha1(filter_input(INPUT_POST, 'password02', FILTER_SANITIZE_STRING)));
+    $password02= trim(password_hash($_POST['password02'], PASSWORD_BCRYPT));
     if (empty ($password02)){
         $errors['password02'] = 'Confirmez votre mot de passe';
     }
@@ -53,16 +53,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
 <!-- \\\\\ MODAL CONNECT ///// -->
 <div class="modal fade" id="signupModal" tabindex="-1">
-    <div class="modal-dialog modal-sm modal-dialog-centered border-right-0">
+    <div class="modal-dialog modal-sm modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header bg-dark">
                 <h5 class="modal-title text-light">Inscription</h5>
             </div>
-            <div class="modal-body rounded">
+            <div class="modal-body">
                 <!-- =====\\= INSCRIPTION =//===== -->
                 <form action="" method="POST">
-                    <table class="container">
-                    <tr>
                         <div>
                             <label class="text-uppercase text-primary" for="">Prénom</label>
                         </div>
@@ -70,8 +68,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                             <input class="text-left border-0 border-bottom p-2" type="text" name="firstname" placeholder="prénom"
                                 value="<?= $firstname ?>" required="">
                         </div>
-                    </tr>
-                    <tr>
                         <div>
                             <label class="text-uppercase text-primary" for="">Licence FFTIR</label>
                         </div>
@@ -79,8 +75,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                             <input class="text-left border-0 border-bottom p-2" type="text" name="licence" placeholder="n° de licence FFTIR"
                                 value="<?= $licence ?>" required="">
                         </div>
-                    </tr>
-                    <tr>
                         <div>
                             <label class="text-uppercase text-primary" for="">E-mail</label>
                         </div>
@@ -88,24 +82,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                             <input class="text-left border-0 border-bottom p-2" type="email" name="mail" placeholder="john.smith@email.bug"
                                 value="<?= $mail ?>" required="">
                         </div>
-                    </tr>
-                    <tr>
                         <div>
                             <label class="text-uppercase text-primary" for="">Mot de passe</label>
                         </div>
                         <div>
                             <input class="text-left border-0 border-bottom p-2" type="password" name="password01" placeholder="mdp" value="<?= $password01 ?>" required="">
                         </div>
-                    </tr>
-                    <tr>
                         <div>
                             <label class="text-uppercase text-primary" for="">Confirmation</label>
                         </div>
                         <div>
                             <input class="text-left border-0 border-bottom p-2" type="password" name="password02" placeholder="Confirmation mdp" value="<?= $password02 ?>" required="">
                         </div>
-                    </tr>
-                    </table>
                 </form>
             </div>
             <div class="modal-footer mt-3 bg-dark">
