@@ -1,4 +1,3 @@
-<!-- \\\\\ CONTENU INFORMATIONS ///// -->
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div
