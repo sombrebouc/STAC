@@ -20,7 +20,7 @@ setcookie('$licence', '$password', time() + 24*3600, null, null, false, true);
     <title>STAC Members</title>
 </head>
 
-<body>
+<body class="background">
 
 <?php
 	include_once dirname(__FILE__).'\navbar.php';

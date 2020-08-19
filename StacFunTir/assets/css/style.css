@@ -19,11 +19,16 @@ header{
     height: auto;
 }
 
-body{
-    background: rgb(55, 97, 153);
+.background{
+    background: rgb(218, 218, 218);
     background-image: linear-gradient(160deg, 
-    rgb(55, 97, 153) 50%, 
-    #00000069 100%);
+    rgb(156, 156, 156) 50%, 
+    #00000069 100%),
+    url("../img/STAC_logo-1000x512.png");
+    background-repeat: no-repeat;
+    background-size: 75%;
+    background-position-x: center;
+    background-position-y: 15vh;
 }
 
 /*===== Barre de navigation ===== */
@@ -63,17 +68,3 @@ box-shadow: 5px 0px 15px #000;
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
 }
-
-/*===== Modales ===== */
-div.modal-body{
-    display: grid;
-    padding: 0.5vh;
-    justify-content: center;
-}
-.modal-dialog{
-    width: 80%;
-    margin: auto;
- }
-.close{
-    color: red;
-    }
