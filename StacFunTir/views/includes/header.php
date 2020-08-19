@@ -23,5 +23,5 @@ setcookie('$licence', '$password', time() + 24*3600, null, null, false, true);
 <body>
 
 <?php
-	include_once dirname(__FILE__).'\includes\navbar.php';
+	include_once dirname(__FILE__).'\navbar.php';
 ?>
