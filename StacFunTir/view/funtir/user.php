@@ -1,4 +1,3 @@
-<!-- \\\\\ MODAL Creation d'évènement ///// -->
 <!--
      <div class="modal fade" id="membersListModal" tabindex="-1">
      <div class="modal-dialog modal-md modal-dialog-centered">

@@ -5,10 +5,7 @@ $cibles= array();
 
 ?>
 
-<div class="modal fade" id="targetListModal" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content text-center">
-            <div class="modal-body rounded">
+            <div class="ciblerie">
                 <p>"Nom/Prénom du tireur"</p>
                 <p><?php echo("Il y a ".$_POST['numberOfTargets']." cibles."); ?></p>
                 <div class="container-fluid">
@@ -31,6 +28,3 @@ $cibles= array();
                 </div>
                 </div>
             </div>
-        </div>
-    </div>
-</div>

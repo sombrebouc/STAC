@@ -1,7 +1,4 @@
 
-<div class="modal fade" id="shooterModal" tabindex="-1">
-    <div class="modal-dialog modal-sm modal-dialog-centered">
-        <div class="modal-content">
             <div class="modal-body rounded">
                 <form class="formContainer" method="POST" action="">
                     <div class="inputBox text-center text-dark p-2">
@@ -15,6 +12,3 @@
                     </div>
                 </form>
             </div>
-        </div>
-    </div>
-</div>

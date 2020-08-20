@@ -1,3 +1,5 @@
+<?php $content = getData(); ?>
+
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div

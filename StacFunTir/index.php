@@ -1,3 +1,6 @@
 <?php
-	include_once dirname(__FILE__).'\views\includes\header.php';
-	include_once dirname(__FILE__).'\views\includes\footer.php';
+	include_once dirname(__FILE__).'\view\includes\header.php';
+
+	require('template.php');
+	
+	include_once dirname(__FILE__).'\view\includes\footer.php';
