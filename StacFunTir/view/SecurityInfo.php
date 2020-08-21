@@ -1,9 +1,14 @@
+<?php
+	require_once dirname(__FILE__).'\includes\Header.php';
+?>
+
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div
             class="containerInfosFftir p-3 m-3 bg-light text-dark col-md-6 justify-content-center rounded">
             <h1 class="titlebody m-1 p-1 text-uppercase bg-dark text-light rounded">INFOS CLUB</h1>
             <h3 class="p-3">Le Fun Tir</h3>
+            <h4 class="p-3">La sécurité</h4>
             <div class="p-3">
                 <p>
                     Le fun tir est une discipline de tir sportif demandant à ses participants

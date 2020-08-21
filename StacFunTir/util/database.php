@@ -1,16 +1,19 @@
 <?php
-    require_once dirname(__FILE__).'/../config/params.php';
-
-    class Database{
-        // static permet d'executer la fonction sans instance de class
-        public static function getInstance(){
-            $dsn= 'mysql:host='.HOST.';dbname='.DATABASE.';charset=utf8';
-            $option= [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION];
-
-            try{
-                return new PDO($dsn, USER, PASSWORD, $option);
-            }catch (PDOException $e){
-                die('Problème de connexion à la base de donnée'.$e->getMessage());
-            }
+require_once dirname(__FILE__).'\..\config\Params.php';
+class Databases
+{
+    // static permet d'executer la fonction sans instance de class
+    public static function getInstance()
+    {
+        try {
+            $db = new PDO('mysql:host='.HOST.';dbname='.DATABASE.';charset=utf8', USER, PASSWORD);
+            $option = ERR;
         }
+        // lève l'exception
+        catch (PDOException $e) {
+            // appel du message
+            die('Il y a un problème de connexion à la base de données : ' . $e->getMessage());
+        }
+        return $db;
     }
+}

@@ -20,11 +20,8 @@ header{
 }
 
 .background{
-    background: rgb(218, 218, 218);
-    background-image: linear-gradient(160deg, 
-    rgb(156, 156, 156) 50%, 
-    #00000069 100%),
-    url("../img/STAC_logo-1000x512.png");
+    background: rgb(255, 255, 255);
+    background-image: url("../img/STAC_logo-1000x512.png");
     background-repeat: no-repeat;
     background-size: 75%;
     background-position-x: center;
