@@ -46,7 +46,7 @@
          */
         // Creation du user
         public function createUser(){
-            $sql = 'INSERT INTO `users`(`firstname`,`lastname`,`birthdate`,`phone`,`mail`) VALUES(:firstname,:lastname,:email,:phoneNumber,:licensefftir)';
+            $sql = 'INSERT INTO `users`(`firstname`,`lastname`,`licensefftir`,`phone`,`mail`) VALUES(:firstname,:lastname,:email,:phoneNumber,:licensefftir)';
             $userstmt = $this->db->prepare($sql);
             $userstmt->bindValue(':firstname', $this->firstname, PDO::PARAM_STR);
             $userstmt->bindValue(':lastname', $this->lastname, PDO::PARAM_STR);
@@ -57,7 +57,7 @@
         }
         // Update du user
         public function updateUser(){
-            $sql = 'UPDATE `users`(`firstname`,`lastname`,`birthdate`,`phone`,`mail`) VALUES(:firstname,:lastname,:email,:phoneNumber,:licensefftir)';
+            $sql = 'UPDATE `users`(`firstname`,`lastname`,`licensefftir`,`phone`,`mail`) VALUES(:firstname,:lastname,:email,:phoneNumber,:licensefftir)';
             $userstmt = $this->db->prepare($sql);
             $userstmt->bindValue(':firstname', $this->firstname, PDO::PARAM_STR);
             $userstmt->bindValue(':lastname', $this->lastname, PDO::PARAM_STR);
@@ -68,7 +68,7 @@
         }
         // Suppression du user
         public function deleteUser(){
-            $sql = 'DELETE `users`(`firstname`,`lastname`,`birthdate`,`phone`,`mail`) VALUES(:firstname,:lastname,:email,:phoneNumber,:licensefftir)';
+            $sql = 'DELETE `users`(`firstname`,`lastname`,`licensefftir`,`phone`,`mail`) VALUES(:firstname,:lastname,:email,:phoneNumber,:licensefftir)';
             $userstmt = $this->db->prepare($sql);
             $userstmt->bindValue(':firstname', $this->firstname, PDO::PARAM_STR);
             $userstmt->bindValue(':lastname', $this->lastname, PDO::PARAM_STR);
@@ -82,11 +82,11 @@
         public function readAll(){
             $sql = 'SELECT `firstname`,`lastname`,`licensefftir` FROM `users`';
             $userstmt = $this->db->query($sql);
-            $userList = [];
+            $usersList = [];
             if($userstmt instanceof PDOstatement){
-                $userList = $userstmt->fetchAll(PDO::FETCH_OBJ);
+                $usersList = $userstmt->fetchAll(PDO::FETCH_OBJ);
             }
-            return $userList;
+            return $usersList;
         }
 
     }

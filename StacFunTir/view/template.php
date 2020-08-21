@@ -12,9 +12,7 @@
 <body class="background">
 
 <?php
-	include_once dirname(__FILE__).'\view\includes\navbar.php';
-
-// $content
+	include_once dirname(__FILE__).'\includes\navbar.php';
 
 ?>
 </body>

@@ -1,7 +1,3 @@
-<?php
-$event;
-?>
-
 <div class="col-md-8 rounded">
     <form class="formContainer" action="GET">
         <div class="inputBox text-center text-dark p-2">
