@@ -1,5 +1,5 @@
 <?php
-	require_once dirname(__FILE__).'\includes\Header.php';
+	require_once dirname(__FILE__).'\..\controller\HeaderController.php';
 ?>
 
 <div class="container-fluid">

@@ -1,70 +1,66 @@
 <?php
-// ==== connexion à la bdd ==== //
-$bdd = new PDO('mysql:host=localhost; dbname=stac', 'admin', 'THOR81');
+    require_once dirname(__FILE__).'\..\model\Users.php';
+    //validation des champs 
+    $isSubmitted = false;
+    $regexName = "/^[A-Za-zéÉ][A-Za-záàâäãåçéèêëíìîïñóòôöõúùûüýÿæœ]+((-| )[A-Za-záàâäãåçéèêëíìîïñóòôöõúùûüýÿæœ]+)?$/";
+    $regexDate = "/^((?:19|20)[0-9]{2})-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/";
+    $regexLicense = "/^[0-9]{10}$/";
+    $regexTel = "/^(?:\+33|0033|0)[1-9]((?:([\-\/\s\.])?[0-9]){2}){4}$/";
+    $firstname = $lastname = $licensefftir = $phoneNumber = $email='';
+    $errors = [];
 
-// === déclaration des regex(s) ==== //
-// ==== (+33) 06/07... xx xx xx xx ==== //
-    $regexPhone = '/^(\+33|0)[1-79][0-9]{8}$/';
-// ==== licence FFTir ==== //
-    $regexlicence = '/^[0-9]{8}$/';
-// ==== noms et prénom ==== //
-    $regexNames = '/^[a-zéèîïêëç]+((?:\-|\s)[a-zéèéîïêëç]+)?$/i';
-// ==== Validation du formulaire ==== //
-$isSubmitted = false;
-// ==== Initialisation des variables ==== //
-$firstname='';
-$licence='';
-$password= '';
-$password02= '';
-$mail='';
-$errors = [];
-// ==== Vérification des champs ==== //
-if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $isSubmitted = true;
-    // == validation des champs == //
-        // ============================== Firstname
-    $firstname= trim(filter_input(INPUT_POST, 'firstname', FILTER_SANITIZE_STRING));
-    if (empty ($firstname)){
-        $errors['firstname'] = 'Renseignez votre prénom';
+     //verif champ prénom
+    $firstname = trim(filter_input(INPUT_POST,'firstname',FILTER_SANITIZE_STRING));//enlève les espaces vides avant et après + nettoyage en fonction du type 
+    if (empty($firstname)) {//verifie si le champ est vide
+        $errors['firstname'] = 'Veuillez renseigner le prénom';
+    } elseif (!preg_match($regexName, $firstname)) {//comparatif avec la regex correspondante
+        $errors['firstname'] = 'Votre prénom contient des caractères non autorisés !';
     }
-    //  ============================== n° de Licence
-    $licence= trim(filter_input(INPUT_POST, 'licence', FILTER_SANITIZE_STRING));
-    if (empty ($licence)){
-        $errors['licence'] = 'Renseignez votre N° de licence FFTir';
+     //verif champ nom
+    $lastname = trim(filter_input(INPUT_POST,'lastname',FILTER_SANITIZE_STRING));
+    if (empty($lastname)) {
+        $errors['lastname'] = 'Veuillez renseigner le nom';
+    } elseif (!preg_match($regexName, $lastname)) {
+        $errors['lastname'] = 'Votre nom contient des caractères non autorisés !';
     }
-    //  ============================== Mot de Passe
-    $password01= trim(password_hash($_POST['password01'], PASSWORD_BCRYPT));
-    if (empty ($password01)){
-        $errors['password01'] = 'Renseignez un mot de passe';
+     //verif champ date d'anniversaire
+    $licensefftir = trim(htmlspecialchars($_POST['licensefftir']));
+    if (empty($licensefftir)) {
+        $errors['licensefftir'] = 'Veuillez renseigner votre n° de license FFTIR';
+    } elseif (!preg_match($regexLicense, $licensefftir)) {
+        $errors['licensefftir'] = 'Le format n\'est pas valide !';
     }
-    $password02= trim(password_hash($_POST['password02'], PASSWORD_BCRYPT));
-    if (empty ($password02)){
-        $errors['password02'] = 'Confirmez votre mot de passe';
+    //verif champ mail
+    $email = trim(htmlspecialchars($_POST['email']));
+    if (empty($email)) {
+        $errors['email'] = 'Veuillez renseigner votre email';
+    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $errors['email'] = 'L\' email  n\'est pas valide!';
     }
-    //  ============================== Adresse Mail
-    $mail= trim(filter_input(INPUT_POST, 'mail', FILTER_SANITIZE_STRING));
-    if (empty ($mail)){
-        $errors['mail'] = 'Renseignez votre adresse électronique.';
-    }elseif (!filter_var($mail, FILTER_VALIDATE_EMAIL)) {
-        $errors['mail'] = 'Le format attendu n\'est pas respecté.';
+     //verif champ mobile
+    $phoneNumber = trim(htmlspecialchars($_POST['phoneNumber']));
+    if (empty($phoneNumber)) {
+        $errors['phoneNumber'] = 'Veuillez renseigner votre téléphone';
+    } elseif (!preg_match($regexTel, $phoneNumber)) {
+        $errors['phoneNumber'] = 'Le format du téléphone n\'est pas valide!';
     }
+    //verif champ password
+   $password = trim(htmlspecialchars($_POST['password']));
+   if (empty($password)) {
+       $errors['password'] = 'Veuillez renseigner votre mot de passe';
+   } elseif (!preg_match($regexTel, $password)) {
+       $errors['password'] = 'Le format n\'est pas valide!';
+   }
 }
 
-        if(isset($_POST['validationInscription'])){
-            if(!empty($_POST['firstname']) AND !empty($_POST['licence']) AND !empty($_POST['mail']) AND !empty($_POST['password01']) AND !empty($_POST['password02'])){
-                if($password01 == $password02){
-                   $insertmbr = $bdd->prepare("INSERT INTO membres(prénom, licence, mail, mot de passe) VALUES(?, ?, ?, ?)");
-                   $insertmbr->execute(array($firstname,$licence, $mail, $password01));
-                   $_SESSION['compte créé'] = "Votre compte a bien été créé !";
-                } else {
-               $erreur = "Merci de remplir tous les champs";
-            }
-        }
-        }
-        
-        if(isset($erreur)){ echo $erreur; } 
-        
-        ?>
-    </div>
-</div>
-</div>
+if ($isSubmitted && count($errors)== 0) {
+    $patients = new Patients (0, $_POST['firstname'],$_POST['lastname'],$_POST['licensefftir'],$_POST['phoneNumber'],$_POST['email']);
+    
+    if($patients->create())
+    {
+        $createPatientsSuccess = true;
+    }
+}
+    require_once dirname(__FILE__).'\..\view\SignUp.php';

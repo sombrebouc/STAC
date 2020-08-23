@@ -1,11 +1,7 @@
-<?php	
-	require_once dirname(__FILE__).'\includes\Header.php';
-?>
-
 <div class="container">
 
     <div class="bg-dark">
-        <h5 class="modal-title text-light">Inscription</h5>
+        <h3 class="modal-title text-light">Inscription</h3>
     </div>
     <form action="" method="POST">
         <div>
@@ -16,32 +12,39 @@
                 value="<?= $firstname ?>" required="">
         </div>
         <div>
+            <label class="text-uppercase text-primary" for="">Nom</label>
+        </div>
+        <div>
+            <input class="text-left border-0 border-bottom p-2" type="text" name="lastname" placeholder="nom"
+                value="<?= $lastname ?>" required="">
+        </div>
+        <div>
             <label class="text-uppercase text-primary" for="">Licence FFTIR</label>
         </div>
         <div>
-            <input class="text-left border-0 border-bottom p-2" type="text" name="licence"
-                placeholder="n° de licence FFTIR" value="<?= $licence ?>" required="">
+            <input class="text-left border-0 border-bottom p-2" type="text" name="licensefftir"
+                placeholder="n° de licence FFTIR" value="<?= $licensefftir ?>" required="">
         </div>
         <div>
             <label class="text-uppercase text-primary" for="">E-mail</label>
         </div>
         <div>
-            <input class="text-left border-0 border-bottom p-2" type="email" name="mail"
-                placeholder="john.smith@email.bug" value="<?= $mail ?>" required="">
+            <input class="text-left border-0 border-bottom p-2" type="email" name="email"
+                placeholder="ex: john.smith@email.fr" value="<?= $email ?>" required="">
         </div>
         <div>
             <label class="text-uppercase text-primary" for="">Mot de passe</label>
         </div>
         <div>
-            <input class="text-left border-0 border-bottom p-2" type="password" name="password01" placeholder="mdp"
+            <input class="text-left border-0 border-bottom p-2" type="password" name="password01"
                 value="<?= $password01 ?>" required="">
         </div>
         <div>
-            <label class="text-uppercase text-primary" for="">Confirmation</label>
+            <label class="text-uppercase text-primary" for="">Confirmer le mot de passe</label>
         </div>
         <div>
             <input class="text-left border-0 border-bottom p-2" type="password" name="password02"
-                placeholder="Confirmation mdp" value="<?= $password02 ?>" required="">
+                value="<?= $password02 ?>" required="">
         </div>
     </form>
 </div>

@@ -65,3 +65,8 @@ box-shadow: 5px 0px 15px #000;
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
 }
+
+.usersTableContainer {
+    margin-top: 10vh;
+    background: rgba(248, 249, 250, 0.95);
+}

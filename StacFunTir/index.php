@@ -1,8 +1,6 @@
 <?php
-	require_once dirname(__FILE__).'\view\includes\Header.php';
+	require_once dirname(__FILE__).'\controller\HeaderController.php';
 	
-	require_once dirname(__FILE__).'\view\includes\Navbar.php';
-
 	require('model\Users.php');
 
-	require_once dirname(__FILE__).'\view\includes\Footer.php';
+	require_once dirname(__FILE__).'\controller\FooterController.php';
