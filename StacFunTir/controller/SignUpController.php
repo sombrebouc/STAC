@@ -2,15 +2,14 @@
 
 require_once dirname(__FILE__).'\HeaderController.php';
 require_once dirname(__FILE__).'\..\model\Users.php';
-    
+
     //validation des champs 
     $isSubmitted = false;
     $regexName = "/^[A-Za-zéÉ][A-Za-záàâäãåçéèêëíìîïñóòôöõúùûüýÿæœ]+((-| )[A-Za-záàâäãåçéèêëíìîïñóòôöõúùûüýÿæœ]+)?$/";
-    $regexDate = "/^((?:19|20)[0-9]{2})-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/";
     $regexLicense = "/^[0-9]{10}$/";
-    $regexTel = "/^(?:\+33|0033|0)[1-9]((?:([\-\/\s\.])?[0-9]){2}){4}$/";
-    $regexPassword = "/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[-+!*$@%_])([-+!*$@%_\w]{8,}$/";
-    $firstname = $lastname = $licensefftir = $phoneNumber = $email = $password ='';
+    $regexPassword = "/^((?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[-+!*$@%_])([-+!*$@%_\w]{8,})$/";
+
+    $firstname = $lastname = $licensefftir = $password = $passwordConfirm ='';
     $errors = [];
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -36,31 +35,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } elseif (!preg_match($regexLicense, $licensefftir)) {
         $errors['licensefftir'] = 'Le format n\'est pas valide !';
     }
-    //verif champ mail
-    $email = trim(htmlspecialchars($_POST['email']));
-    if (empty($email)) {
-        $errors['email'] = 'Veuillez renseigner votre email';
-    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $errors['email'] = 'L\' email  n\'est pas valide!';
-    }
-     //verif champ mobile
-    $phoneNumber = trim(htmlspecialchars($_POST['phoneNumber']));
-    if (empty($phoneNumber)) {
-        $errors['phoneNumber'] = 'Veuillez renseigner votre téléphone';
-    } elseif (!preg_match($regexTel, $phoneNumber)) {
-        $errors['phoneNumber'] = 'Le format du téléphone n\'est pas valide!';
-    }
     //verif champ password
    $password = trim(htmlspecialchars($_POST['password']));
-   if (empty($password)) {
-       $errors['password'] = 'Veuillez renseigner votre mot de passe';
-   } elseif (!preg_match($regexTel, $password)) {
-       $errors['password'] = 'Le format n\'est pas valide!';
+   $passwordConfirm = trim(htmlspecialchars($_POST['passwordConfirm']));
+   if ($password == $passwordConfirm) {
+       password_hash($password, PASSWORD_DEFAULT);
+   } else {
+       $errors['password'] = 'Les mots de passe ne correspondent pas';
    }
 }
 
 if ($isSubmitted && count($errors)== 0) {
-    $users = new Users (0, $_POST['firstname'],$_POST['lastname'],$_POST['licensefftir'],$_POST['phoneNumber'],$_POST['email'],$_POST['password']);
+    $users = new Users (0, $_POST['firstname'], $_POST['lastname'], $_POST['licensefftir'], $_POST['password']);
     
     if($users->create())
     {
