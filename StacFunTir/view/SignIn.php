@@ -1,26 +1,25 @@
-<?php require_once dirname(__FILE__).'\..\controller\SignInController.php'; ?>
-
-<div>
+<div class="container usersTableContainer text-center shadow rounded col-xs-10 col-md-8 pt-3">
 	<div>
-		<form action="" method="POST">
-			<div>
-				<label class="text-uppercase text-primary" for="">Licence FFTIR</label>
-			</div>
-			<div>
-				<input class="text-left border-0 border-bottom p-2" type="text" name="licence"
-					placeholder="licence FFTIR" value="<?= $licence ?>" required="">
-			</div>
-			<div>
-				<label class="text-uppercase text-primary" for="">Mot de passe</label>
-			</div>
-			<div>
-				<input class="text-left border-0 border-bottom p-2" type="text" name="password"
-					placeholder="mot de passe" value="<?= $password ?>" required="">
-			</div>
-		</form>
+		<h3 class="bg-dark rounded p-2 text-light">Connexion</h3>
 	</div>
-	<div class="modal-footer mt-3 bg-dark">
-		<button href="#" type="submit" class="btn btn-block btn-primary text-dark text-uppercase"
-			value="connecting">Valider</button>
+	<form action="" method="POST">
+		<div>
+			<label class="text-uppercase text-dark" for="">Licence FFTIR</label>
+		</div>
+		<div>
+			<input class="col-xs-12 col-md-8 text-center border-0 border-bottom p-2" type="text" name="licence" placeholder="licence FFTIR"
+				value="<?= $licence ?>" required="">
+		</div>
+		<div>
+			<label class="text-uppercase text-dark" for="">Mot de passe</label>
+		</div>
+		<div>
+			<input class="col-xs-12 col-md-8 text-center border-0 border-bottom p-2" type="text" name="password" placeholder="mot de passe"
+				value="<?= $password ?>" required="">
+		</div>
+	</form>
+	<div class="ml-auto mr-auto col-md-4 col-xs-10 mt-5 pb-3">
+		<button href="#" type="submit" class="btn btn-block btn-success col-6 text-light text-uppercase"
+			value="connecting">Se connecter</button>
 	</div>
 </div>

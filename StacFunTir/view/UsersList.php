@@ -1,8 +1,8 @@
-<div class="container usersTableContainer text-center shadow rounded col-xs-12 col-md-8">
+<div class="container usersTableContainer text-center shadow rounded col-xs-10 col-md-8 pt-3 pb-3">
     <div class="">
         <table class="table table-striped">
             <div class="row">
-                <thead class="bg-secondary text-light">
+                <thead class="bg-dark p-2 text-light">
                     <tr class="">
                         <th>#</th>
                         <th>Nom</th>
@@ -13,11 +13,12 @@
                     </tr>
                 </thead>
             </div>
-            <tbody>
+            <tbody class="">
                 <?php 
-        if (count($listUsers) > 0) { 
-        foreach($listUsers as $number => $user){ ?>
-                <tr>
+                    if (count($listUsers) > 0) { 
+                    foreach($listUsers as $number => $user){
+                ?>
+                <tr class="text-dark">
                     <td> <?= $number+1 ?></td>
                     <td> <?= $user->firstname; ?></td>
                     <td> <?= $user->lastname; ?></td>

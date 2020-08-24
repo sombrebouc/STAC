@@ -2,10 +2,9 @@
 	require_once dirname(__FILE__).'\..\controller\HeaderController.php';
 ?>
 
-<div class="container-fluid">
+<div class="usersTableContainer ml-auto mr-auto shadow col-md-8 col-xs-10 rounded">
     <div class="row justify-content-center">
-        <div
-            class="containerInfosFftir p-3 m-3 bg-light text-dark col-md-6 justify-content-center rounded">
+        <div class="containerInfosFftir p-3 m-3 text-dark justify-content-center rounded">
             <h1 class="titlebody m-1 p-1 text-uppercase bg-dark text-light rounded">INFOS CLUB</h1>
             <h3 class="p-3">Le Fun Tir</h3>
             <h4 class="p-3">La sécurité</h4>

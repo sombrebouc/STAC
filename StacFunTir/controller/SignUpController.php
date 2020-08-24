@@ -1,12 +1,16 @@
 <?php
-    require_once dirname(__FILE__).'\..\model\Users.php';
+
+require_once dirname(__FILE__).'\HeaderController.php';
+require_once dirname(__FILE__).'\..\model\Users.php';
+    
     //validation des champs 
     $isSubmitted = false;
     $regexName = "/^[A-Za-zéÉ][A-Za-záàâäãåçéèêëíìîïñóòôöõúùûüýÿæœ]+((-| )[A-Za-záàâäãåçéèêëíìîïñóòôöõúùûüýÿæœ]+)?$/";
     $regexDate = "/^((?:19|20)[0-9]{2})-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/";
     $regexLicense = "/^[0-9]{10}$/";
     $regexTel = "/^(?:\+33|0033|0)[1-9]((?:([\-\/\s\.])?[0-9]){2}){4}$/";
-    $firstname = $lastname = $licensefftir = $phoneNumber = $email='';
+    $regexPassword = "/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[-+!*$@%_])([-+!*$@%_\w]{8,}$/";
+    $firstname = $lastname = $licensefftir = $phoneNumber = $email = $password ='';
     $errors = [];
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -56,11 +60,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 if ($isSubmitted && count($errors)== 0) {
-    $patients = new Patients (0, $_POST['firstname'],$_POST['lastname'],$_POST['licensefftir'],$_POST['phoneNumber'],$_POST['email']);
+    $users = new Users (0, $_POST['firstname'],$_POST['lastname'],$_POST['licensefftir'],$_POST['phoneNumber'],$_POST['email'],$_POST['password']);
     
-    if($patients->create())
+    if($users->create())
     {
-        $createPatientsSuccess = true;
+        $createUsersSuccess = true;
     }
 }
     require_once dirname(__FILE__).'\..\view\SignUp.php';
