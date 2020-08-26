@@ -7,11 +7,9 @@
         private $firstname;
         private $licensefftir;
         private $password;
-        private $phoneNumber;
-        private $email;
         private $db;
 
-        public function __construct($_id=0,$_lastname='',$_firstname='',$_licensefftir='',$_password='')
+        public function __construct($_id=0,$_firstname='',$_lastname='',$_licensefftir='',$_password='')
         {
             $this->db = Databases::getInstance();
             $this->id = $_id;
@@ -43,9 +41,8 @@
 
         public function create()
 		{
-			$insertUsers = 'INSERT INTO `users`(`id`,`lastname`, `firstname`,`licensefftir`,`password`) VALUES ( :id, :lastname, :firstname, :licensefftir, :password)';
+			$insertUsers = 'INSERT INTO `users`(`lastname`, `firstname`,`licensefftir`,`password`) VALUES ( :lastname, :firstname, :licensefftir, :password)';
             $usersStatement = $this->db->prepare($insertUsers);
-            $usersStatement->bindValue(':id', $this->id,PDO::PARAM_INT);
 			$usersStatement->bindValue(':lastname', $this->lastname,PDO::PARAM_STR);
             $usersStatement->bindValue(':firstname', $this->firstname,PDO::PARAM_STR);
             $usersStatement->bindvalue(':licensefftir',$this->licensefftir,PDO::PARAM_STR);

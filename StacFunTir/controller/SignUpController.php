@@ -6,8 +6,8 @@ require_once dirname(__FILE__).'\..\model\Users.php';
     //validation des champs 
     $isSubmitted = false;
     $regexName = "/^[A-Za-zéÉ][A-Za-záàâäãåçéèêëíìîïñóòôöõúùûüýÿæœ]+((-| )[A-Za-záàâäãåçéèêëíìîïñóòôöõúùûüýÿæœ]+)?$/";
-    $regexLicense = "/^[0-9]{10}$/";
-    $regexPassword = "/^((?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[-+!*$@%_])([-+!*$@%_\w]{8,})$/";
+    $regexLicense = "/^[0-9]{5,}$/";
+    $regexPassword = "/^((?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[-+!*$@%_])([-+!*$@%_\w]{3,})$/";
 
     $firstname = $lastname = $licensefftir = $password = $passwordConfirm ='';
     $errors = [];
@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (empty($licensefftir)) {
         $errors['licensefftir'] = 'Veuillez renseigner votre n° de license FFTIR';
     } elseif (!preg_match($regexLicense, $licensefftir)) {
-        $errors['licensefftir'] = 'Le format n\'est pas valide !';
+        $errors['licensefftir'] = 'La licence n\'est pas valide !';
     }
     //verif champ password
    $password = trim(htmlspecialchars($_POST['password']));
@@ -46,10 +46,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 if ($isSubmitted && count($errors)== 0) {
-    $users = new Users (0, $_POST['firstname'], $_POST['lastname'], $_POST['licensefftir'], $_POST['password']);
-    
+    $passwordHash = password_hash($password, PASSWORD_DEFAULT);
+    $users = new Users (0, $_POST['firstname'], $_POST['lastname'], $_POST['licensefftir'], $passwordHash);
+
     if($users->create())
     {
+       
         $createUsersSuccess = true;
     }
 }

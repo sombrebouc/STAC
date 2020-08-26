@@ -25,7 +25,7 @@
             <a class="nav-link" href="\..\controller\UsersProfileController.php" id="profileUser" role="button" class="btn">Profil</a>
             </li>
             <li class="nav-item m-2">
-            <a class="nav-link" href="\..\controller\GameLauncherController.php" id="gameLauncher" role="button" class="btn">Démarrer</a>
+            <a class="nav-link beginButton" href="\..\controller\GameLauncherController.php" id="gameLauncher" role="button" class="btn">Démarrer</a>
             </li>
             <li class="nav-item m-2">
             <a class="nav-link" href="\..\controller\GameResultsController.php" id="gameResults" role="button" class="btn">Résultats</a>
@@ -38,6 +38,9 @@
             </li>
             <li class="nav-item m-2">
                 <a class="nav-link" href="\..\controller\SignInController.php" id="signinBtn" role="button" class="btn">Connexion</a>
+            </li>
+            <li class="nav-item m-2">
+                <a class="nav-link disconnectButton" href="\..\controller\SignOutController.php" id="signoutBtn" role="button" class="btn bg-danger">Déconnexion</a>
             </li>
         </ul>
     </div>

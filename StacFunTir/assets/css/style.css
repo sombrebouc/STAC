@@ -44,6 +44,58 @@ box-shadow: 5px 0px 15px #000;
     -ms-border-radius: 5px;
     -o-border-radius: 5px;
 }
+.disconnectButton{
+    width: auto;
+    border-radius: 5px;
+    text-align: center;
+    justify-content: space-between;
+    background-color: rgb(198, 35, 51);
+    border: 1px solid rgb(37, 42, 46);
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+.disconnectButton:hover{
+    width: auto;
+    border-radius: 5px;
+    text-align: center;
+    color: white;
+    justify-content: space-between;
+    background-color: rgb(255, 91, 132);
+    border: 1px dotted rgb(76, 86, 94);
+    box-shadow: 0px 0px 5px rgb(255, 51, 102);
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+.beginButton{
+    width: auto;
+    border-radius: 5px;
+    text-align: center;
+    justify-content: space-between;
+    background-color: rgb(40, 167, 69);
+    border: 1px solid rgb(37, 42, 46);
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+.beginButton:hover{
+    width: auto;
+    border-radius: 5px;
+    text-align: center;
+    color: white;
+    justify-content: space-between;
+    background-color: rgb(87, 230, 120);
+    border: 1px dotted rgb(76, 86, 94);
+    box-shadow: 0px 0px 5px rgb(87, 230, 120);
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
 .collapse:not(.show) {
     display: none;
     justify-content: space-between;

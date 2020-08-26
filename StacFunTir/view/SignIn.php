@@ -7,7 +7,7 @@
 			<label class="text-uppercase text-dark" for="">Licence FFTIR</label>
 		</div>
 		<div>
-			<input class="col-xs-12 col-md-8 text-center border-0 border-bottom p-2" type="text" name="licence" placeholder="licence FFTIR"
+			<input class="col-xs-12 col-md-8 text-center border-0 border-bottom p-2" type="text" name="license" placeholder="licence FFTIR"
 				value="<?= $license ?>" required="">
 		</div>
 		<div>
