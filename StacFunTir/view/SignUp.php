@@ -26,7 +26,7 @@
             </div>
             <div>
                 <input class="col-md-8 col-xs-12 col-10 text-center border-0 border-bottom p-2" type="text" name="licensefftir"
-                    placeholder="n° de licence FFTIR" value="<?= $licensefftir ?>" required="">
+                    placeholder="n° de licence FFTIR" value="<?= $license ?>" required="">
             </div>
             <div>
                 <label class="text-uppercase text-dark" for="">Mot de passe</label>
