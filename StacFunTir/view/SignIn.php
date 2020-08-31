@@ -2,7 +2,7 @@
 	<div>
 		<h3 class="bg-dark rounded p-2 text-light">Connexion</h3>
 	</div>
-	<form action="\..\controller\SignInController.php" method="POST">
+	<form action="" method="POST">
 		<div>
 			<label class="text-uppercase text-dark" for="">Licence FFTIR</label>
 		</div>

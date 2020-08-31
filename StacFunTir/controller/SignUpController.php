@@ -13,6 +13,7 @@ require_once dirname(__FILE__).'\..\model\Users.php';
     $errors = [];
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
     $isSubmitted = true;
      //verif champ prénom
     $firstname = trim(filter_input(INPUT_POST,'firstname',FILTER_SANITIZE_STRING));//enlève les espaces vides avant et après + nettoyage en fonction du type 
@@ -28,22 +29,27 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } elseif (!preg_match($regexName, $lastname)) {
         $errors['lastname'] = 'Votre nom contient des caractères non autorisés !';
     }
-     //verif champ date d'anniversaire
-    $license = trim(htmlspecialchars($_POST['license']));
+     //verif 
+    if (isset($_POST['license'])){
+        $license = trim(htmlspecialchars($_POST['license']));
+    }
     if (empty($license)) {
         $errors['license'] = 'Veuillez renseigner votre n° de license FFTIR';
     } elseif (!preg_match($regexLicense, $license)) {
         $errors['license'] = 'La licence n\'est pas valide !';
     }
-    //verif champ password
-   $password = trim(htmlspecialchars($_POST['password']));
-   $passwordConfirm = trim(htmlspecialchars($_POST['passwordConfirm']));
-   if ($password == $passwordConfirm) {
+    
+    //verif password
+    if (isset($_POST['password']) && isset($_POST['passwordConfirm'])){
+        $password = trim(htmlspecialchars($_POST['password']));
+        $passwordConfirm = trim(htmlspecialchars($_POST['passwordConfirm']));
+    }
+    if ($password == $passwordConfirm) {
        password_hash($password, PASSWORD_DEFAULT);
    } else {
        $errors['password'] = 'Les mots de passe ne correspondent pas';
    }
-}
+   }
 
 if ($isSubmitted && count($errors)== 0) {
     $passwordHash = password_hash($password, PASSWORD_DEFAULT);
@@ -51,7 +57,6 @@ if ($isSubmitted && count($errors)== 0) {
 
     if($users->create())
     {
-       
         $createUsersSuccess = true;
     }
 }

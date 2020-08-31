@@ -25,7 +25,7 @@
                 <label class="text-uppercase text-dark" for="">Licence FFTIR</label>
             </div>
             <div>
-                <input class="col-md-8 col-xs-12 col-10 text-center border-0 border-bottom p-2" type="text" name="licensefftir"
+                <input class="col-md-8 col-xs-12 col-10 text-center border-0 border-bottom p-2" type="text" name="license"
                     placeholder="n° de licence FFTIR" value="<?= $license ?>" required="">
             </div>
             <div>

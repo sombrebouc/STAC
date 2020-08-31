@@ -2,16 +2,18 @@
     require_once dirname(__FILE__).'\..\util\Database.php';
     class User
     {
-        private $_id;
-        private $_lastname;
-        private $_firstname;
-        private $_license;
-        private $_password;
-        private $_db;
+        private $id;
+        private $lastname;
+        private $firstname;
+        private $license;
+        private $password;
+        private $db;
 
+        // Méthode magique appelée lors du chargement "new User()"
         public function __construct($_id=0,$_firstname='',$_lastname='',$_license='',$_password='')
         {
             $this->db = Databases::getInstance();
+        // hydratation 
             $this->id = $_id;
             $this->lastname = $_lastname;
             $this->firstname = $_firstname;
@@ -40,16 +42,17 @@
         // }
 
         public function create(){
-			$insertUsers = 'INSERT INTO `users`(`lastname`, `firstname`,`license`,`password`) VALUES ( :lastname, :firstname, :license, :password)';
+			$insertUsers = 'INSERT INTO `users` (`id`, `lastname`, `firstname`,`license`,`password`) VALUES (:id, :lastname, :firstname, :license, :password)';
             $usersStatement = $this->db->prepare($insertUsers);
-			$usersStatement->bindValue(':lastname', $this->lastname,PDO::PARAM_STR);
-            $usersStatement->bindValue(':firstname', $this->firstname,PDO::PARAM_STR);
-            $usersStatement->bindvalue(':licensefftir',$this->license,PDO::PARAM_STR);
-            $usersStatement->bindvalue(':password',$this->password,PDO::PARAM_STR);
-			return $usersStatement->execute();
+			$usersStatement->bindValue(':id', $this->id, PDO::PARAM_INT);
+			$usersStatement->bindValue(':lastname', $this->lastname, PDO::PARAM_STR);
+            $usersStatement->bindValue(':firstname', $this->firstname, PDO::PARAM_STR);
+            $usersStatement->bindValue(':license',$this->license, PDO::PARAM_STR);
+            $usersStatement->bindValue(':password',$this->password, PDO::PARAM_STR);
+            return $usersStatement->execute();
         }
 
-        public function verifyUser($_licensefftir,$_password){
+        public function verifyUser(){
             $sql = 'SELECT `id` FROM `users` WHERE `license` = :license AND `password` = :password';
             $controlUsers = $this->db->prepare($sql);
             $controlUsers->bindValue(':license',$this->license,PDO::PARAM_STR);
@@ -91,8 +94,8 @@
             $usersStatement->bindValue(':id', $this->id,PDO::PARAM_INT);
 			$usersStatement->bindValue(':lastname', $this->lastname,PDO::PARAM_STR);
             $usersStatement->bindValue(':firstname', $this->firstname,PDO::PARAM_STR);
-            $usersStatement->bindvalue(':licensefftir',$this->license,PDO::PARAM_STR);
-            $usersStatement->bindvalue(':password',$this->password,PDO::PARAM_STR);
+            $usersStatement->bindValue(':license',$this->license,PDO::PARAM_STR);
+            $usersStatement->bindValue(':password',$this->password,PDO::PARAM_STR);
 
             return $usersStatement->execute();
 		}
