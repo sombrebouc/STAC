@@ -53,7 +53,7 @@
         }
 
         public function verifyUser(){
-            $sql = 'SELECT `id` FROM `users` WHERE `license` = :license AND `password` = :password';
+            $controlUsers_sql = 'SELECT `id` FROM `users` WHERE `license` = :license AND `password` = :password';
             $controlUsers = $this->db->prepare($sql);
             $controlUsers->bindValue(':license',$this->license,PDO::PARAM_STR);
             $controlUsers->bindValue(':password',$this->password,PDO::PARAM_STR);
@@ -89,7 +89,7 @@
 		}
 
 		public function update(){
-            $sql = 'UPDATE `users` SET `lastname`=:lastname,`firstname`=:firstname,`license`=:license,`password`=:password WHERE `id`=:id';
+            $usersStatement_sql = 'UPDATE `users` SET `lastname`=:lastname,`firstname`=:firstname,`license`=:license,`password`=:password WHERE `id`=:id';
             $usersStatement = $this->db->prepare($sql);
             $usersStatement->bindValue(':id', $this->id,PDO::PARAM_INT);
 			$usersStatement->bindValue(':lastname', $this->lastname,PDO::PARAM_STR);
@@ -101,8 +101,8 @@
 		}
 
 		public function delete(){
-            $sql = 'DELETE FROM `users` WHERE `id`=:id';
-            $usersDelete = $this->db->prepare($sql);
+            $usersDelete_sql = 'DELETE FROM `users` WHERE `id`=:id';
+            $usersDelete = $this->db->prepare($usersDelete_sql);
             $usersDelete->bindValue(':id', $this->id,PDO::PARAM_INT);
             return $usersDelete->execute();
         }

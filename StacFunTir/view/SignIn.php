@@ -18,8 +18,8 @@
 				value="<?= $password ?>" required="">
 		</div>
 		<div class="ml-auto mr-auto col-md-4 col-xs-10 mt-5 pb-3">
-			<button type="submit" class="btn btn-block btn-success col-6 text-light text-uppercase"
-				value="connecting">Se connecter</button>
+			<button type="submit" class="btn btn-block btn-success col-6 text-light text-uppercase" 
+			name="connecting" value="connecting">Se connecter</button>
 		</div>
 	</form>
 </div>

@@ -8,27 +8,21 @@ require_once dirname(__FILE__).'\..\model\Users.php';
 $license = '';
 $password = '';
 
-if (isset($_POST['license']) && isset($_POST['password'])){
-    echo ($_POST['license']);
-    echo ($_POST['password']);
-}
-
-/*
-if ($isSubmitted && count($errors)== 0) {
-    $passwordHash = password_hash($password, PASSWORD_DEFAULT);
-    $users = new User (0, $_POST['firstname'], $_POST['lastname'], $_POST['license'], $passwordHash);
-
-    if($users->create())
-    {
-       
-        $createUsersSuccess = true;
+if (isset($_POST['license']) && isset($_POST['password']) == 'connecting'){
+    var_dump('le formulaire est rempli et envoyé');
+    $sql = 'SELECT * FROM users WHERE license=$license AND password=$password';
+    var_dump('La BDD se connecte');
+    if($_POST['license'] == $license && $_POST['password'] == $password){
+        var_dump('Vous êtes bien connecté');
+    }
+    else{
+        var_dump('plantage');
+            return false;
     }
 }
 
-$userId = new User;
-$userId -> verifyUser($_POST['license'],$_POST['password']);
 
 // Ecriture du cookie contenant les éléments de connexion durant 24h
-setcookie('$license', '$password', time() + 12*3600, null, null, false, true);
-*/
+// setcookie('$license', '$password', time() + 12*3600, null, null, false, true);
+
 require_once dirname(__FILE__).'\..\view\SignIn.php';
