@@ -58,7 +58,7 @@
             if($controlLicense != $_POST[$license]){
                 $controlLicense->execute();
             }else{
-            return "Le numéro de licence que vous utilisez est déjà attribuer, veuillez contacter votre administrateur.";
+                echo "Le numéro de licence que vous utilisez est déjà attribuer, veuillez contacter votre administrateur.";
             }
         }
 
