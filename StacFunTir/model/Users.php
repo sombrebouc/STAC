@@ -55,10 +55,11 @@
             $controlLicense_sql = 'SELECT `license` FROM `users` WHERE `license` = :license;';
             $controlLicense = $this->db->prepare($sql);
             $controlLicense->bindValue(':license', $this->license,PDO::PARAM_STR);
-            if($controlLicense->execute()){
-                $userId = $controlLicense->fetch(PDO::FETCH_OBJ);
+            if($controlLicense != $_POST[$license]){
+                $controlLicense->execute();
+            }else{
+            return "Le numéro de licence que vous utilisez est déjà attribuer, veuillez contacter votre administrateur.";
             }
-            return $userId,
         }
 
         public function verifyUser(){
