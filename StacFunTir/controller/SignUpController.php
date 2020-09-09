@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } elseif (!preg_match($regexName, $lastname)) {
         $errors['lastname'] = 'Votre nom contient des caractères non autorisés';
     }
-     //verif 
+     //verif licence
     if (isset($_POST['license'])){
         $license = trim(htmlspecialchars($_POST['license']));
     }
