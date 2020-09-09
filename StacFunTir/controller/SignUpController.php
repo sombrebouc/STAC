@@ -45,14 +45,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $passwordConfirm = trim(htmlspecialchars($_POST['passwordConfirm']));
     }
     if ($password == $passwordConfirm) {
-       password_hash($password, PASSWORD_DEFAULT);
+       password_hash($password, PASSWORD_BCRYPT);
    } else {
        $errors['password'] = 'Les mots de passe ne correspondent pas';
    }
    }
 
 if ($isSubmitted && count($errors)== 0) {
-    $passwordHash = password_hash($password, PASSWORD_DEFAULT);
+    $passwordHash = password_hash($password, PASSWORD_BCRYPT);
     $users = new User (0, $_POST['firstname'], $_POST['lastname'], $_POST['license'], $passwordHash);
 
     if($users->create())

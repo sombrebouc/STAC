@@ -1,3 +1,9 @@
+<?php
+
+session_start(); 
+require_once dirname(__FILE__).'\..\model\Users.php';
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -12,7 +18,7 @@
 <body class="background">
 
 <nav class="navbar fixed-top navbar-expand-md col-12 navbar-dark bg-dark p-2 text-md-center">
-    <a href="#" class="navbar-brand">USER</a>
+    <a href="#" class="navbar-brand">USER LOG</a>
     <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
         <span class="navbar-toggler-icon" role="button"></span>
     </button>

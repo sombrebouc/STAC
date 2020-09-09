@@ -42,7 +42,7 @@
         // }
 
         public function create(){
-			$insertUsers = 'INSERT INTO `users` (`id`, `lastname`, `firstname`,`license`,`password`) VALUES (:id, :lastname, :firstname, :license, :password)';
+			$insertUsers = 'INSERT INTO `users` (`id`, `lastname`, `firstname`,`license`,`password`) VALUES (:id, :lastname, :firstname, :license, :password);';
             $usersStatement = $this->db->prepare($insertUsers);
 			$usersStatement->bindValue(':id', $this->id, PDO::PARAM_INT);
 			$usersStatement->bindValue(':lastname', $this->lastname, PDO::PARAM_STR);
@@ -51,9 +51,18 @@
             $usersStatement->bindValue(':password',$this->password, PDO::PARAM_STR);
             return $usersStatement->execute();
         }
+        public function verifyLicense(){
+            $controlLicense_sql = 'SELECT `license` FROM `users` WHERE `license` = :license;';
+            $controlLicense = $this->db->prepare($sql);
+            $controlLicense->bindValue(':license', $this->license,PDO::PARAM_STR);
+            if($controlLicense->execute()){
+                $userId = $controlLicense->fetch(PDO::FETCH_OBJ);
+            }
+            return $userId,
+        }
 
         public function verifyUser(){
-            $controlUsers_sql = 'SELECT `id` FROM `users` WHERE `license` = :license AND `password` = :password';
+            $controlUsers_sql = 'SELECT `id` FROM `users` WHERE `license` = :license AND `password` = :password;';
             $controlUsers = $this->db->prepare($sql);
             $controlUsers->bindValue(':license',$this->license,PDO::PARAM_STR);
             $controlUsers->bindValue(':password',$this->password,PDO::PARAM_STR);
@@ -67,7 +76,7 @@
          * @return array
          */
 		public function readAll(){
-            $listUsers_sql = 'SELECT `id`,`lastname`, `firstname`,`license`,`password` FROM `users`';
+            $listUsers_sql = 'SELECT `id`,`lastname`, `firstname`,`license`,`password` FROM `users`;';
             $usersStatement = $this->db->query($listUsers_sql);
             $listUsers = [];
             if ($usersStatement instanceof PDOstatement ) {
@@ -78,7 +87,7 @@
 
 		public function readSingle(){
 			// :nomDeVariable pour les données en attentes
-			$sql_viewUsers = 'SELECT `id`, `lastname`, `firstname`,`license` FROM `users` WHERE `id` = :id ';
+			$sql_viewUsers = 'SELECT `id`, `lastname`, `firstname`,`license` FROM `users` WHERE `id` = :id ;';
             $usersStatement = $this->db->prepare($sql_viewUsers);
             $usersStatement->bindValue(':id', $this->id,PDO::PARAM_INT);
 			$usersView = null;
@@ -89,19 +98,18 @@
 		}
 
 		public function update(){
-            $usersStatement_sql = 'UPDATE `users` SET `lastname`=:lastname,`firstname`=:firstname,`license`=:license,`password`=:password WHERE `id`=:id';
+            $usersStatement_sql = 'UPDATE `users` SET `lastname`=:lastname,`firstname`=:firstname,`license`=:license,`password`=:password WHERE `id`=:id;';
             $usersStatement = $this->db->prepare($sql);
             $usersStatement->bindValue(':id', $this->id,PDO::PARAM_INT);
 			$usersStatement->bindValue(':lastname', $this->lastname,PDO::PARAM_STR);
             $usersStatement->bindValue(':firstname', $this->firstname,PDO::PARAM_STR);
             $usersStatement->bindValue(':license',$this->license,PDO::PARAM_STR);
             $usersStatement->bindValue(':password',$this->password,PDO::PARAM_STR);
-
             return $usersStatement->execute();
 		}
 
 		public function delete(){
-            $usersDelete_sql = 'DELETE FROM `users` WHERE `id`=:id';
+            $usersDelete_sql = 'DELETE FROM `users` WHERE `id`=:id;';
             $usersDelete = $this->db->prepare($usersDelete_sql);
             $usersDelete->bindValue(':id', $this->id,PDO::PARAM_INT);
             return $usersDelete->execute();
