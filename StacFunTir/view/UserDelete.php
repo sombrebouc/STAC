@@ -10,7 +10,11 @@
     <div>
         <h2 class="bg-dark p-2 rounded text-light">Suppression utilisateur</h2>
     </div>
-    <h3 class="text-center text-danger">Etes vous sûr de vouloir supprimer l'utilisateur <?= $fullName; ?> ?</h3>
+    <h3 class="text-center text-danger">
+    <p> Etes vous sûr de vouloir supprimer l'utilisateur </p>
+    <p> <?= $fullName; ?> </p> 
+    <p> ? </p> 
+    </h3>
     <?php endif; ?>
     <form action="UsersDeleteController.php" method="POST">
         <input type="hidden" name="fullName" value="<?= $fullName; ?>">

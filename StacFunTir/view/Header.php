@@ -1,8 +1,4 @@
-<?php
-
-session_start(); 
-require_once dirname(__FILE__).'\..\model\Users.php';
-?>
+<?php require_once dirname(__FILE__).'\..\model\Users.php'; ?>
 
 <!DOCTYPE html>
 <html>
@@ -18,7 +14,7 @@ require_once dirname(__FILE__).'\..\model\Users.php';
 <body class="background">
 
 <nav class="navbar fixed-top navbar-expand-md col-12 navbar-dark bg-dark p-2 text-md-center">
-    <a href="#" class="navbar-brand">USER LOG</a>
+    <a href="#" class="navbar-brand">USER ID</a>
     <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
         <span class="navbar-toggler-icon" role="button"></span>
     </button>

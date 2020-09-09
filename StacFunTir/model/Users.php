@@ -1,7 +1,7 @@
 <?php
     require_once dirname(__FILE__).'\..\util\Database.php';
-    class User
-    {
+
+    class User{
         private $id;
         private $lastname;
         private $firstname;
