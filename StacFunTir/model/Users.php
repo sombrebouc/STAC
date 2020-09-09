@@ -42,8 +42,8 @@
         // }
 
         public function create(){
-			$insertUsers = 'INSERT INTO `users` (`id`, `lastname`, `firstname`,`license`,`password`) VALUES (:id, :lastname, :firstname, :license, :password);';
-            $usersStatement = $this->db->prepare($insertUsers);
+			$insertUsers_sql = 'INSERT INTO `users` (`id`, `lastname`, `firstname`,`license`,`password`) VALUES (:id, :lastname, :firstname, :license, :password);';
+            $usersStatement = $this->db->prepare($insertUsers_sql);
 			$usersStatement->bindValue(':id', $this->id, PDO::PARAM_INT);
 			$usersStatement->bindValue(':lastname', $this->lastname, PDO::PARAM_STR);
             $usersStatement->bindValue(':firstname', $this->firstname, PDO::PARAM_STR);
@@ -53,7 +53,7 @@
         }
         public function verifyLicense(){
             $controlLicense_sql = 'SELECT `license` FROM `users` WHERE `license` = :license;';
-            $controlLicense = $this->db->prepare($sql);
+            $controlLicense = $this->db->prepare($controlLicense_sql);
             $controlLicense->bindValue(':license', $this->license,PDO::PARAM_STR);
             if($controlLicense != $_POST[$license]){
                 $controlLicense->execute();
@@ -64,7 +64,7 @@
 
         public function verifyUser(){
             $controlUsers_sql = 'SELECT `id` FROM `users` WHERE `license` = :license AND `password` = :password;';
-            $controlUsers = $this->db->prepare($sql);
+            $controlUsers = $this->db->prepare($controlUsers_sql);
             $controlUsers->bindValue(':license',$this->license,PDO::PARAM_STR);
             $controlUsers->bindValue(':password',$this->password,PDO::PARAM_STR);
             if ($controlUsers->execute()){
@@ -88,8 +88,8 @@
 
 		public function readSingle(){
 			// :nomDeVariable pour les données en attentes
-			$sql_viewUsers = 'SELECT `id`, `lastname`, `firstname`,`license` FROM `users` WHERE `id` = :id ;';
-            $usersStatement = $this->db->prepare($sql_viewUsers);
+			$viewUsers_sql = 'SELECT `id`, `lastname`, `firstname`,`license` FROM `users` WHERE `id` = :id ;';
+            $usersStatement = $this->db->prepare($viewUsers_sql);
             $usersStatement->bindValue(':id', $this->id,PDO::PARAM_INT);
 			$usersView = null;
 			if ($usersStatement->execute()){
@@ -100,7 +100,7 @@
 
 		public function update(){
             $usersStatement_sql = 'UPDATE `users` SET `lastname`=:lastname,`firstname`=:firstname,`license`=:license,`password`=:password WHERE `id`=:id;';
-            $usersStatement = $this->db->prepare($sql);
+            $usersStatement = $this->db->prepare($usersStatement_sql);
             $usersStatement->bindValue(':id', $this->id,PDO::PARAM_INT);
 			$usersStatement->bindValue(':lastname', $this->lastname,PDO::PARAM_STR);
             $usersStatement->bindValue(':firstname', $this->firstname,PDO::PARAM_STR);

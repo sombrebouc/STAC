@@ -51,13 +51,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
    }
    }
 
-if ($isSubmitted && count($errors)== 0) {
-    $passwordHash = password_hash($password, PASSWORD_BCRYPT);
-    $users = new User (0, $_POST['firstname'], $_POST['lastname'], $_POST['license'], $passwordHash);
-
-    if($users->create())
-    {
-        $createUsersSuccess = true;
+if ($isSubmitted && count($errors)== 0){
+    var_dump($isSubmitted);
+    if($isSubmitted->verifyLicense()){
+        $passwordHash = password_hash($password, PASSWORD_BCRYPT);
+        $users = new User (0, $_POST['firstname'], $_POST['lastname'], $_POST['license'], $passwordHash);
+        if($users->create())
+        {
+            $createUsersSuccess = true;
+        }
     }
 }
     require_once dirname(__FILE__).'\..\view\SignUp.php';
