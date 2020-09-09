@@ -51,15 +51,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
    }
    }
 
-if ($isSubmitted && count($errors)== 0){
-    var_dump($isSubmitted);
-    $isSubmitted->verifyLicense();
-    var_dump("je vérifie si ma licence existe");
-    $passwordHash = password_hash($password, PASSWORD_BCRYPT);
-    $users = new User (0, $_POST['firstname'], $_POST['lastname'], $_POST['license'], $passwordHash);
-    if($users->create()){
-        $createUsersSuccess = true;
+if ($isSubmitted && count($errors) == 0){
+        $passwordHash = password_hash($password, PASSWORD_BCRYPT);
+        $users = new User (0, $_POST['firstname'], $_POST['lastname'], $_POST['license'], $passwordHash);
+        if(!$users->verifyLicense()){
+            if($users->create()){
+                $createUsersSuccess = true;
+            } else {
+        $errors['license'] = 'Ce numéro de licence est déjà utilisé, veuillez contacter l\'administateur.';
+            }
+        }
     }
-}
 
     require_once dirname(__FILE__).'\..\view\SignUp.php';
