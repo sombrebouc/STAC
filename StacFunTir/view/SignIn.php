@@ -1,5 +1,3 @@
-   
-
 <div class="container usersTableContainer text-center shadow rounded col-xs-10 col-md-8 pt-3">
 	<div>
 		<h3 class="bg-dark rounded p-2 text-light">Connexion</h3>
@@ -20,8 +18,8 @@
 				value="<?= $password ?>" required="">
 		</div>
 		<div class="ml-auto mr-auto col-md-4 col-xs-10 mt-5 pb-3">
-			<button type="submit" class="btn btn-block btn-success col-6 text-light text-uppercase" 
-			name="connecting" value="connecting" href="\view\SignInConfirmation.php">Se connecter</button>
+			<a type="submit" class="btn btn-block btn-success col-6 text-light text-uppercase" 
+			name="connecting" value="connecting" href="SignInConfirmation.php">Se connecter</a>
 		</div>
 	</form>
 </div>

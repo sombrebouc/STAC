@@ -20,14 +20,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (empty($firstname)) {//verifie si le champ est vide
         $errors['firstname'] = 'Veuillez renseigner le prénom';
     } elseif (!preg_match($regexName, $firstname)) {//comparatif avec la regex correspondante
-        $errors['firstname'] = 'Votre prénom contient des caractères non autorisés !';
+        $errors['firstname'] = 'Votre prénom contient des caractères non autorisés';
     }
      //verif champ nom
     $lastname = trim(filter_input(INPUT_POST,'lastname',FILTER_SANITIZE_STRING));
     if (empty($lastname)) {
         $errors['lastname'] = 'Veuillez renseigner le nom';
     } elseif (!preg_match($regexName, $lastname)) {
-        $errors['lastname'] = 'Votre nom contient des caractères non autorisés !';
+        $errors['lastname'] = 'Votre nom contient des caractères non autorisés';
     }
      //verif 
     if (isset($_POST['license'])){
@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (empty($license)) {
         $errors['license'] = 'Veuillez renseigner votre n° de license FFTIR';
     } elseif (!preg_match($regexLicense, $license)) {
-        $errors['license'] = 'La licence n\'est pas valide !';
+        $errors['license'] = 'La licence n\'est pas valide';
     }
     
     //verif password
@@ -57,10 +57,11 @@ if ($isSubmitted && count($errors) == 0){
         if(!$users->verifyLicense()){
             if($users->create()){
                 $createUsersSuccess = true;
-            } else {
-        $errors['license'] = 'Ce numéro de licence est déjà utilisé, veuillez contacter l\'administateur.';
+            }else{
+                $errors['createUsersSuccess'] = 'La création a échoué, contactez l\'administrateur';
             }
+        }else{
+            $errors['license'] = 'Ce numéro de licence est déjà utilisé, veuillez contacter l\'administateur';
         }
     }
-
-    require_once dirname(__FILE__).'\..\view\SignUp.php';
+require_once dirname(__FILE__).'\..\view\SignUp.php';
