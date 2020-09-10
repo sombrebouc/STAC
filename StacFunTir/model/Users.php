@@ -62,16 +62,26 @@
             return $userLicense;
         }
 
-        public function verifyUser(){
-            $controlUsers_sql = 'SELECT `id` FROM `users` WHERE `license` = :license AND `password` = :password;';
-            $controlUsers = $this->db->prepare($controlUsers_sql);
-            $controlUsers->bindValue(':license',$this->license,PDO::PARAM_STR);
-            $controlUsers->bindValue(':password',$this->password,PDO::PARAM_STR);
-            if ($controlUsers->execute()){
-				$userId = $controlUsers->fetch(PDO::FETCH_OBJ);
-			}
-            return $userId;
+        public function verifyPasword(){
+            $controlPassword_sql = 'SELECT `password` FROM `users` WHERE `license` = :license;';
+            $controlPassword = $this->db->prepare($controlPassword_sql);
+            $controlPassword->bindValue(':license', $this->license,PDO::PARAM_STR);
+            $userPassword = NULL;
+            if($controlPassword->execute()){
+				$userPassword = $controlPassword->fetch(PDO::FETCH_OBJ);
+            }
+            return $userPassword;
         }
+
+        //  public function verifyUser(){
+        //      $controlUser_sql = 'SELECT `license`, `password` FROM `users` WHERE `license` = :license;';
+        //      $controlUser = $this->db->prepare($controlUser_sql);
+        //      $controlUser->bindValue(':license',$this->license,PDO::PARAM_STR);
+        //      if ($controlUser->execute()){
+		//  		$userVerified = $controlUser->fetch(PDO::FETCH_OBJ);
+		//  	}
+        //      return $userVerified;
+        //  }
         /**
          * retour liste des users enregistré
          * @return array

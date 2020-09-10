@@ -1,22 +1,30 @@
 <?php
+session_start();
 
 require_once dirname(__FILE__).'\HeaderController.php';
 require_once dirname(__FILE__).'\..\model\Users.php';
 
 
 //validation des champs 
-$isSubmitted = false;
 $license = $password = '';
 $errors = [];
 
-
-if ($isSubmitted && count($errors) == 0){
-    if($users->verifyLicense()){
-        $connectUserSuccess = true;
+if(!empty($_POST['license'])){
+    $users = new User(0, '', '', $_POST['license'], $_POST['password']);
+    var_dump($users);
+    $userLicenseTest = $users->verifyLicense();
+    if(!$userLicenseTest){
+        $errors['license'] = 'Le numéro de licence n\'est pas valide';
     }else{
-        $errors['connectUserSuccess'] = 'La connexion a échoué';
-    }
+        $userPasswordTest = $users->verifyPasword();
+        var_dump($userPasswordTest);
+        if(password_verify ($_POST['password'], $userPasswordTest->password)){
+            $userConnectingSuccess = true;
+        }
+    }         
 }
+
+
 
 // Ecriture du cookie contenant les éléments de connexion durant 24h
 // setcookie('$license', '$password', time() + 12*3600, null, null, false, true);
