@@ -94,13 +94,25 @@
                 $listUsers = $usersStatement->fetchAll(PDO::FETCH_OBJ);
             }
             return $listUsers;
-		}
+        }
+        
+        public function readingConnect($license)
+        {
+            $readingConnect_sql = 'SELECT `id`, `lastname`, `firstname`, `license`, `password` FROM `users` WHERE `license`=:license';
+            $usersStatment = $this->db->prepare($readingConnect_sql);
+            $usersStatment->bindValue(':license', $this->license, PDO::PARAM_STR);
+            $userConnect = null;
+            if ($usersStatment->execute()) {
+                $userConnect = $usersStatment->fetch(PDO::FETCH_OBJ);
+            }
+            return $userConnect;
+        }
 
 		public function readSingle(){
 			// :nomDeVariable pour les données en attentes
-			$viewUsers_sql = 'SELECT `id`, `lastname`, `firstname`,`license` FROM `users` WHERE `id` = :id ;';
+			$viewUsers_sql = 'SELECT `id`, `lastname`, `firstname`,`license` FROM `users` WHERE `license` = :license ;';
             $usersStatement = $this->db->prepare($viewUsers_sql);
-            $usersStatement->bindValue(':id', $this->id,PDO::PARAM_INT);
+            $usersStatement->bindValue(':license', $this->license,PDO::PARAM_INT);
 			$usersView = null;
 			if ($usersStatement->execute()){
 				$usersView = $usersStatement->fetch(PDO::FETCH_OBJ);

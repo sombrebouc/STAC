@@ -1,8 +1,14 @@
-<?php if (isset($userConnectingSuccess)): ?>
-    <div class="container usersTableContainer text-center shadow rounded col-xs-10 col-md-8 pt-3 pb-2">
+<?php
+require_once dirname(__FILE__).'\..\controller\SignInController.php';
+if (isset($userConnectingSuccess)): ?>
+    <div class="container usersTableContainer text-center shadow rounded col-xs-10 col-md-8 pt-2 pb-3">
         <div class="row">
             <div class="col-12" role="alert">
-                <h3 class="text-center text-success">Connecté avec succès</h3>
+                <h3 class="text-center text-success">
+				<p><?= $_SESSION['user']['lastname']." ".$_SESSION['user']['firstname'] ?></p>
+				<p><?= "Licence FFTir n°: ".$_SESSION['user']['license'] ?></p>
+				<p>Connecté avec succès</p> 
+				</h3>
             </div>
         </div>
     </div>
