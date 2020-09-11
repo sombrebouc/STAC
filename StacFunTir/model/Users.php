@@ -7,11 +7,11 @@
         private $firstname;
         private $license;
         private $password;
+        private $id_roles;
         private $db;
 
         // Méthode magique appelée lors du chargement "new User()"
-        public function __construct($_id=0,$_firstname='',$_lastname='',$_license='',$_password='')
-        {
+        public function __construct($_id=0,$_firstname='',$_lastname='',$_license='',$_password='', $_id_roles=''){
             $this->db = Databases::getInstance();
         // hydratation 
             $this->id = $_id;
@@ -19,17 +19,14 @@
             $this->firstname = $_firstname;
             $this->license = $_license;
             $this->password = $_password;
+            $this->id_roles = $_id_roles;
         }
 
-        // Création d'une méthode magique getter qui permettra de créer dynamiquement un getter pour chaque attribut existant.
-        // Méthode permettant de faire des échos de propriétés privées.
-        public function __get($attr)
-        {
+        public function __get($attr){
             return $this->$attr;
         }
 
-        public function __set($attr, $value)
-        {
+        public function __set($attr, $value){
             $this->$attr = $value;
         }
         // Création d'une méthode pour insérer une adresse email valide => Best Practice.
@@ -51,54 +48,24 @@
             $usersStatement->bindValue(':password',$this->password, PDO::PARAM_STR);
             return $usersStatement->execute();
         }
-        public function verifyLicense(){
-            $controlLicense_sql = 'SELECT `license` FROM `users` WHERE `license` = :license;';
-            $controlLicense = $this->db->prepare($controlLicense_sql);
-            $controlLicense->bindValue(':license', $this->license,PDO::PARAM_STR);
-            $userLicense = NULL;
-            if($controlLicense->execute()){
-				$userLicense = $controlLicense->fetch(PDO::FETCH_OBJ);
-            }
-            return $userLicense;
-        }
 
-        public function verifyPasword(){
-            $controlPassword_sql = 'SELECT `password` FROM `users` WHERE `license` = :license;';
-            $controlPassword = $this->db->prepare($controlPassword_sql);
-            $controlPassword->bindValue(':license', $this->license,PDO::PARAM_STR);
-            $userPassword = NULL;
-            if($controlPassword->execute()){
-				$userPassword = $controlPassword->fetch(PDO::FETCH_OBJ);
-            }
-            return $userPassword;
-        }
-
-        //  public function verifyUser(){
-        //      $controlUser_sql = 'SELECT `license`, `password` FROM `users` WHERE `license` = :license;';
-        //      $controlUser = $this->db->prepare($controlUser_sql);
-        //      $controlUser->bindValue(':license',$this->license,PDO::PARAM_STR);
-        //      if ($controlUser->execute()){
-		//  		$userVerified = $controlUser->fetch(PDO::FETCH_OBJ);
-		//  	}
-        //      return $userVerified;
-        //  }
         /**
          * retour liste des users enregistré
          * @return array
          */
+
 		public function readAll(){
             $listUsers_sql = 'SELECT `id`,`lastname`, `firstname`,`license`,`password` FROM `users`;';
             $usersStatement = $this->db->query($listUsers_sql);
             $listUsers = [];
-            if ($usersStatement instanceof PDOstatement ) {
+            if ($usersStatement instanceof PDOstatement){
                 $listUsers = $usersStatement->fetchAll(PDO::FETCH_OBJ);
             }
             return $listUsers;
         }
         
-        public function readingConnect($license)
-        {
-            $readingConnect_sql = 'SELECT `id`, `lastname`, `firstname`, `license`, `password` FROM `users` WHERE `license`=:license';
+        public function readingConnect(){
+            $readingConnect_sql = 'SELECT `id`, `lastname`, `firstname`, `license`, `password`, `id_roles` FROM `users` WHERE `license`=:license';
             $usersStatment = $this->db->prepare($readingConnect_sql);
             $usersStatment->bindValue(':license', $this->license, PDO::PARAM_STR);
             $userConnect = null;
@@ -108,27 +75,37 @@
             return $userConnect;
         }
 
-		public function readSingle(){
-			// :nomDeVariable pour les données en attentes
-			$viewUsers_sql = 'SELECT `id`, `lastname`, `firstname`,`license` FROM `users` WHERE `license` = :license ;';
-            $usersStatement = $this->db->prepare($viewUsers_sql);
-            $usersStatement->bindValue(':license', $this->license,PDO::PARAM_INT);
-			$usersView = null;
-			if ($usersStatement->execute()){
-				$usersView = $usersStatement->fetch(PDO::FETCH_OBJ);
+        public function verifyLicense(){
+             $controlLicense_sql = 'SELECT `license` FROM `users` WHERE `license` = :license;';
+             $controlLicense = $this->db->prepare($controlLicense_sql);
+             $controlLicense->bindValue(':license', $this->license,PDO::PARAM_STR);
+             $userLicense = NULL;
+             if($controlLicense->execute()){
+		 		$userLicense = $controlLicense->fetch(PDO::FETCH_OBJ);
+             }
+             return $userLicense;
+            }
+            
+		public function readProfile(){
+			$userProfile_sql = 'SELECT `id`, `lastname`, `firstname`,`license` FROM `users` WHERE `license` = :license ;';
+            $userProfileStatement = $this->db->prepare($userProfile_sql);
+            $userProfileStatement->bindValue(':license', $this->license,PDO::PARAM_INT);
+			$userProfile = null;
+			if ($userProfileStatement->execute()){
+				$userProfile = $userProfileStatement->fetch(PDO::FETCH_OBJ);
 			}
-			return $usersView;
+			return $userProfile;
 		}
 
 		public function update(){
-            $usersStatement_sql = 'UPDATE `users` SET `lastname`=:lastname,`firstname`=:firstname,`license`=:license,`password`=:password WHERE `id`=:id;';
-            $usersStatement = $this->db->prepare($usersStatement_sql);
-            $usersStatement->bindValue(':id', $this->id,PDO::PARAM_INT);
-			$usersStatement->bindValue(':lastname', $this->lastname,PDO::PARAM_STR);
-            $usersStatement->bindValue(':firstname', $this->firstname,PDO::PARAM_STR);
-            $usersStatement->bindValue(':license',$this->license,PDO::PARAM_STR);
-            $usersStatement->bindValue(':password',$this->password,PDO::PARAM_STR);
-            return $usersStatement->execute();
+            $userUpdate_sql = 'UPDATE `users` SET `lastname`=:lastname,`firstname`=:firstname,`license`=:license,`password`=:password WHERE `id`=:id;';
+            $userUpdateStatement = $this->db->prepare($userUpdate_sql);
+            $userUpdateStatement->bindValue(':id', $this->id,PDO::PARAM_INT);
+			$userUpdateStatement->bindValue(':lastname', $this->lastname,PDO::PARAM_STR);
+            $userUpdateStatement->bindValue(':firstname', $this->firstname,PDO::PARAM_STR);
+            $userUpdateStatement->bindValue(':license',$this->license,PDO::PARAM_STR);
+            $userUpdateStatement->bindValue(':password',$this->password,PDO::PARAM_STR);
+            return $userUpdateStatement->execute();
 		}
 
 		public function delete(){
@@ -138,3 +115,35 @@
             return $usersDelete->execute();
         }
     }
+
+
+    
+        // public function verifyLicense(){
+        //     $controlLicense_sql = 'SELECT `license` FROM `users` WHERE `license` = :license;';
+        //     $controlLicense = $this->db->prepare($controlLicense_sql);
+        //     $controlLicense->bindValue(':license', $this->license,PDO::PARAM_STR);
+        //     $userLicense = NULL;
+        //     if($controlLicense->execute()){
+		// 		$userLicense = $controlLicense->fetch(PDO::FETCH_OBJ);
+        //     }
+        //     return $userLicense;
+        // }
+        // public function verifyPasword(){
+        //     $controlPassword_sql = 'SELECT `password` FROM `users` WHERE `license` = :license;';
+        //     $controlPassword = $this->db->prepare($controlPassword_sql);
+        //     $controlPassword->bindValue(':license', $this->license,PDO::PARAM_STR);
+        //     $userPassword = NULL;
+        //     if($controlPassword->execute()){
+		// 		$userPassword = $controlPassword->fetch(PDO::FETCH_OBJ);
+        //     }
+        //     return $userPassword;
+        // }
+        //  public function verifyUser(){
+        //      $controlUser_sql = 'SELECT `license`, `password` FROM `users` WHERE `license` = :license;';
+        //      $controlUser = $this->db->prepare($controlUser_sql);
+        //      $controlUser->bindValue(':license',$this->license,PDO::PARAM_STR);
+        //      if ($controlUser->execute()){
+		//  		$userVerified = $controlUser->fetch(PDO::FETCH_OBJ);
+		//  	}
+        //      return $userVerified;
+        //  }

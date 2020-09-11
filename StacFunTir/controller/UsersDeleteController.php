@@ -1,7 +1,7 @@
 <?php
-
-require_once dirname(__FILE__).'\HeaderController.php';
+session_start();
 require_once dirname(__FILE__).'\..\model\Users.php';
+require_once dirname(__FILE__).'\HeaderController.php';
 
 if(isset($_GET['id'])){
     $id = (int) $_GET['id'];
