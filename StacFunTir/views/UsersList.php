@@ -1,4 +1,4 @@
-<div class="container usersTableContainer text-center shadow rounded col-xs-10 col-md-8 pt-3 pb-3">
+<div class="container-fluid usersTableContainer text-center shadow rounded col-11 col-md-10 pt-4 pb-3">
     <div class="">
         <table class="table table-striped">
             <div class="row">

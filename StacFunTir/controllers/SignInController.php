@@ -26,8 +26,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['connecting'])){
                 $_SESSION['user']['auth'] = true;
                 $_SESSION['user']['id'] = $connecting->id;
                 $_SESSION['user']['id_roles'] = $connecting->id_roles;
-                //$_SESSION['user']['firstname'] = $connecting->firstname;
-                //$_SESSION['user']['lastname'] = $connecting->lastname;
+                $_SESSION['user']['firstname'] = $connecting->firstname;
+                $_SESSION['user']['lastname'] = $connecting->lastname;
                 $_SESSION['user']['license'] = $connecting->license;
                 $userConnectingSuccess = true;
                 header('Location: \..\controllers\SignInSuccessController.php?id='.$_SESSION['user']['license']);
