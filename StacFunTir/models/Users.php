@@ -1,5 +1,5 @@
 <?php
-    require_once dirname(__FILE__).'\..\util\Database.php';
+    require_once dirname(__FILE__).'\..\utils\Database.php';
 
     class User{
         private $id;
@@ -87,7 +87,7 @@
             }
             
 		public function readProfile(){
-			$userProfile_sql = 'SELECT `id`, `lastname`, `firstname`,`license` FROM `users` WHERE `license` = :license ;';
+			$userProfile_sql = 'SELECT `lastname`, `firstname`,`license`, `password` FROM `users` WHERE `license` = :license ;';
             $userProfileStatement = $this->db->prepare($userProfile_sql);
             $userProfileStatement->bindValue(':license', $this->license,PDO::PARAM_INT);
 			$userProfile = null;

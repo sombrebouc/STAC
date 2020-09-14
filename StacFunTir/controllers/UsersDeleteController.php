@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once dirname(__FILE__).'\..\model\Users.php';
+require_once dirname(__FILE__).'\..\models\Users.php';
 require_once dirname(__FILE__).'\HeaderController.php';
 
 if(isset($_GET['id'])){
@@ -21,5 +21,5 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         }
 }
 
-require_once dirname(__FILE__).'\..\view\UserDelete.php';
+require_once dirname(__FILE__).'\..\views\UserDelete.php';
 require_once dirname(__FILE__).'\FooterController.php';

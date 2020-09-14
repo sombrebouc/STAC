@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once dirname(__FILE__).'\..\model\Users.php';
+require_once dirname(__FILE__).'\..\models\Users.php';
 require_once dirname(__FILE__).'\HeaderController.php';
 
     //validation des champs 
@@ -64,5 +64,5 @@ if ($isSubmitted && count($errors) == 0){
             $errors['license'] = 'Ce numéro de licence est déjà utilisé, veuillez contacter l\'administateur';
         }
     }
-require_once dirname(__FILE__).'\..\view\SignUp.php';
+require_once dirname(__FILE__).'\..\views\SignUp.php';
 require_once dirname(__FILE__).'\FooterController.php';

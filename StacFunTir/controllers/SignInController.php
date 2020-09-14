@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once dirname(__FILE__).'\..\model\Users.php';
+require_once dirname(__FILE__).'\..\models\Users.php';
 require_once dirname(__FILE__).'\HeaderController.php';
 
 //$id_session = session_id();
@@ -30,12 +30,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['connecting'])){
                 //$_SESSION['user']['lastname'] = $connecting->lastname;
                 $_SESSION['user']['license'] = $connecting->license;
                 $userConnectingSuccess = true;
-                header('Location: \..\controller\SignInSuccessController.php?id='.$_SESSION['user']['license']);
+                header('Location: \..\controllers\SignInSuccessController.php?id='.$_SESSION['user']['license']);
             }        
         }
     }
 }
-require_once dirname(__FILE__).'\..\view\SignIn.php';
+require_once dirname(__FILE__).'\..\views\SignIn.php';
 require_once dirname(__FILE__).'\FooterController.php';
 
 

@@ -1,5 +1,5 @@
 <?php
-	require_once dirname(__FILE__).'\..\controller\HeaderController.php';
+	require_once dirname(__FILE__).'\..\controllers\HeaderController.php';
 ?>
 
 <div class="usersTableContainer ml-auto mr-auto shadow col-md-8 col-xs-10 rounded">

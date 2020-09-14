@@ -1,5 +1,5 @@
 <?php
-require_once dirname(__FILE__).'\..\config\Params.php';
+require_once dirname(__FILE__).'\..\configs\Params.php';
 class Databases
 {
     // static permet d'executer la fonction sans instance de class
