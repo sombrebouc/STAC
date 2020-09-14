@@ -36,6 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['connecting'])){
     }
 }
 require_once dirname(__FILE__).'\..\view\SignIn.php';
+require_once dirname(__FILE__).'\FooterController.php';
 
 
 

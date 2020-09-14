@@ -23,9 +23,9 @@ header{
     background: rgb(55, 97, 153);
     background-image: url("../img/STAC_logo-1000x512.png");
     background-repeat: no-repeat;
-    background-size: 75%;
+    background-size: 70%;
     background-position-x: center;
-    background-position-y: 15vh;
+    background-position-y: 13vh;
 }
 
 /*===== Barre de navigation ===== */
@@ -123,4 +123,9 @@ box-shadow: 5px 0px 15px #000;
     background: rgba(248, 249, 250, 0.95);
     /*background: rgba(52, 58, 64,0.95);
     background: rgba(52, 86, 119, 0.95);*/
+}
+
+/*===== Footer ===== */
+footer{
+    height: 10vh;
 }

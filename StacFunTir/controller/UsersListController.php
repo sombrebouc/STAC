@@ -7,3 +7,4 @@ $user = new User();
 $listUsers = $user->readAll();
 
 require dirname(__FILE__).'\..\view\UsersList.php';
+require_once dirname(__FILE__).'\FooterController.php';

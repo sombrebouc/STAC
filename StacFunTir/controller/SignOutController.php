@@ -16,3 +16,4 @@ if (isset($_GET['signOutBtn'])) {
 }
 
 require_once dirname(__FILE__).'\..\view\SignOut.php';
+require_once dirname(__FILE__).'\FooterController.php';

@@ -65,3 +65,4 @@ if ($isSubmitted && count($errors) == 0){
         }
     }
 require_once dirname(__FILE__).'\..\view\SignUp.php';
+require_once dirname(__FILE__).'\FooterController.php';
