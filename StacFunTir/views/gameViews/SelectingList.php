@@ -1,9 +1,9 @@
-<div class="container usersTableContainer text-center shadow rounded col-xs-10 col-md-8 pt-3 pb-3">
+<div class="container usersTableContainer text-center shadow rounded col-xs-10 col-sm-10 col-md-8 pt-4 pb-3">
         <table class="table table-striped">
             <div class="row">
-                <thead class="bg-dark p-2 text-light">
+                <thead class="bg-dark align-middle p-2 text-light">
                     <tr class="">
-                        <th>#</th>
+                        <th class="col-2">In Game</th>
                         <th>Nom</th>
                         <th>Prénom</th>
                         <th>Licence</th>
@@ -16,16 +16,14 @@
                     foreach($listUsers as $number => $user){
                 ?>
                 <tr class="text-dark">
-                    <td> <?= $number+1 ?></td>
+                    <td class="col-2">
+                        <div class="form-check form-switch">
+                          <input class="form-check-input d-flex align-items-center" type="checkbox" id="flexSwitchCheckDefault">
+                        </div>
+                    </td>
                     <td> <?= $user->firstname; ?></td>
                     <td> <?= $user->lastname; ?></td>
                     <td> <?= $user->license; ?></td>
-                    <td>
-                        <div class="form-check form-switch">
-                          <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                          <label class="form-check-label" for="flexSwitchCheckDefault">Default switch checkbox input</label>
-                        </div>
-                    </td>
                 </tr>
     <?php } ?>
             </tbody>
