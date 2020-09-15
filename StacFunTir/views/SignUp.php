@@ -80,7 +80,7 @@
                     value="<?= $passwordConfirm ?>" required="">
             </div>
             <div class="ml-auto mr-auto col-md-4 col-xs-10 mt-5 pb-3">
-                <input type="submit" class="btn btn-block btn-success text-uppercase text-light" name="validationInscription"
+                <input type="submit" class="btn btn-block btn-success text-uppercase text-light" name="signUpConfirm"
                     value="Enregistrer">
             </div>
         </form>          

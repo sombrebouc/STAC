@@ -3,6 +3,8 @@ session_start();
 require_once dirname(__FILE__).'\..\models\Users.php';
 require_once dirname(__FILE__).'\HeaderController.php';
 
+$deleteUserSuccess = false;
+
 if(isset($_GET['id'])){
     $id = (int) $_GET['id'];
     $user = new User($id);
@@ -14,8 +16,8 @@ if(isset($_GET['id'])){
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $id = (int) $_POST['id'];
     $user = new User($id);
-    var_dump($user);
         if($user->delete()){
+            var_dump($user);
             $deleteUserSuccess = true;
             header('location:UsersListController.php');
         }

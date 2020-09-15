@@ -12,7 +12,7 @@ require_once dirname(__FILE__).'\HeaderController.php';
     $firstname = $lastname = $license = $password = $passwordConfirm ='';
     $errors = [];
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
     $isSubmitted = true;
      //verif champ prénom
@@ -57,12 +57,33 @@ if ($isSubmitted && count($errors) == 0){
         if(!$users->verifyLicense()){
             if($users->create()){
                 $createUsersSuccess = true;
+// ====== CONNEXION AU SITE ======//
+//================================//
+
+//  $id = $db->lastInsertId();
+//  if($createUsersSuccess->readSingle()){
+//      if(password_verify ($password, $connecting->password)){
+//              $_SESSION['user']['auth'] = true;
+//              $_SESSION['user']['id'] = $connecting->id;
+//              $_SESSION['user']['id_roles'] = $connecting->id_roles;
+//              $_SESSION['user']['firstname'] = $connecting->firstname;
+//              $_SESSION['user']['lastname'] = $connecting->lastname;
+//              $_SESSION['user']['license'] = $connecting->license;
+//              $userConnectingSuccess = true;
+//              header('Location: \..\controllers\SignInController.php?id='.$_SESSION['user']['license']);
+//          }
+//  }
+// ====== CONNEXION AU SITE ======//
+//================================//
             }else{
                 $errors['createUsersSuccess'] = 'La création a échoué, contactez l\'administrateur';
-            }
+                }
         }else{
             $errors['license'] = 'Ce numéro de licence est déjà utilisé, veuillez contacter l\'administateur';
-        }
-    }
+            }
+
+
+}
+
 require_once dirname(__FILE__).'\..\views\SignUp.php';
 require_once dirname(__FILE__).'\FooterController.php';

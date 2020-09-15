@@ -46,6 +46,7 @@
             $usersStatement->bindValue(':firstname', $this->firstname, PDO::PARAM_STR);
             $usersStatement->bindValue(':license',$this->license, PDO::PARAM_STR);
             $usersStatement->bindValue(':password',$this->password, PDO::PARAM_STR);
+            
             return $usersStatement->execute();
         }
 
@@ -62,6 +63,16 @@
                 $listUsers = $usersStatement->fetchAll(PDO::FETCH_OBJ);
             }
             return $listUsers;
+        }
+		public function readSingle(){
+            $userInfos_sql = 'SELECT `lastname`, `firstname`,`license`,`password` FROM `users` WHERE `id`=:id';
+            $userStatement = $this->db->prepare($userInfos_sql);
+            $userStatement->bindValue(':id', $this->id,PDO::PARAM_INT);
+            $userInfos = null;
+            if ($userStatement->execute()){
+                $userInfos = $userStatement->fetch(PDO::FETCH_OBJ);
+            }
+            return $userInfos;
         }
         
         public function readingConnect(){
@@ -113,7 +124,8 @@
             $usersDelete = $this->db->prepare($usersDelete_sql);
             $usersDelete->bindValue(':id', $this->id,PDO::PARAM_INT);
             return $usersDelete->execute();
-        }
+        }   
+        
     }
 
 
