@@ -29,7 +29,7 @@ require_once dirname(__FILE__).'\..\models\Users.php';
                 <a class="nav-link" href="\..\controllers\UsersListController.php" id="userslist" role="button" class="btn" name="membersBtn">Membres</a>
             </li>
             <li class="nav-item m-1">
-                <a class="nav-link beginButton" href="\..\controllers\gameControllers\TargetChoiceController.php" id="gameLauncher" role="button" class="btn" name="startBtn">Démarrer</a>
+                <a class="nav-link beginButton" href="\..\controllers\gameControllers\TargetNumberController.php" id="gameLauncher" role="button" class="btn" name="startBtn">Démarrer</a>
             </li>
             <?php } ?>
             <?php if(!isset($_SESSION['user']['license'])){ ?>

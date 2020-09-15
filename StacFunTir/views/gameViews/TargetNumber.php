@@ -11,7 +11,7 @@
                 </div>
                 <div class="row">
                     <input type="submit" class="btn btn-success p-2 mt-2 m-auto col-8"
-                        href="\..\..\controllers\gameControllers\SelectingListController.php" value="SUIVANT">
+                        href="..\..\controllers\gameControllers\SelectingListController.php" value="SUIVANT">
                 </div>
             </form>
         </div>
