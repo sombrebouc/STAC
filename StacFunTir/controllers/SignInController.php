@@ -30,8 +30,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['connecting'])){
                 $_SESSION['user']['lastname'] = $connecting->lastname;
                 $_SESSION['user']['license'] = $connecting->license;
                 $userConnectingSuccess = true;
-                header('Location: \..\controllers\SignInSuccessController.php?id='.$_SESSION['user']['license']);
+                header('Location: \..\controllers\SignInController.php?id='.$_SESSION['user']['license']);
+            }else{
+                $errors['password']= "Le mot de passe n' est pas valide";
             }        
+        }else{
+            $errors['userConnectingSuccess'] = "La connexion a échoué";
         }
     }
 }

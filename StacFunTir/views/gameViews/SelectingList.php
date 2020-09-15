@@ -30,9 +30,11 @@
             </tbody>
         </table>
             <div>            
-                <input type="submit" class="btn btn-success" value="VALIDER LA LISTE">
+                <input type="submit" class="btn btn-success" href="\..\controllers\gameControllers\ValidationListController.php" value="VALIDER LA LISTE">
             </div>
     </form>
+
+    
         <?php }else{ ?>
     <div>
         <h3>Il n'y a pas de membre dans la base de donnée</h3>

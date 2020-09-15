@@ -1,35 +1,34 @@
-<div class="container-fluid usersTableContainer text-center shadow rounded col-11 col-md-10 pt-4 pb-3">
-        <table class="table table-striped">
-            <div class="row">
-                <thead class="bg-dark align-middle p-2 text-light">
-                    <tr class="">
-                        <th class="col-2">In Game</th>
-                        <th>Nom</th>
-                        <th>Prénom</th>
-                    </tr>
-                </thead>
-            </div>
-            <tbody class="">
-<?php 
-                
-?>
-                <tr class="text-dark">
-                    <td class="col-2">
-                        <div class="form-check form-switch">
-                          <input class="form-check-input d-flex align-items-center" type="checkbox" id="flexSwitchCheckDefault">
-                        </div>
-                    </td>
+<div class="modal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+        <div class="modal-body">
+            <table>
+                <tbody>
+                <?php 
+                    if (count($listUsers) > 0){ 
+                        foreach($listUsers as $number => $user){
+                ?>
+                <tr>
                     <td> <?= $user->firstname; ?></td>
                     <td> <?= $user->lastname; ?></td>
                 </tr>
-<?php
-
-?>
-                <tr>
-                    <div>
-                        <button type="button" class="btn btn-success">CONFIRMER</button>
-                    </div>
-                </tr>
-            </tbody>
-        </table>
+                    <?
+                        }
+                    }
+                     ?>
+                </tbody>
+            </table>
+        </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
 </div>

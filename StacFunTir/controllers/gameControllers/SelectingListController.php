@@ -6,5 +6,12 @@ require_once dirname(__FILE__).'\..\HeaderController.php';
 $user = new User();
 $listUsers = $user->readAll();
 
+if(!empty($_POST['users'])) {
+    foreach($_POST['users'] as $idItem) {
+       //TODO: Code ici
+       echo 'Vous avez choisi '.$idItem;
+    }
+}
+
 require dirname(__FILE__).'\..\..\views\gameViews\SelectingList.php';
 require_once dirname(__FILE__).'\..\FooterController.php';

@@ -87,7 +87,7 @@
             }
             
 		public function readProfile(){
-			$userProfile_sql = 'SELECT `lastname`, `firstname`,`license`, `password` FROM `users` WHERE `license` = :license ;';
+			$userProfile_sql = 'SELECT `lastname`, `firstname`,`license`, `password` FROM `users` WHERE `license` = :license;';
             $userProfileStatement = $this->db->prepare($userProfile_sql);
             $userProfileStatement->bindValue(':license', $this->license,PDO::PARAM_INT);
 			$userProfile = null;
