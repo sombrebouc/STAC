@@ -4,15 +4,17 @@
     class Game{
         private $id;
         private $date;
+        private $numberoftargets;
         private $id_games;
         private $db;
 
         // Méthode magique appelée lors du chargement "new User()"
-        public function __construct($_id=0,$_date='',$id_games=''){
+        public function __construct($_id=0,$_date='',$_numberoftargets='',$id_games=''){
             $this->db = Databases::getInstance();
         // hydratation 
             $this->id = $_id;
             $this->date = $_date;
+            $this->numberoftargets = $_numberoftargets;
             $this->id_games = $id_games;
         }
 
@@ -25,11 +27,12 @@
         }
         
         public function create(){
-			$insertGames_sql = 'INSERT INTO `gamesession` (`id`, `date`, `id_games`) VALUES (:id, :date, :id_games);';
+			$insertGames_sql = 'INSERT INTO `gamesession` (`id`, `date`, `numberoftargets`, `id_games`) VALUES (:id, :date, :numberoftargets, :id_games);';
             $gamesStatement = $this->db->prepare($insertGames_sql);
 			$gamesStatement->bindValue(':id', $this->id, PDO::PARAM_INT);
 			$gamesStatement->bindValue(':date', $this->date, PDO::PARAM_STR);
-            $gamesStatement->bindValue(':id_games', $this->firstname, PDO::PARAM_STR);
+			$gamesStatement->bindValue(':numberoftargets', $this->numberoftargets, PDO::PARAM_INT);
+            $gamesStatement->bindValue(':id_games', $this->firstname, PDO::PARAM_INT);
             return $gamesStatement->execute();
         }
 
@@ -39,7 +42,7 @@
          */
 
 		public function readAll(){
-            $listGames_sql = 'SELECT `id`,`date`, `id_games` FROM `gamesession`;';
+            $listGames_sql = 'SELECT `id`,`date`, `numberoftargets`, `id_games` FROM `gamesession`;';
             $gamesStatement = $this->db->query($listGames_sql);
             $listGames = [];
             if ($gamesStatement instanceof PDOstatement){
@@ -48,7 +51,7 @@
             return $listGames;
         }
 		public function readSingle(){
-            $gameInfos_sql = 'SELECT `date`, `id_games` FROM `gamesession` WHERE `id`=:id';
+            $gameInfos_sql = 'SELECT `date`, `numberoftargets`, `id_games` FROM `gamesession` WHERE `id`=:id';
             $gameStatement = $this->db->prepare($gameInfos_sql);
             $gameStatement->bindValue(':id', $this->id,PDO::PARAM_INT);
             $gameInfos = null;
