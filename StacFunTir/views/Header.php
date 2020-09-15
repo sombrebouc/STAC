@@ -14,7 +14,7 @@ require_once dirname(__FILE__).'\..\models\Users.php';
 
 <body class="background">
 
-<nav class="navbar fixed-top navbar-expand-md col-12 navbar-dark bg-dark p-1 text-md-center shadow-sm">
+<nav class="navbar navbar-expand-md col-12 navbar-dark bg-dark p-1 text-md-center shadow-sm">
     <a href="#" class="navbar-brand pl-1 pr-2">N° <?= $_SESSION['user']['license'] ?? " ...";?> </a>
     <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
         <span class="navbar-toggler-icon" role="button"></span>
@@ -29,7 +29,7 @@ require_once dirname(__FILE__).'\..\models\Users.php';
                 <a class="nav-link" href="\..\controllers\UsersListController.php" id="userslist" role="button" class="btn" name="membersBtn">Membres</a>
             </li>
             <li class="nav-item m-1">
-                <a class="nav-link beginButton" href="\..\controllers\gameControllers\SelectingListController.php" id="gameLauncher" role="button" class="btn" name="startBtn">Démarrer</a>
+                <a class="nav-link beginButton" href="\..\controllers\gameControllers\TargetChoiceController.php" id="gameLauncher" role="button" class="btn" name="startBtn">Démarrer</a>
             </li>
             <?php } ?>
             <?php if(!isset($_SESSION['user']['license'])){ ?>
