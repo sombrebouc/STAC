@@ -175,3 +175,22 @@ footer{
     -ms-border-radius: 5px;
     -o-border-radius: 5px;
 }
+.scoringHeaderPix{
+    width: 310px;
+    height: 265px;
+    background-image: url("../img/targetPicture.png");
+    background-size: 50%;
+    background-repeat: no-repeat;
+}
+.containerFormScoring{
+    background-position-x: center;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+.containerHeader{
+    height: 220px;
+    width: fit-content;
+}

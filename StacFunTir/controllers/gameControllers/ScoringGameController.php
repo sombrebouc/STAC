@@ -5,10 +5,15 @@ require_once dirname(__FILE__).'\..\..\models\Sessions.php';
 require_once dirname(__FILE__).'\..\..\models\Games.php';
 require_once dirname(__FILE__).'\..\HeaderController.php';
 
-//preparation de mon tableau d'utilisateurs
-$user = new User();
-$listUsers=$user->readAllUsers();
-$id_session = $_GET['id_session'];
+//init de variables de points
+// le total des points sera divisé par le temps
+// ex: 10pts
+$pointsOnDrill = '';
+// valeur entière dont 1pt=3s
+$nonshootOnDrill = '';
+// temps donné en secondes au centième près
+$timeOnDrill = '';
+
 
 // récupération des utilisateurs selectionnés
 if(!empty($_POST['users'])){
@@ -21,5 +26,5 @@ if(!empty($_POST['users'])){
     }
 }
 
-require dirname(__FILE__).'\..\..\views\gameViews\SelectingList.php';
+require dirname(__FILE__).'\..\..\views\gameViews\ScoringGame.php';
 require_once dirname(__FILE__).'\..\FooterController.php';

@@ -22,9 +22,9 @@
                           <input class="form-check-input d-flex align-items-center" type="checkbox" id="listSwitchChecking" name="users[]" value="<?= $user->id;?>">
                         </div>
                     </td>
-                    <td> <?= $user->firstname; ?></td>
-                    <td> <?= $user->lastname; ?></td>
-                    <td> <?= $user->license; ?></td>
+                    <td> <?= $userId->firstname; ?></td>
+                    <td> <?= $userId->lastname; ?></td>
+                    <td> <?= $userId->license; ?></td>
                 <?php } ?>
                 </tr>                    
             </tbody>

@@ -68,6 +68,16 @@
             }
             return $gameInfos;
         }
+		public function updateGame(){
+            $gameScoreUpdate_sql = 'UPDATE `games` SET `timing`=:timing,`score`=:score,`nonshoot`=:nonshoot,`ratio`=:ratio WHERE `id`=:id;';
+            $gameScoreUpdate = $this->db->prepare($userUpdate_sql);
+            $gameScoreUpdate->bindValue(':id', $this->id,PDO::PARAM_INT);
+			$gameScoreUpdate->bindValue(':timing', $this->timing,PDO::PARAM_STR);
+            $gameScoreUpdate->bindValue(':score', $this->score,PDO::PARAM_INT);
+            $gameScoreUpdate->bindValue(':nonshoot',$this->nonshoot,PDO::PARAM_INT);
+            $gameScoreUpdate->bindValue(':ratio',$this->ratio,PDO::PARAM_INT);
+            return $gameScoreUpdate->execute();
+		}
         
 		// public function delete(){
         //     $usersDelete_sql = 'DELETE FROM `gamesession` WHERE `id`=:id;';
