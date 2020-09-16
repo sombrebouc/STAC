@@ -5,8 +5,9 @@ require_once dirname(__FILE__).'\..\..\models\Games.php';
 require_once dirname(__FILE__).'\..\HeaderController.php';
 
 $regexTargets = "/^[0-9]{1,}$/";
-$date = $numberoftargets = $id_games = '';
+$date= $numberoftargets= '';
 $isSubmitted = false;
+$createSessionSuccess =false;
 $errors = [];
 
 // verif envoi du nombre de cibles
@@ -18,9 +19,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     }
 }
 if($isSubmitted && count($errors) == 0){
-    $games = new Game(0, $_POST['numberoftargets']);
-    if($games->create()){
-        $createGameSuccess =true;
+    $session = new Session(0, $_POST['numberoftargets']);
+    var_dump($session);
+    if($session->createSession()){
+        $createSessionSuccess =true;
         header('Location: \..\controllers\gameControllers\SelectingListController.php?id='.$_SESSION['user']['license']);
     }
 }

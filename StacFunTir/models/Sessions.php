@@ -7,10 +7,9 @@
         private $numberoftargets;
         private $db;
 
-        public function __construct($_id=0,$_date='',$_numberoftargets=''){
+        public function __construct($_id=0, $_numberoftargets=''){
             $this->db = Databases::getInstance();
             $this->id = $_id;
-            $this->date = $_date;
             $this->numberoftargets = $_numberoftargets;
         }
         // Création d'une méthode magique getter qui permettra de créer dynamiquement un getter pour chaque attribut existant.
@@ -22,11 +21,9 @@
             $this->$attr = $value;
         }
         
-        public function create(){
-			$sessions_sql = 'INSERT INTO `session` (`id`, `date`, `numberoftargets`) VALUES (:id, :date, :numberoftargets);';
+        public function createSession(){
+			$sessions_sql = 'INSERT INTO `sessions` ( `numberoftargets`) VALUES (:numberoftargets);';
             $sessionStmt = $this->db->prepare($sessions_sql);
-			$sessionStmt->bindValue(':id', $this->id, PDO::PARAM_INT);
-			$sessionStmt->bindValue(':date', $this->date, PDO::PARAM_STR);
 			$sessionStmt->bindValue(':numberoftargets', $this->numberoftargets, PDO::PARAM_INT);
             return $sessionStmt->execute();
         }
@@ -36,8 +33,8 @@
          * @return array
          */
 
-		public function readAll(){
-            $sessionsList_sql = 'SELECT `id`,`date`, `numberoftargets` FROM `gamesession`;';
+		public function readAllSessions(){
+            $sessionsList_sql = 'SELECT `id`,`numberoftargets` FROM `sessions`;';
             $sessionStmt = $this->db->query($sessionsList_sql);
             $sessionsList = [];
             if ($sessionStmt instanceof PDOstatement){
@@ -45,8 +42,8 @@
             }
             return $listGames;
         }
-		public function readSingle(){
-            $sessionsInfos_sql = 'SELECT `date`, `numberoftargets` FROM `gamesession` WHERE `id`=:id';
+		public function readOneSession(){
+            $sessionsInfos_sql = 'SELECT `date`, `numberoftargets` FROM `sessions` WHERE `id`=:id';
             $sessionStmt = $this->db->prepare($sessionsInfos_sql);
             $sessionStmt->bindValue(':id', $this->id,PDO::PARAM_INT);
             $sessionsInfos = null;

@@ -23,7 +23,7 @@
         // ========================================
         // ========================================  
 
-		public function readSingle(){
+		public function readRole(){
             $roleInfos_sql = 'SELECT `id`, `id_roles`  FROM `users` INNER JOIN `roles` WHERE `:role`=`:id_roles`;';
             $roleStmt = $this->db->prepare($roleInfos_sql);
             $roleStmt->bindValue(':id_roles', $this->id,PDO::PARAM_INT);
@@ -34,7 +34,7 @@
             return $roleInfos;
         }
         
-		public function update(){
+		public function updateRole(){
             $userRoleUpdate_sql = 'UPDATE `users` SET `id_roles`=:id_roles INNER JOIN `roles`  WHERE  `roles.role`=`users.id_roles`;';
             $userRoleUpdate = $this->db->prepare($userRoleUpdate_sql);
             $userRoleUpdate->bindValue(':id', $this->id,PDO::PARAM_INT);

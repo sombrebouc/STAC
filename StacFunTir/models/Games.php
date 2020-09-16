@@ -17,7 +17,7 @@
             $this->timing = $_timing;
             $this->score = $_score;
             $this->nonshoot = $_nonshoot;
-            $this->id_ratio = $_id_ratio;
+            $this->ratio = $_ratio;
             $this->id_users = $_id_users;
             $this->id_sessions = $_id_sessions;
         }
@@ -30,17 +30,17 @@
             $this->$attr = $value;
         }
         
-        public function create(){
+        public function createGame(){
 			$insertGames_sql = 'INSERT INTO `session` (`id`, `timing`, `score`, `nonshoot`, `ratio`, `id_users`, `id_sessions`) 
             VALUES (:id, :timing, :score, :nonshoot, :ratio, :id_users, :id_sessions);';
             $gamesStatement = $this->db->prepare($insertGames_sql);
 			$gamesStatement->bindValue(':id', $this->id, PDO::PARAM_INT);
-			$gamesStatement->bindValue(':timing', $this->date, PDO::PARAM_STR);
-			$gamesStatement->bindValue(':score', $this->date, PDO::PARAM_INT);
-			$gamesStatement->bindValue(':nonshoot', $this->date, PDO::PARAM_INT);
-			$gamesStatement->bindValue(':ratio', $this->date, PDO::PARAM_STR);
-			$gamesStatement->bindValue(':id_users', $this->date, PDO::PARAM_STR);
-			$gamesStatement->bindValue(':id_sessions', $this->numberoftargets, PDO::PARAM_STR);
+			$gamesStatement->bindValue(':timing', $this->timing, PDO::PARAM_STR);
+			$gamesStatement->bindValue(':score', $this->score, PDO::PARAM_INT);
+			$gamesStatement->bindValue(':nonshoot', $this->nonshoot, PDO::PARAM_INT);
+			$gamesStatement->bindValue(':ratio', $this->ratio, PDO::PARAM_STR);
+			$gamesStatement->bindValue(':id_users', $this->id_users, PDO::PARAM_STR);
+			$gamesStatement->bindValue(':id_sessions', $this->id_sessions, PDO::PARAM_STR);
             return $gamesStatement->execute();
         }
 
@@ -49,7 +49,7 @@
          * @return array
          */
 
-		public function readAll(){
+		public function readAllGames(){
             $listGames_sql = 'SELECT `id`,`timing`, `score`,`nonshoot`, `ratio`,`id_users`, `id_games` FROM `games`;';
             $gamesStatement = $this->db->query($listGames_sql);
             $listGames = [];
@@ -58,7 +58,7 @@
             }
             return $listGames;
         }
-		public function readSingle(){
+		public function readOneGame(){
             $gameInfos_sql = 'SELECT `timing`, `score`, `nonshoot`,`ratio` FROM `games` WHERE `id`=:id';
             $gameStatement = $this->db->prepare($gameInfos_sql);
             $gameStatement->bindValue(':id', $this->id,PDO::PARAM_INT);
