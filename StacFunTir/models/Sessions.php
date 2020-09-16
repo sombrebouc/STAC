@@ -24,8 +24,16 @@
         public function createSession(){
 			$sessions_sql = 'INSERT INTO `sessions` ( `numberoftargets`) VALUES (:numberoftargets);';
             $sessionStmt = $this->db->prepare($sessions_sql);
-			$sessionStmt->bindValue(':numberoftargets', $this->numberoftargets, PDO::PARAM_INT);
-            return $sessionStmt->execute();
+            $sessionStmt->bindValue(':numberoftargets', $this->numberoftargets, PDO::PARAM_INT);
+            // init de l'id de session en string pour la récupération du lastInsertId()
+            $id_session = "";
+            // si les infos sont remplies, on lance l'execution de la création de la session
+            if($sessionStmt->execute()){
+                // on alimente la variable par le lastInsertId() contenu dans la bdd
+                $id_session = $this->db->lastInsertId();
+            }
+            // on retourne la valeur de la variable alimentée par le lastInsertId()
+            return $id_session; 
         }
 
         /**

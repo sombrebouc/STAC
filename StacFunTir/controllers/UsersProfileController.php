@@ -6,7 +6,7 @@ require_once dirname(__FILE__).'\..\models\Games.php';
 require_once dirname(__FILE__).'\HeaderController.php';
    
 $user = new User();
-$listUsers = $user->readProfile();
+$listUsers = $user->readOneUser();
 
 
 require_once dirname(__FILE__).'\..\views\UsersProfile.php';

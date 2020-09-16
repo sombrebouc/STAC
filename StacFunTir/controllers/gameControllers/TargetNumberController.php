@@ -13,17 +13,20 @@ $errors = [];
 // verif envoi du nombre de cibles
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $isSubmitted = true;
-    var_dump($_POST['numberoftargets']);
+    //var_dump($_POST['numberoftargets']);
     if (isset($_POST['numberoftargets'])){
         $numberoftargets = trim(htmlspecialchars($_POST['numberoftargets']));
     }
 }
+// création de la session et redirection vers la selection des joueurs
 if($isSubmitted && count($errors) == 0){
     $session = new Session(0, $_POST['numberoftargets']);
-    var_dump($session);
-    if($session->createSession()){
+    // initialisation de la session par sa création
+    $id_session = $session->createSession();
+
+    if($id_session){
         $createSessionSuccess =true;
-        header('Location: \..\controllers\gameControllers\SelectingListController.php?id='.$_SESSION['user']['license']);
+        header('Location: \..\controllers\gameControllers\SelectingListController.php?id_session='.$id_session);
     }
 }
 

@@ -31,17 +31,17 @@
         }
         
         public function createGame(){
-			$insertGames_sql = 'INSERT INTO `session` (`id`, `timing`, `score`, `nonshoot`, `ratio`, `id_users`, `id_sessions`) 
+			$insertGames_sql = 'INSERT INTO `games` (`id`, `timing`, `score`, `nonshoot`, `ratio`, `id_users`, `id_sessions`) 
             VALUES (:id, :timing, :score, :nonshoot, :ratio, :id_users, :id_sessions);';
-            $gamesStatement = $this->db->prepare($insertGames_sql);
-			$gamesStatement->bindValue(':id', $this->id, PDO::PARAM_INT);
-			$gamesStatement->bindValue(':timing', $this->timing, PDO::PARAM_STR);
-			$gamesStatement->bindValue(':score', $this->score, PDO::PARAM_INT);
-			$gamesStatement->bindValue(':nonshoot', $this->nonshoot, PDO::PARAM_INT);
-			$gamesStatement->bindValue(':ratio', $this->ratio, PDO::PARAM_STR);
-			$gamesStatement->bindValue(':id_users', $this->id_users, PDO::PARAM_STR);
-			$gamesStatement->bindValue(':id_sessions', $this->id_sessions, PDO::PARAM_STR);
-            return $gamesStatement->execute();
+            $gameStmt = $this->db->prepare($insertGames_sql);
+			$gameStmt->bindValue(':id', $this->id, PDO::PARAM_INT);
+			$gameStmt->bindValue(':timing', $this->timing, PDO::PARAM_STR);
+			$gameStmt->bindValue(':score', $this->score, PDO::PARAM_INT);
+			$gameStmt->bindValue(':nonshoot', $this->nonshoot, PDO::PARAM_INT);
+			$gameStmt->bindValue(':ratio', $this->ratio, PDO::PARAM_STR);
+			$gameStmt->bindValue(':id_users', $this->id_users, PDO::PARAM_STR);
+			$gameStmt->bindValue(':id_sessions', $this->id_sessions, PDO::PARAM_STR);
+            return $gameStmt->execute();
         }
 
         /**
@@ -51,20 +51,20 @@
 
 		public function readAllGames(){
             $listGames_sql = 'SELECT `id`,`timing`, `score`,`nonshoot`, `ratio`,`id_users`, `id_games` FROM `games`;';
-            $gamesStatement = $this->db->query($listGames_sql);
+            $gamesStmt = $this->db->query($listGames_sql);
             $listGames = [];
-            if ($gamesStatement instanceof PDOstatement){
-                $listGames = $gamesStatement->fetchAll(PDO::FETCH_OBJ);
+            if ($gamesStmt instanceof PDOstatement){
+                $listGames = $gamesStmt->fetchAll(PDO::FETCH_OBJ);
             }
             return $listGames;
         }
 		public function readOneGame(){
             $gameInfos_sql = 'SELECT `timing`, `score`, `nonshoot`,`ratio` FROM `games` WHERE `id`=:id';
-            $gameStatement = $this->db->prepare($gameInfos_sql);
-            $gameStatement->bindValue(':id', $this->id,PDO::PARAM_INT);
+            $gameStmt = $this->db->prepare($gameInfos_sql);
+            $gameStmt->bindValue(':id', $this->id,PDO::PARAM_INT);
             $gameInfos = null;
-            if ($gameStatement->execute()){
-                $gameInfos = $gameStatement->fetch(PDO::FETCH_OBJ);
+            if ($gameStmt->execute()){
+                $gameInfos = $gameStmt->fetch(PDO::FETCH_OBJ);
             }
             return $gameInfos;
         }

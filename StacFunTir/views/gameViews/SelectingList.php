@@ -4,16 +4,16 @@
             <div class="row">
                 <thead class="bg-dark align-middle p-2 text-light">
                     <tr class="">
-                        <th class="col-2">In Game</th>
-                        <th>Nom</th>
+                        <th class="col-2 text-left">In Game</th>
                         <th>Prénom</th>
+                        <th>Nom</th>
                         <th>Licence</th>
                     </tr>
                 </thead>
             </div>
             <tbody>
                 <?php 
-                    if (count($listUsers) > 0){ 
+                    if(count($listUsers) > 0){ 
                     foreach($listUsers as $number=>$user){
                 ?>
                 <tr class="text-dark">
@@ -37,7 +37,7 @@
     
         <?php }else{ ?>
     <div>
-        <h3>Il n'y a pas de membre dans la base de donnée</h3>
+        <h3 style="color:red;">Il n'y a pas de membre dans la base de donnée</h3>
     </div>
     <?php } ?>
 </div>
