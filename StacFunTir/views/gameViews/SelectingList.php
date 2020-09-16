@@ -11,10 +11,10 @@
                     </tr>
                 </thead>
             </div>
-            <tbody class="">
+            <tbody>
                 <?php 
-                    if (count($listUsers) > 0) { 
-                    foreach($listUsers as $number => $user){
+                    if (count($listUsers) > 0){ 
+                    foreach($listUsers as $number=>$user){
                 ?>
                 <tr class="text-dark">
                     <td class="col-2">

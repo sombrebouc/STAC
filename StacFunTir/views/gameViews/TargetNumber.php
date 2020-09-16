@@ -10,8 +10,8 @@
                     <input class="targetNbContainer bg-light mt-0 m-auto col-2" type="text" name="numberoftargets" value="" required="">
                 </div>
                 <div class="row">
-                    <input type="submit" class="btn btn-success p-2 mt-2 m-auto col-8" name="targetNumber"
-                        href="..\..\controllers\gameControllers\SelectingListController.php" value="SUIVANT">
+                    <a type="submit" class="btn btn-success p-2 mt-2 m-auto col-8" name="targetNumber"
+                        href="..\..\controllers\gameControllers\SelectingListController.php" value="SUIVANT">SUIVANT</a>
                 </div>
             </form>
         </div>

@@ -3,36 +3,44 @@
 
     class Game{
         private $id;
-        private $date;
-        private $numberoftargets;
-        private $id_games;
+        private $timing;
+        private $score;
+        private $nonshoot;
+        private $ratio;
+        private $id_users;
+        private $id_sessions;
         private $db;
 
-        // Méthode magique appelée lors du chargement "new User()"
-        public function __construct($_id=0,$_date='',$_numberoftargets='',$id_games=''){
+        public function __construct($_id=0,$_timing='', $_score='', $_nonshoot='', $_ratio='', $_id_users='', $_id_sessions=''){
             $this->db = Databases::getInstance();
-        // hydratation 
             $this->id = $_id;
-            $this->date = $_date;
-            $this->numberoftargets = $_numberoftargets;
-            $this->id_games = $id_games;
+            $this->timing = $_timing;
+            $this->score = $_score;
+            $this->nonshoot = $_nonshoot;
+            $this->id_ratio = $_id_ratio;
+            $this->id_users = $_id_users;
+            $this->id_sessions = $_id_sessions;
         }
-
+        // Création d'une méthode magique getter qui permettra de créer dynamiquement un getter pour chaque attribut existant.
+        // Méthode permettant de faire des échos de propriétés privées.
         public function __get($attr){
             return $this->$attr;
         }
-
         public function __set($attr, $value){
             $this->$attr = $value;
         }
         
         public function create(){
-			$insertGames_sql = 'INSERT INTO `gamesession` (`id`, `date`, `numberoftargets`, `id_games`) VALUES (:id, :date, :numberoftargets, :id_games);';
+			$insertGames_sql = 'INSERT INTO `session` (`id`, `timing`, `score`, `nonshoot`, `ratio`, `id_users`, `id_sessions`) 
+            VALUES (:id, :timing, :score, :nonshoot, :ratio, :id_users, :id_sessions);';
             $gamesStatement = $this->db->prepare($insertGames_sql);
 			$gamesStatement->bindValue(':id', $this->id, PDO::PARAM_INT);
-			$gamesStatement->bindValue(':date', $this->date, PDO::PARAM_STR);
-			$gamesStatement->bindValue(':numberoftargets', $this->numberoftargets, PDO::PARAM_INT);
-            $gamesStatement->bindValue(':id_games', $this->firstname, PDO::PARAM_INT);
+			$gamesStatement->bindValue(':timing', $this->date, PDO::PARAM_STR);
+			$gamesStatement->bindValue(':score', $this->date, PDO::PARAM_INT);
+			$gamesStatement->bindValue(':nonshoot', $this->date, PDO::PARAM_INT);
+			$gamesStatement->bindValue(':ratio', $this->date, PDO::PARAM_STR);
+			$gamesStatement->bindValue(':id_users', $this->date, PDO::PARAM_STR);
+			$gamesStatement->bindValue(':id_sessions', $this->numberoftargets, PDO::PARAM_STR);
             return $gamesStatement->execute();
         }
 
@@ -42,7 +50,7 @@
          */
 
 		public function readAll(){
-            $listGames_sql = 'SELECT `id`,`date`, `numberoftargets`, `id_games` FROM `gamesession`;';
+            $listGames_sql = 'SELECT `id`,`timing`, `score`,`nonshoot`, `ratio`,`id_users`, `id_games` FROM `games`;';
             $gamesStatement = $this->db->query($listGames_sql);
             $listGames = [];
             if ($gamesStatement instanceof PDOstatement){
@@ -51,7 +59,7 @@
             return $listGames;
         }
 		public function readSingle(){
-            $gameInfos_sql = 'SELECT `date`, `numberoftargets`, `id_games` FROM `gamesession` WHERE `id`=:id';
+            $gameInfos_sql = 'SELECT `timing`, `score`, `nonshoot`,`ratio` FROM `games` WHERE `id`=:id';
             $gameStatement = $this->db->prepare($gameInfos_sql);
             $gameStatement->bindValue(':id', $this->id,PDO::PARAM_INT);
             $gameInfos = null;
