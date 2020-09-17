@@ -5,6 +5,7 @@ require_once dirname(__FILE__).'\..\..\models\Sessions.php';
 require_once dirname(__FILE__).'\..\..\models\Games.php';
 require_once dirname(__FILE__).'\..\HeaderController.php';
 
+
 //init de variables de points
 // le total des points sera divisé par le temps
 // ex: 10pts
@@ -14,17 +15,31 @@ $nonshootOnDrill = '';
 // temps donné en secondes au centième près
 $timeOnDrill = '';
 
-
-// récupération des utilisateurs selectionnés
-if(!empty($_POST['users'])){
-    foreach($_POST['users'] as $userId){
-        //var_dump($user);
-        $game = new Game(0,'','','','', $userId, $id_session);
-        $gameInfos=$game->createGame();
-        var_dump( $game);
-        header('Location: \..\controllers\gameControllers\ScoringGameController.php?userId='.$userId);
-    }
+// je vérifie l'envoi de mon formulaire
+if(isset($_POST['ScoreCalculator'])){
+    var_dump($_POST['ScoreCalculator']);
+        $drillPenalty = $_POST['nonshootOnDrill']*(3*100);
+        // je récupère le temps en sec que je convertie au centième
+        $drillTime = $_POST['timeOnDrill']*(100);
+        // je récupère le score que je multiplie par 100
+        $drillScore = $_POST['pointsOnDrill']*(100);
+        // je divise le nombre de points par le temps total au centième
+        // je divise mon ratio par 100 pour obtenir le ratio final
+        $drillUserRatio = ($drillScore/($drillTime + $drillPenalty));
+        var_dump($drillUserRatio);
+        // récupération des utilisateurs selectionnés
+            if(!empty($_POST['users'])){
+                foreach($_POST['users'] as $userId){
+                    var_dump($user);
+                    $game = new Game(0,'','','','', $userId, $id_session);
+                    $gameInfos=$game->createGame();
+                    var_dump( $game);
+                    //header('Location: \..\controllers\gameControllers\ScoringGameController.php?userId='.$userId);
+                }
+            }
 }
+
+
 
 require dirname(__FILE__).'\..\..\views\gameViews\ScoringGame.php';
 require_once dirname(__FILE__).'\..\FooterController.php';

@@ -1,11 +1,11 @@
 <div class="container-fluid targetCard p-0 col-xs-10 col-sm-10 col-md-6 mt-5 m-auto">
-    <div class="container-fluid containerHeader">
-        <div class="row text-right p-0 col-12">
-            <div class="scoringHeaderPix p-0 mt-1">
-                <div class="mt-4">
-                    <h4>Nom</h4>
-                    <h4>Prénom</h4>
-                    <h4>Licence</h4>
+    <div class="container-fluid containerHeader p-0">
+        <div class="row text-right p-0 col-12 m-0">
+            <div class="scoringHeaderPix p-0 mt-1 col-12">
+                <div class="mt-4 mr-0">
+                    <h5>NOM</h5>
+                    <h5>Prénom</h5>
+                    <h5>Licence</h5>
                 </div>
             </div>
         </div>
@@ -37,7 +37,7 @@
                         </div>
                         <div class="row justify-content-center">
                             <input type="submit" class="btn btn-success col-3 m-2 text-center" name="ScoreCalculator"
-                                value="Résultat">
+                                value="Suivant">
                         </div>
                     </div>
         </form>
