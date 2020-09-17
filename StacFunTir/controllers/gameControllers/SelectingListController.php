@@ -16,7 +16,7 @@ if(!empty($_POST['users'])){
         //var_dump($user);
         $game = new Game(0,'','','','', $userId, $id_session);
         $gameInfos=$game->createGame();
-        var_dump( $game);
+        //var_dump( $game);
         header('Location: \..\controllers\gameControllers\ScoringGameController.php?userId='.$userId);
     }
 }

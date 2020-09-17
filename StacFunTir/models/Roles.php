@@ -39,4 +39,5 @@
             $userRoleUpdate = $this->db->prepare($userRoleUpdate_sql);
             $userRoleUpdate->bindValue(':id', $this->id,PDO::PARAM_INT);
             return $userRoleUpdate->execute();
-		}
+        }
+    }

@@ -20,10 +20,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 }
 // création de la session et redirection vers la selection des joueurs
 if($isSubmitted && count($errors) == 0){
-    $session = new Session(0, $_POST['numberoftargets']);
+    $session = new Session(0, $numberoftargets);
     // initialisation de la session par sa création
     $id_session = $session->createSession();
-
+    // si $id_session a fonctionné, on passe sur la page suivante
+    //en récupérant(get) id de la session dans l'url de la page
     if($id_session){
         $createSessionSuccess =true;
         header('Location: \..\controllers\gameControllers\SelectingListController.php?id_session='.$id_session);

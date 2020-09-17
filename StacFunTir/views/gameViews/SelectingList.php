@@ -14,7 +14,7 @@
             <tbody>
                 <?php 
                     if(count($listUsers) > 0){ 
-                    foreach($listUsers as $number=>$user){
+                    foreach($listUsers as $number=>$userId){
                 ?>
                 <tr class="text-dark">
                     <td class="col-2">
@@ -30,7 +30,7 @@
             </tbody>
         </table>
             <div>            
-                <input type="submit" class="btn btn-success" href="\..\controllers\gameControllers\ValidationListController.php" value="VALIDER LA LISTE">
+                <input type="submit" class="btn btn-success" href="\..\controllers\gameControllers\ScoringGameController.php" value="SUIVANT">
             </div>
     </form>
 
