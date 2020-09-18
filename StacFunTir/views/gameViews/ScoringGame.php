@@ -45,6 +45,7 @@
                                 class="text-left text-light text-uppercase col-4 p-2 ml-2">Temps</label>
                             <div class="col-3"></div>
                             <input class="col-3 rounded m-3" type="text" name="timeOnDrill" value="" required="">
+                            <input class="col-3 rounded m-3" type="hidden" name="hiddenUserTurn" value="<?= $hiddenUserTurn; ?>">
                         </div>
                         <div class="row justify-content-center">
                             <input type="submit" class="btn btn-success col-3 m-2 text-center" name="ScoreCalculator"

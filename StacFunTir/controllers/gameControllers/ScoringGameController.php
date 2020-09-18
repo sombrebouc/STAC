@@ -16,33 +16,49 @@ $nonshootOnDrill = '';
 $timeOnDrill = '';
 $user = new User();
 $userRef=$user->readAllUsers();
+// init de la variable cachée dans le form ScoringGame.php
+$hiddenUserTurn = 1;
 
+// ===== COUNT & INCREMENT USERS  =====//
 
-// je vérifie l'envoi de mon formulaire
-if(isset($_POST['ScoreCalculator'])){
-    var_dump($_POST['ScoreCalculator']);
-        $drillPenalty = $_POST['nonshootOnDrill']*(3*100);
-        // je récupère le temps en sec que je convertie au centième
-        $drillTime = $_POST['timeOnDrill']*(100);
-        // je récupère le score que je multiplie par 100
-        $drillScore = $_POST['pointsOnDrill']*(100);
-        // je divise le nombre de points par le temps total au centième
-        // je divise mon ratio par 100 pour obtenir le ratio final
-        $drillUserRatio = ($drillScore/($drillTime + $drillPenalty));
-        var_dump($drillUserRatio);
-        // récupération des utilisateurs selectionnés
-            if(!empty($_POST['users'])){
-                foreach($_POST['users'] as $userId){
-                    //var_dump($user);
-                    $game = new Game(null,null,null,null,null, $userId, $id_session);
-                    $gameInfos=$game->updateGame();
-                    //var_dump( $game);
-                    header('Location: \..\controllers\gameControllers\ScoringGameController.php?userId='.$userId);
-                }
-            }
+if($_SERVER['REQUEST_METHOD'] == 'POST'){
+    $PlayersBySession = sizeof($userId);
+        var_dump($hiddenUserTurn);
+
+    for($hiddenUserTurn=1; $hiddenUserTurn<=$PlayersBySession; $hiddenUserTurn ++){
+        if($_POST['ScoreCalculator']){
+            var_dump($hiddenUserTurn);
+
+        }
+    }
 }
 
 
+// ===== CALCUL PASS ===== //
+
+// je vérifie l'envoi de mon formulaire
+//  if(isset($_POST['ScoreCalculator'])){
+//      var_dump($_POST['ScoreCalculator']);
+//          $drillPenalty = $_POST['nonshootOnDrill']*(3*100);
+//          // je récupère le temps en sec que je convertie au centième
+//          $drillTime = $_POST['timeOnDrill']*(100);
+//          // je récupère le score que je multiplie par 100
+//          $drillScore = $_POST['pointsOnDrill']*(100);
+//          // je divise le nombre de points par le temps total au centième
+//          // je divise mon ratio par 100 pour obtenir le ratio final
+//          $drillUserRatio = ($drillScore/($drillTime + $drillPenalty));
+//          var_dump($drillUserRatio);
+//          // récupération des utilisateurs selectionnés
+//              if(!empty($_POST['users'])){
+//                  foreach($_POST['users'] as $userId){
+//                      //var_dump($user);
+//                      $game = new Game(null,null,null,null,null, $userId, $id_session);
+//                      $gameInfos=$game->updateGame();
+//                      //var_dump( $game);
+//                      header('Location: \..\controllers\gameControllers\ScoringGameController.php?userId='.$userId);
+//                  }
+//              }
+//  }
 
 require dirname(__FILE__).'/../../views/gameViews/ScoringGame.php';
 require_once dirname(__FILE__).'/../FooterController.php';
