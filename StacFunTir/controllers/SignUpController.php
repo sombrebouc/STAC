@@ -1,9 +1,9 @@
 <?php
 session_start();
-require_once dirname(__FILE__).'\..\models\Users.php';
-require_once dirname(__FILE__).'\..\models\Sessions.php';
-require_once dirname(__FILE__).'\..\models\Games.php';
-require_once dirname(__FILE__).'\HeaderController.php';
+require_once dirname(__FILE__).'/../models/Users.php';
+require_once dirname(__FILE__).'/../models/Sessions.php';
+require_once dirname(__FILE__).'/../models/Games.php';
+require_once dirname(__FILE__).'/HeaderController.php';
 
     //validation des champs 
     $isSubmitted = false;
@@ -87,5 +87,5 @@ if ($isSubmitted && count($errors) == 0){
 
 }
 
-require_once dirname(__FILE__).'\..\views\SignUp.php';
-require_once dirname(__FILE__).'\FooterController.php';
+require_once dirname(__FILE__).'/../views/SignUp.php';
+require_once dirname(__FILE__).'/FooterController.php';

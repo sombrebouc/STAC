@@ -1,9 +1,9 @@
 <?php
 session_start();
-require_once dirname(__FILE__).'\..\models\Users.php';
-require_once dirname(__FILE__).'\..\models\Sessions.php';
-require_once dirname(__FILE__).'\..\models\Games.php';
-require_once dirname(__FILE__).'\HeaderController.php';
+require_once dirname(__FILE__).'/../models/Users.php';
+require_once dirname(__FILE__).'/../models/Sessions.php';
+require_once dirname(__FILE__).'/../models/Games.php';
+require_once dirname(__FILE__).'/HeaderController.php';
 
 $deleteUserSuccess = false;
 
@@ -25,5 +25,5 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         }
 }
 
-require_once dirname(__FILE__).'\..\views\UserDelete.php';
-require_once dirname(__FILE__).'\FooterController.php';
+require_once dirname(__FILE__).'/../views/UserDelete.php';
+require_once dirname(__FILE__).'/FooterController.php';

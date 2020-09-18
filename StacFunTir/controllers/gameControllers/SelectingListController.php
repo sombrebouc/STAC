@@ -1,9 +1,9 @@
 <?php 
 session_start();
-require_once dirname(__FILE__).'\..\..\models\Users.php';
-require_once dirname(__FILE__).'\..\..\models\Sessions.php';
-require_once dirname(__FILE__).'\..\..\models\Games.php';
-require_once dirname(__FILE__).'\..\HeaderController.php';
+require_once dirname(__FILE__).'/../../models/Users.php';
+require_once dirname(__FILE__).'/../../models/Sessions.php';
+require_once dirname(__FILE__).'/../../models/Games.php';
+require_once dirname(__FILE__).'/../HeaderController.php';
 
 //preparation de mon tableau d'utilisateurs
 $user = new User();
@@ -17,9 +17,9 @@ if(!empty($_POST['users'])){
         $game = new Game(0,'','','','', $userId, $id_session);
         $gameInfos=$game->createGame();
         //var_dump( $game);
-        header('Location: \..\controllers\gameControllers\ScoringGameController.php?userId='.$userId);
+        header('Location: /../controllers/gameControllers/ScoringGameController.php?userId='.$userId);
     }
 }
 
-require dirname(__FILE__).'\..\..\views\gameViews\SelectingList.php';
-require_once dirname(__FILE__).'\..\FooterController.php';
+require dirname(__FILE__).'/../../views/gameViews/SelectingList.php';
+require_once dirname(__FILE__).'/../FooterController.php';

@@ -1,9 +1,9 @@
 <?php 
 session_start();
-require_once dirname(__FILE__).'\..\..\models\Users.php';
-require_once dirname(__FILE__).'\..\..\models\Sessions.php';
-require_once dirname(__FILE__).'\..\..\models\Games.php';
-require_once dirname(__FILE__).'\..\HeaderController.php';
+require_once dirname(__FILE__).'/../../models/Users.php';
+require_once dirname(__FILE__).'/../../models/Sessions.php';
+require_once dirname(__FILE__).'/../../models/Games.php';
+require_once dirname(__FILE__).'/../HeaderController.php';
 
 
 //init de variables de points
@@ -41,5 +41,5 @@ if(isset($_POST['ScoreCalculator'])){
 
 
 
-require dirname(__FILE__).'\..\..\views\gameViews\ScoringGame.php';
-require_once dirname(__FILE__).'\..\FooterController.php';
+require dirname(__FILE__).'/../../views/gameViews/ScoringGame.php';
+require_once dirname(__FILE__).'/../FooterController.php';

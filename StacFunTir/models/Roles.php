@@ -1,5 +1,5 @@
 <?php
-    require_once dirname(__FILE__).'\..\utils\Database.php';
+    require_once dirname(__FILE__).'/../utils/Database.php';
 
     class Role{
         private $id;
