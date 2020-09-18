@@ -19,7 +19,7 @@
                 <tr class="text-dark">
                     <td class="col-2">
                         <div class="form-check form-switch">
-                          <input class="form-check-input d-flex align-items-center" type="checkbox" id="listSwitchChecking" name="users[]" value="<?= $user->id;?>">
+                          <input class="form-check-input d-flex align-items-center" type="checkbox" id="listSwitchChecking" name="users[]" value="<?= $userId->id;?>">
                         </div>
                     </td>
                     <td> <?= $userId->firstname; ?></td>
@@ -30,7 +30,7 @@
             </tbody>
         </table>
             <div>            
-                <input type="submit" class="btn btn-success" href="\..\controllers\gameControllers\ScoringGameController.php" value="SUIVANT">
+                <input type="submit" class="btn btn-success" value="SUIVANT">
             </div>
     </form>
 

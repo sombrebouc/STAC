@@ -11,7 +11,7 @@
         private $id_sessions;
         private $db;
 
-        public function __construct($_id=0,$_timing='', $_score='', $_nonshoot='', $_ratio='', $_id_users='', $_id_sessions=''){
+        public function __construct($_id=0,$_timing=0, $_score=0, $_nonshoot=0, $_ratio='', $_id_users=0, $_id_sessions=0){
             $this->db = Databases::getInstance();
             $this->id = $_id;
             $this->timing = $_timing;
@@ -33,14 +33,15 @@
         public function createGame(){
 			$insertGames_sql = 'INSERT INTO `games` (`id`, `timing`, `score`, `nonshoot`, `ratio`, `id_users`, `id_sessions`) 
             VALUES (:id, :timing, :score, :nonshoot, :ratio, :id_users, :id_sessions);';
+            var_dump($insertGames_sql);
             $gameStmt = $this->db->prepare($insertGames_sql);
 			$gameStmt->bindValue(':id', $this->id, PDO::PARAM_INT);
-			$gameStmt->bindValue(':timing', $this->timing, PDO::PARAM_STR);
+			$gameStmt->bindValue(':timing', $this->timing, PDO::PARAM_INT);
 			$gameStmt->bindValue(':score', $this->score, PDO::PARAM_INT);
 			$gameStmt->bindValue(':nonshoot', $this->nonshoot, PDO::PARAM_INT);
 			$gameStmt->bindValue(':ratio', $this->ratio, PDO::PARAM_STR);
-			$gameStmt->bindValue(':id_users', $this->id_users, PDO::PARAM_STR);
-			$gameStmt->bindValue(':id_sessions', $this->id_sessions, PDO::PARAM_STR);
+			$gameStmt->bindValue(':id_users', $this->id_users, PDO::PARAM_INT);
+			$gameStmt->bindValue(':id_sessions', $this->id_sessions, PDO::PARAM_INT);
             return $gameStmt->execute();
         }
 
@@ -72,11 +73,18 @@
             $gameScoreUpdate_sql = 'UPDATE `games` SET `timing`=:timing,`score`=:score,`nonshoot`=:nonshoot,`ratio`=:ratio WHERE `id`=:id;';
             $gameScoreUpdate = $this->db->prepare($userUpdate_sql);
             $gameScoreUpdate->bindValue(':id', $this->id,PDO::PARAM_INT);
-			$gameScoreUpdate->bindValue(':timing', $this->timing,PDO::PARAM_STR);
+			$gameScoreUpdate->bindValue(':timing', $this->timing,PDO::PARAM_INT);
             $gameScoreUpdate->bindValue(':score', $this->score,PDO::PARAM_INT);
             $gameScoreUpdate->bindValue(':nonshoot',$this->nonshoot,PDO::PARAM_INT);
             $gameScoreUpdate->bindValue(':ratio',$this->ratio,PDO::PARAM_INT);
             return $gameScoreUpdate->execute();
+		}
+		public function followingUser(){
+            $followingUser_sql = 'SELECT `id_users` FROM `games` WHERE `id_sessions`=:id_sessions;';
+            $followingUser = $this->db->prepare($userUpdate_sql);
+            $followingUser->bindValue(':id_users', $this->id_users,PDO::PARAM_INT);
+            $followingUser->bindValue(':id_sessions', $this->id_sessions,PDO::PARAM_INT);
+            return $followingUser->execute();
 		}
         
 		// public function delete(){

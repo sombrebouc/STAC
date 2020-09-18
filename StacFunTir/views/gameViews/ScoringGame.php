@@ -3,9 +3,20 @@
         <div class="row text-right p-0 col-12 m-0">
             <div class="scoringHeaderPix p-0 mt-1 col-12">
                 <div class="mt-4 mr-0">
-                    <h5>NOM</h5>
-                    <h5>Prénom</h5>
-                    <h5>Licence</h5>
+
+                    <?php 
+                    if(count($userRef) > 0){ 
+                    foreach($userRef as $number=>$userId){
+                    ?>
+
+                    <h5><?= $userId->lastname; ?></h5>
+                    <h5><?= $userId->firstname; ?></h5>
+                    <h5><?= $userId->license; ?></h5>
+
+                    <?php }
+                    }
+                    ?>
+
                 </div>
             </div>
         </div>

@@ -14,6 +14,9 @@ $pointsOnDrill = '';
 $nonshootOnDrill = '';
 // temps donné en secondes au centième près
 $timeOnDrill = '';
+$user = new User();
+$userRef=$user->readAllUsers();
+
 
 // je vérifie l'envoi de mon formulaire
 if(isset($_POST['ScoreCalculator'])){
@@ -30,11 +33,11 @@ if(isset($_POST['ScoreCalculator'])){
         // récupération des utilisateurs selectionnés
             if(!empty($_POST['users'])){
                 foreach($_POST['users'] as $userId){
-                    var_dump($user);
-                    $game = new Game(0,'','','','', $userId, $id_session);
-                    $gameInfos=$game->createGame();
-                    var_dump( $game);
-                    //header('Location: \..\controllers\gameControllers\ScoringGameController.php?userId='.$userId);
+                    //var_dump($user);
+                    $game = new Game(null,null,null,null,null, $userId, $id_session);
+                    $gameInfos=$game->updateGame();
+                    //var_dump( $game);
+                    header('Location: \..\controllers\gameControllers\ScoringGameController.php?userId='.$userId);
                 }
             }
 }

@@ -13,11 +13,12 @@ $id_session = $_GET['id_session'];
 // récupération des utilisateurs selectionnés
 if(!empty($_POST['users'])){
     foreach($_POST['users'] as $userId){
-        //var_dump($user);
-        $game = new Game(0,'','','','', $userId, $id_session);
-        $gameInfos=$game->createGame();
+        //var_dump($_POST['users']);
+        
+        $game = new Game(null,null,null,null,null, $userId, $id_session);
+        $game->createGame();
         //var_dump( $game);
-        header('Location: /../controllers/gameControllers/ScoringGameController.php?userId='.$userId);
+        header('Location: /../controllers/gameControllers/ScoringGameController.php?id_session='.$id_session);
     }
 }
 
