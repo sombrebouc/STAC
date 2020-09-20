@@ -10,7 +10,7 @@ $deleteUserSuccess = false;
 if(isset($_GET['id'])){
     $id = (int) $_GET['id'];
     $user = new User($id);
-    $userInfos = $user->readSingle();
+    $userInfos = $user->readOneUser();
     $fullName = $userInfos->lastname.' '.$userInfos->firstname;
 
 }
@@ -19,9 +19,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $id = (int) $_POST['id'];
     $user = new User($id);
         if($user->delete()){
-            var_dump($user);
+            //var_dump($user);
             $deleteUserSuccess = true;
-            header('location:UsersListController.php');
+            header('refresh:1; Location:/UsersListController.php');
         }
 }
 

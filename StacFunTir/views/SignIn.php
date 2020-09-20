@@ -1,6 +1,6 @@
 <?php
 if ($userConnectingSuccess == true): ?>
-	<div class="container usersTableContainer text-center shadow rounded col-xs-10 col-md-8 pt-2 pb-2">
+	<div class="container usersTableContainer mt-5 text-center shadow rounded col-xs-10 col-md-8 pt-2 pb-2">
     	<div class="row">
     	    <div class="col-12" role="alert">
     	        <h3 class="text-center text-success">Connecté avec succès</h3>
@@ -14,7 +14,8 @@ if ($userConnectingSuccess == true): ?>
 	<div>
 		<h3 class="bg-dark rounded p-2 text-light">Connexion</h3>
 	</div>
-		<form action="" method="POST">
+		<form method="POST">
+		<input type="hidden" di="g-token" name="g-token">
 			<div>
 				<label class="text-uppercase text-dark" for="">Licence FFTIR</label>
 			</div>
@@ -36,8 +37,16 @@ if ($userConnectingSuccess == true): ?>
 			<div class="ml-auto mr-auto col-md-4 col-xs-10 mt-5 pb-3">
 				<input type="submit" class="btn btn-block btn-success col-6 text-light text-uppercase" 
 				name="connecting" value="Se connecter">
+				<div class="g-recaptcha" data-sitekey="6LdKds4ZAAAAAN6fVi8huG_ns6bkjbT3Mxty1b20"></div>
 			</div>
 		</form>
 </div>
+<script>
+	grecaptcha.ready(function() {
+	  grecaptcha.execute('6LdKds4ZAAAAAN6fVi8huG_ns6bkjbT3Mxty1b20', {action: 'submit'}).then(function(token) {
+	    document.getElementById("g-token").value = g-token;
+	  });
+	});
+</script>
 
 <?php endif; ?>

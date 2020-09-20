@@ -13,8 +13,9 @@ require_once dirname(__FILE__).'/HeaderController.php';
 
     $firstname = $lastname = $license = $password = $passwordConfirm ='';
     $errors = [];
+    $userConnectingSuccess = false;
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+if ($_SERVER['REQUEST_METHOD'] === 'POST'){
 
     $isSubmitted = true;
      //verif champ prénom
@@ -59,6 +60,9 @@ if ($isSubmitted && count($errors) == 0){
         if(!$users->verifyLicense()){
             if($users->create()){
                 $createUsersSuccess = true;
+                header("Refresh:1");
+                header("Location: /../views/SecurityInfo.php/Refresh:1");
+
 // ====== CONNEXION AU SITE ======//
 //================================//
 

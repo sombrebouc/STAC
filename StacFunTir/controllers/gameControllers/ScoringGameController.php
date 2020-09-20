@@ -22,8 +22,8 @@ $hiddenUserTurn = 1;
 // ===== COUNT & INCREMENT USERS  =====//
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
-    $PlayersBySession = sizeof($userId);
-        var_dump($hiddenUserTurn);
+    $PlayersBySession = sizeof($userRef);
+        var_dump($PlayersBySession);
 
     for($hiddenUserTurn=1; $hiddenUserTurn<=$PlayersBySession; $hiddenUserTurn ++){
         if($_POST['ScoreCalculator']){
@@ -31,6 +31,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
         }
     }
+//}else{
+//    header('refresh:1; Location: ScoringGameController.php?userId='.$userId);
 }
 
 
@@ -55,7 +57,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 //                      $game = new Game(null,null,null,null,null, $userId, $id_session);
 //                      $gameInfos=$game->updateGame();
 //                      //var_dump( $game);
-//                      header('Location: \..\controllers\gameControllers\ScoringGameController.php?userId='.$userId);
+//                      header('refresh:1; Location: /ScoringGameController.php?userId='.$userId);
 //                  }
 //              }
 //  }

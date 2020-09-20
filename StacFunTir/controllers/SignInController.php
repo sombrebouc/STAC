@@ -13,8 +13,8 @@ $license = $password = $id_roles = '';
 $errors = [];
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['connecting'])){
-    $isSubmitted = true;
 
+    $isSubmitted = true;
     if(!empty($_POST['license'])){
         $license = $_POST['license'];
         $password = $_POST['password'];
@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['connecting'])){
                 $_SESSION['user']['lastname'] = $connecting->lastname;
                 $_SESSION['user']['license'] = $connecting->license;
                 $userConnectingSuccess = true;
-                header('Location: \..\controllers\SignInController.php?id='.$_SESSION['user']['license']);
+                header("Location: /../views/SecurityInfo.php/Refresh:1");
             }else{
                 $errors['password']= "Le mot de passe n' est pas valide";
             }        
@@ -43,18 +43,3 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['connecting'])){
 }
 require_once dirname(__FILE__).'/../views/SignIn.php';
 require_once dirname(__FILE__).'/FooterController.php';
-
-
-
-        // $userLicenseTest = $users->verifyLicense();
-        // if(!$userLicenseTest){
-        //     $errors['license'] = 'Le numéro de licence n\'est pas valide';
-        // }else{
-        //     $userPasswordTest = $users->verifyPasword();
-        //     var_dump($userPasswordTest);
-        //     if(password_verify ($_POST['password'], $userPasswordTest->password)){
-        //         $userConnectingSuccess = true;
-        //     }
-        // }
-// Ecriture du cookie contenant les éléments de connexion durant 24h
-// setcookie('$license', '$password', time() + 12*3600, null, null, false, true);

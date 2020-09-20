@@ -1,0 +1,5 @@
+php_flag display_errors On
+AuthName "/controllers/SignInControllers.php"
+AuthType Basic
+AuthUserFile "/homepages/46/d843349434/htdocs/stac/.htpasswd"
+Require valid-user
