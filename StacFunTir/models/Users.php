@@ -46,7 +46,15 @@
             $usersStatement->bindValue(':firstname', $this->firstname, PDO::PARAM_STR);
             $usersStatement->bindValue(':license',$this->license, PDO::PARAM_STR);
             $usersStatement->bindValue(':password',$this->password, PDO::PARAM_STR);
-            return $usersStatement->execute();
+            // init de l'id de session en string pour la récupération du lastInsertId()
+            $idUserConnect = "";
+            // si les infos sont remplies, on lance l'execution de la création de la session
+            if($usersStatement->execute()){
+                // on alimente la variable par le lastInsertId() contenu dans la bdd
+                $idUserConnect = $this->db->lastInsertId();
+            }
+            // on retourne la valeur de la variable alimentée par le lastInsertId()
+            return $idUserConnect; 
         }
 
         /**
@@ -120,6 +128,7 @@
 
 		public function delete(){
             $usersDelete_sql = 'DELETE FROM `users` WHERE `id`=:id;';
+            
             $usersDelete = $this->db->prepare($usersDelete_sql);
             $usersDelete->bindValue(':id', $this->id,PDO::PARAM_INT);
             return $usersDelete->execute();

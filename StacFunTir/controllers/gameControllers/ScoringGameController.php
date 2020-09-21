@@ -15,7 +15,7 @@ $nonshootOnDrill = '';
 // temps donné en secondes au centième près
 $timeOnDrill = '';
 $user = new User();
-$userRef=$user->readAllUsers();
+$userRef= $user->readGameBySession();
 // init de la variable cachée dans le form ScoringGame.php
 $hiddenUserTurn = 1;
 

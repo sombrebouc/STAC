@@ -14,7 +14,7 @@ if (isset($_GET['signOutBtn'])) {
     unset($_SESSION['user']);
     // détruit la session
     session_destroy();
-    header("Location: /../views/SecurityInfo.php/Refresh:1");
+    header("Refresh: 1;url=/../controllers/SecurityInfoController.php");
 }
 
 require_once dirname(__FILE__).'/../views/SignOut.php';

@@ -1,9 +1,6 @@
 <?php
 session_start();
 require_once dirname(__FILE__).'/../models/Users.php';
-require_once dirname(__FILE__).'/../models/Sessions.php';
-require_once dirname(__FILE__).'/../models/Games.php';
-require_once dirname(__FILE__).'/HeaderController.php';
 
     //validation des champs 
     $isSubmitted = false;
@@ -58,38 +55,40 @@ if ($isSubmitted && count($errors) == 0){
         $passwordHash = password_hash($password, PASSWORD_BCRYPT);
         $users = new User (0, $_POST['firstname'], $_POST['lastname'], $_POST['license'], $passwordHash);
         if(!$users->verifyLicense()){
-            if($users->create()){
+
+// ====== CONNEXION AU SITE ======//
+//================================//
+            //
+            $idUserConnect = $users->create();
+
+            if($idUserConnect){
+
+                $_SESSION['user']['auth'] = true;
+                $_SESSION['user']['id'] = $idUserConnect;
+                //
+                $users = new User ($idUserConnect);
+                $objUserFromDB = $users->readOneUser();
+                //
+                $_SESSION['user']['id_roles'] = 2;
+                $_SESSION['user']['firstname'] = $objUserFromDB->firstname;
+                $_SESSION['user']['lastname'] = $objUserFromDB->lastname;
+                $_SESSION['user']['license'] = $objUserFromDB->license;
+                //
                 $createUsersSuccess = true;
-                header("Refresh:1");
-                header("Location: /../views/SecurityInfo.php/Refresh:1");
+                header("Refresh: 1;url=/../controllers/SecurityInfoController.php");
 
+            }
 // ====== CONNEXION AU SITE ======//
 //================================//
 
-//  $id = $db->lastInsertId();
-//  if($createUsersSuccess->readSingle()){
-//      if(password_verify ($password, $connecting->password)){
-//              $_SESSION['user']['auth'] = true;
-//              $_SESSION['user']['id'] = $connecting->id;
-//              $_SESSION['user']['id_roles'] = $connecting->id_roles;
-//              $_SESSION['user']['firstname'] = $connecting->firstname;
-//              $_SESSION['user']['lastname'] = $connecting->lastname;
-//              $_SESSION['user']['license'] = $connecting->license;
-//              $userConnectingSuccess = true;
-//              header('Location: \..\controllers\SignInController.php?id='.$_SESSION['user']['license']);
-//          }
-//  }
-// ====== CONNEXION AU SITE ======//
-//================================//
             }else{
                 $errors['createUsersSuccess'] = 'La création a échoué, contactez l\'administrateur';
-                }
+            }
         }else{
             $errors['license'] = 'Ce numéro de licence est déjà utilisé, veuillez contacter l\'administateur';
-            }
+        }
+    
 
-
-}
-
+require_once dirname(__FILE__).'/HeaderController.php';
 require_once dirname(__FILE__).'/../views/SignUp.php';
 require_once dirname(__FILE__).'/FooterController.php';

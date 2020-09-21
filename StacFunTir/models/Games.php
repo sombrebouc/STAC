@@ -69,6 +69,18 @@
             }
             return $gameInfos;
         }
+
+		public function readGameBySession(){
+            $gameBySessionStmt_sql = 'SELECT `id_users` FROM `games` WHERE `id_sessions`=:id_sessions';
+            $gameBySessionStmt = $this->db->prepare($gameBySessionStmt_sql);
+            $gameBySessionStmt->bindValue(':id_sessions', $this->id_sessions,PDO::PARAM_INT);
+            $gameBySessionStmt = null;
+            if ($gameStmt->execute()){
+                $gameBySessionStmt = $gameStmt->fetch(PDO::FETCH_OBJ);
+            }
+            return $gameBySessionStmt;
+        }
+
 		public function updateGame(){
             $gameScoreUpdate_sql = 'UPDATE `games` SET `timing`=:timing,`score`=:score,`nonshoot`=:nonshoot,`ratio`=:ratio WHERE `id`=:id;';
             $gameScoreUpdate = $this->db->prepare($userUpdate_sql);

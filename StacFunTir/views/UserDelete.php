@@ -21,13 +21,14 @@
                 <p> ? </p> 
             </h3>
 
-<?php endif; ?>
-
         <form action="UsersDeleteController.php" method="POST">
-            <input type="hidden" name="fullName" value="<?= $fullName; ?>">
+            <input type="hidden" name="fullName" value="<?= isset($fullName)??""; ?>">
             <input type="hidden" name="id" value="<?= $id; ?>">
             <a class="btn btn-success ml-4 mr-2 mb-3" href="UsersListController.php">Annuler</a>
             <button class="btn btn-danger mb-3" type="submit">Supprimer</button>
-        </form>
+        </form> 
+
+<?php endif; ?>
+
     </div>
 </div>    

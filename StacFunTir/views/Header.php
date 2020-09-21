@@ -27,7 +27,7 @@ require_once dirname(__FILE__).'/../models/Users.php';
 
 <body class="background">
 
-<nav class="navbar navbar-expand-md col-12 navbar-dark bg-dark p-1 text-md-center shadow-sm">
+<nav class="navbar navbar-expand-md navbar-dark bg-dark p-1 text-md-center shadow-sm">
     <a href="#" class="navbar-brand pl-1 pr-2">Id: <?= $_SESSION['user']['license'] ?? " ...";?> </a>
     <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
         <span class="navbar-toggler-icon" role="button"></span>

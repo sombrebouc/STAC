@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['connecting'])){
                 $_SESSION['user']['lastname'] = $connecting->lastname;
                 $_SESSION['user']['license'] = $connecting->license;
                 $userConnectingSuccess = true;
-                header("Location: /../views/SecurityInfo.php/Refresh:1");
+                header("Refresh: 1;url=/../controllers/SecurityInfoController.php");
             }else{
                 $errors['password']= "Le mot de passe n' est pas valide";
             }        
