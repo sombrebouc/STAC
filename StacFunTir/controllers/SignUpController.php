@@ -75,7 +75,7 @@ if ($isSubmitted && count($errors) == 0){
                 $_SESSION['user']['license'] = $objUserFromDB->license;
                 //
                 $createUsersSuccess = true;
-                header("Refresh: 1;url=/../controllers/SecurityInfoController.php");
+                header("Refresh: 1;url=/controllers/SecurityInfoController.php");
 
             }
             // ====== CONNEXION AU SITE ======//

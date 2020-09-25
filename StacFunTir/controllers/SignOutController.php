@@ -3,7 +3,6 @@ session_start();
 require_once dirname(__FILE__).'/../models/Users.php';
 require_once dirname(__FILE__).'/../models/Sessions.php';
 require_once dirname(__FILE__).'/../models/Games.php';
-require_once dirname(__FILE__).'/HeaderController.php';
 // Déconnexion de la session
 
 if (isset($_GET['signOutBtn'])) {
@@ -14,8 +13,8 @@ if (isset($_GET['signOutBtn'])) {
     unset($_SESSION['user']);
     // détruit la session
     session_destroy();
-    header("Refresh: 1;url=/../controllers/SecurityInfoController.php");
+    header("Refresh: 1;url=/controllers/SecurityInfoController.php");
 }
-
+require_once dirname(__FILE__).'/HeaderController.php';
 require_once dirname(__FILE__).'/../views/SignOut.php';
 require_once dirname(__FILE__).'/FooterController.php';

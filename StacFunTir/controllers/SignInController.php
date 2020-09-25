@@ -3,7 +3,6 @@ session_start();
 require_once dirname(__FILE__).'/../models/Users.php';
 require_once dirname(__FILE__).'/../models/Sessions.php';
 require_once dirname(__FILE__).'/../models/Games.php';
-require_once dirname(__FILE__).'/HeaderController.php';
 
 //$id_session = session_id();
 
@@ -32,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['connecting'])){
                 $_SESSION['user']['lastname'] = $connecting->lastname;
                 $_SESSION['user']['license'] = $connecting->license;
                 $userConnectingSuccess = true;
-                header("Refresh: 1;url=/../controllers/SecurityInfoController.php");
+                header("Refresh: 1;url=/controllers/SecurityInfoController.php");
             }else{
                 $errors['password']= "Le mot de passe n' est pas valide";
             }        
@@ -41,5 +40,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['connecting'])){
         }
     }
 }
+require_once dirname(__FILE__).'/HeaderController.php';
 require_once dirname(__FILE__).'/../views/SignIn.php';
 require_once dirname(__FILE__).'/FooterController.php';

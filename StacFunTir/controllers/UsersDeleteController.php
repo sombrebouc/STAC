@@ -21,7 +21,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         if($user->delete()){
             //var_dump($user);
             $deleteUserSuccess = true;
-            header("Refresh: 1;url=/../controllers/UsersListController.php");
+            header("Refresh: 1;url=/controllers/UsersListController.php");
         }
 }
 

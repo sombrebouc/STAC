@@ -2,7 +2,6 @@
 session_start();
 require_once dirname(__FILE__).'/../../models/Sessions.php';
 require_once dirname(__FILE__).'/../../models/Games.php';
-require_once dirname(__FILE__).'/../HeaderController.php';
 
 $regexTargets = "/^[0-9]{1,}$/";
 $date= $numberoftargets= '';
@@ -27,9 +26,9 @@ if($isSubmitted && count($errors) == 0){
     //en récupérant(get) id de la session dans l'url de la page
     if($id_session){
         $createSessionSuccess =true;
-        header('Location: /../controllers/gameControllers/SelectingListController.php?id_session='.$id_session);
+      //header('Refresh:1;url: /SelectingListController.php?id_session='.$id_session);
     }
 }
-
+require_once dirname(__FILE__).'/../HeaderController.php';
 require_once dirname(__FILE__).'/../../views/gameViews/TargetNumber.php';
 require_once dirname(__FILE__).'/../FooterController.php';

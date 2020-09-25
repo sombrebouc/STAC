@@ -9,9 +9,9 @@
                     //foreach($userSessionGame as $key=>$id_users){
                     ?>
 
-                    <h5>pipo</h5>
-                    <h5>pulpy</h5>
-                    <h5>1478520</h5>
+                    <h5>Nom: <?= $_POST['user_id']['lastname'] ?></h5>
+                    <h5>Prénom: <?= $_POST['user_id']['firstname'] ?></h5>
+                    <h5>Licence: <?= $_POST['user_id']['license'] ?></h5>
 
                     <?php //}
                     //}

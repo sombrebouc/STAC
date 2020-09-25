@@ -2,15 +2,15 @@
     <div class="row">
         <div class="targetHeaderPix"></div>
         <div class="containerFormTarget shadow-sm ml-auto mt-1 mb-2 bg-dark">
-            <form action="" method="post">
+            <form action="/../../controllers/gameControllers/SelectingListController.php?id_session='.$id_session" method="POST">
                 <div>
                     <h4 class="text-uppercase text-light text-center">Ciblerie</h4>
                 </div>
                 <div class="row">
-                    <input class="targetNbContainer bg-light rounded p-2 mt-0 m-auto col-2" type="text" name="numberoftargets" value="" required="">
+                    <input class="targetNbContainer bg-light rounded p-2 mt-0 m-auto col-2 text-center" type="text" name="numberoftargets" value="" required="">
                 </div>
                 <div class="row">
-                    <input type="submit" class="btn btn-success p-2 mt-2 m-auto col-8" value="SUIVANT">
+                    <input type="submit" class="btn btn-success p-2 mt-2 m-auto col-8" name="targetsValidate" value="SUIVANT">
                 </div>
             </form>
         </div>

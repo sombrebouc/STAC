@@ -30,8 +30,8 @@ $hiddenUserTurn = 1;
 //
 //        }
 //    }
-////}else{
-////    header('refresh:1; Location: ScoringGameController.php?userId='.$userId);
+//}else{
+//    header('Refresh:1;url: /controllers/gameControllers/ScoringGameController.php?userId='.$userId);
 //}
 
 
@@ -56,7 +56,7 @@ if(isset($_POST['ScoreCalculator'])){
                     $game = new Game(null,null,null,null,null, $userId, $id_session);
                     $gameInfos=$game->updateGame();
                     //var_dump( $game);
-                    header('refresh:1; Location: /ScoringGameController.php?userId='.$userId);
+                    header('Refresh:1;url: /controllers/gameControllers/ScoringGameController.php?userId='.$userId);
                 }
             }
 }
