@@ -71,14 +71,14 @@
         }
 
 		public function readGameBySession(){
-            $gameBySessionStmt_sql = 'SELECT `id_users` FROM `games` WHERE `id_sessions`=:id_sessions';
-            $gameBySessionStmt = $this->db->prepare($gameBySessionStmt_sql);
+            $userSessionStmt_sql = 'SELECT `id_users` FROM `games` WHERE `id_sessions`=:id_sessions';
+            $gameBySessionStmt = $this->db->prepare($userSessionStmt_sql);
             $gameBySessionStmt->bindValue(':id_sessions', $this->id_sessions,PDO::PARAM_INT);
-            $gameBySessionStmt = null;
-            if ($gameStmt->execute()){
-                $gameBySessionStmt = $gameStmt->fetch(PDO::FETCH_OBJ);
+            $userSessionGame = null;
+            if ($gameBySessionStmt->execute()){
+                $userSessionGame = $gameBySessionStmt->fetch(PDO::FETCH_OBJ);
             }
-            return $gameBySessionStmt;
+            return $userSessionGame;
         }
 
 		public function updateGame(){

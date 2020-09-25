@@ -5,16 +5,16 @@
                 <div class="mt-4 mr-0">
 
                     <?php 
-                    if(count($userRef) > 0){ 
-                    foreach($userRef as $number=>$userId){
+                    //if(count(array($userSessionGame)) > 0){ 
+                    //foreach($userSessionGame as $key=>$id_users){
                     ?>
 
-                    <h5><?= $userId->lastname; ?></h5>
-                    <h5><?= $userId->firstname; ?></h5>
-                    <h5><?= $userId->license; ?></h5>
+                    <h5>pipo</h5>
+                    <h5>pulpy</h5>
+                    <h5>1478520</h5>
 
-                    <?php }
-                    }
+                    <?php //}
+                    //}
                     ?>
 
                 </div>

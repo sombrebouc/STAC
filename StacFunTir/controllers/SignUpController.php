@@ -49,15 +49,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
    } else {
        $errors['password'] = 'Les mots de passe ne correspondent pas';
    }
-   }
+}
 
 if ($isSubmitted && count($errors) == 0){
         $passwordHash = password_hash($password, PASSWORD_BCRYPT);
         $users = new User (0, $_POST['firstname'], $_POST['lastname'], $_POST['license'], $passwordHash);
         if(!$users->verifyLicense()){
 
-// ====== CONNEXION AU SITE ======//
-//================================//
+            // ====== CONNEXION AU SITE ======//
+            //================================//
             //
             $idUserConnect = $users->create();
 
@@ -78,17 +78,14 @@ if ($isSubmitted && count($errors) == 0){
                 header("Refresh: 1;url=/../controllers/SecurityInfoController.php");
 
             }
-// ====== CONNEXION AU SITE ======//
-//================================//
+            // ====== CONNEXION AU SITE ======//
+            //================================//
 
-            }else{
-                $errors['createUsersSuccess'] = 'La création a échoué, contactez l\'administrateur';
-            }
         }else{
             $errors['license'] = 'Ce numéro de licence est déjà utilisé, veuillez contacter l\'administateur';
         }
+}
     
-
 require_once dirname(__FILE__).'/HeaderController.php';
 require_once dirname(__FILE__).'/../views/SignUp.php';
 require_once dirname(__FILE__).'/FooterController.php';
