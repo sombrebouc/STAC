@@ -13,26 +13,51 @@ $pointsOnDrill = '';
 $nonshootOnDrill = '';
 // temps donné en secondes au centième près
 $timeOnDrill = '';
-$user = new Game();
-$userSessionGame= $user->readGameBySession();
+// $games = new Game();
+$usersInGame= new User();
 // init de la variable cachée dans le form ScoringGame.php
 $hiddenUserTurn = 1;
-
 // ===== COUNT & INCREMENT USERS  =====//
 
-//if($_SERVER['REQUEST_METHOD'] == 'POST'){
-//    $PlayersBySession = sizeof($userSessionGame);
-//        var_dump($PlayersBySession);
-//
-//    for($hiddenUserTurn=1; $hiddenUserTurn<=$PlayersBySession; $hiddenUserTurn ++){
-//        if($_POST['ScoreCalculator']){
-//            var_dump($hiddenUserTurn);
-//
-//        }
-//    }
-//}else{
-//    header('Refresh:1;url: /controllers/gameControllers/ScoringGameController.php?userId='.$userId);
-//}
+if(isset($_POST['users']))
+    {
+      // On assigne notre variable $_POST['checkbox_id']
+      $nombre=$_POST['users'];
+      
+      /* On crée une variable qui comptera le nombre de
+      checkbox choisis grâce à la fonction count() */
+      $totalUsers=count($nombre);
+      
+      // On affiche le résultat
+      $usersInGame =($totalUsers<=1) ? "" : "s"; // astuce pour le singulier ou le pluriel
+      echo "Vous avez sélectionné <strong>".$totalUsers."</strong> critère".$usersInGame;
+      
+      /* Une petite boucle pour afficher les valeurs qu'on 
+          a sélectionné dans notre formulaire */
+      for( $player=0; $player<$totalUsers; $player++ )
+      {
+        echo "<br />",$player+1,"e choix : ".$nombre[$player];
+      }
+    }
+    else
+    {
+      echo "Veuillez sélectionner un critère";
+    }
+
+// if($_SERVER['REQUEST_METHOD'] === 'POST'){
+//     $PlayersBySession = count($usersOnGame);
+//         var_dump($PlayersBySession);
+// 
+//     for($hiddenUserTurn=1; $hiddenUserTurn<=$PlayersBySession; $hiddenUserTurn ++){
+//         if($_POST['ScoreCalculator']){
+//             var_dump($hiddenUserTurn);
+// 
+//         }
+//     }
+// }else{
+//     echo 'je suis dans le else';
+//     //header('Refresh:1;url: /controllers/gameControllers/ScoringGameController.php?userId='.$userId);
+// }
 
 
 // ===== CALCUL PASS ===== //

@@ -1,10 +1,9 @@
-<div class="container-fluid usersTableContainer mt-5 text-center shadow rounded col-11 col-md-10 pt-4 pb-3">
+<div class="container-fluid usersTableContainer mt-5 text-center shadow rounded col-md-12 col-xl-6 pt-4 pb-3">
     <div class="">
         <table class="table table-striped">
             <div class="row">
                 <thead class="bg-dark p-2 text-light">
                     <tr class="">
-                        <th>#</th>
                         <th>Nom</th>
                         <th>Prénom</th>
                         <th>Licence</th>
@@ -19,7 +18,6 @@
                     foreach($listUsers as $number => $user){
                 ?>
                 <tr class="text-dark">
-                    <td> <?= $number+1 ?></td>
                     <td> <?= $user->firstname; ?></td>
                     <td> <?= $user->lastname; ?></td>
                     <td> <?= $user->license; ?></td>

@@ -37,13 +37,13 @@ if ($userConnectingSuccess == true): ?>
 			<div class="ml-auto mr-auto col-md-4 col-xs-10 mt-5 pb-3">
 				<input type="submit" class="btn btn-block btn-success col-6 text-light text-uppercase" 
 				name="connecting" value="Se connecter">
-				<div class="g-recaptcha" data-sitekey="6LdKds4ZAAAAAN6fVi8huG_ns6bkjbT3Mxty1b20"></div>
+				<div class="g-recaptcha" data-sitekey="6Ldz79AZAAAAAJ99x-Y4TJGPLVWJhIiGIYibz7A_"></div>
 			</div>
 		</form>
 </div>
 <script>
 	grecaptcha.ready(function() {
-	  grecaptcha.execute('6LdKds4ZAAAAAN6fVi8huG_ns6bkjbT3Mxty1b20', {action: 'submit'}).then(function(token) {
+	  grecaptcha.execute('6Ldz79AZAAAAAGFJR_FhphUaZQSBhFbirSUC5vCi', {action: 'submit'}).then(function(token) {
 	    document.getElementById("g-token").value = g-token;
 	  });
 	});

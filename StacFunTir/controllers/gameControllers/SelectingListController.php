@@ -12,10 +12,10 @@ $id_session = $_GET['id_session'];
 // récupération des utilisateurs selectionnés
 if(!empty($_POST['users'])){
     foreach($_POST['users'] as $userId){
-        //var_dump($_POST['users']);
-        $game = new Game(null,null,null,null,null, $userId, $id_session);
+        var_dump($_POST['users']);
+        $game = new Game( '', '', '', '', '', $userId, $id_session);
         $game->createGame();
-        //var_dump( $game);
+        var_dump( $game);
     }
 }
 require_once dirname(__FILE__).'/../HeaderController.php';

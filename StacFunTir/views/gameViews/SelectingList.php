@@ -1,5 +1,5 @@
-<div class="container-fluid usersTableContainer mt-5 text-center shadow rounded col-11 col-md-10 pt-4 pb-3">
-    <form action="/../../controllers/gameControllers/ScoringGameController.php?id_session='.$id_session" method="post">
+<div class="container-fluid usersTableContainer mt-5 text-center shadow rounded col-xs-12 col-sm-12 col-md-12 col-xl-6 pt-4 pb-3">
+    <form action="/../../controllers/gameControllers/ScoringGameController.php?id_session='.$id_session" method="POST">
         <table class="table table-striped">
             <div class="row">
                 <thead class="bg-dark align-middle p-2 text-light">
@@ -19,7 +19,7 @@
                 <tr class="text-dark">
                     <td class="col-2">
                         <div class="form-check form-switch">
-                          <input class="form-check-input d-flex align-items-center" type="checkbox" id="listSwitchChecking" name="users[]" value="<?= $userId->id;?>">
+                          <input class="switchChecking form-check-input d-flex align-items-center" type="checkbox" id="listSwitchChecking" name="users[]" value="<?= $userId->id;?>">
                         </div>
                     </td>
                     <td> <?= $userId->firstname; ?></td>

@@ -81,6 +81,17 @@
             }
             return $userInfos;
         }
+
+		public function readSelectedUser(){
+            $selectedUserInfos_sql = 'SELECT `lastname`, `firstname`,`license` FROM `users` WHERE `id`=:id';
+            $selectedUserStatement = $this->db->prepare($selectedUserInfos_sql);
+            $selectedUserStatement->bindValue(':id', $this->id,PDO::PARAM_INT);
+            $selectedUserInfos = null;
+            if ($selectedUserStatement->execute()){
+                $selectedUserInfos = $selectedUserStatement->fetch(PDO::FETCH_OBJ);
+            }
+            return $selectedUserInfos;
+        }
         
         public function readingConnect(){
             $readingConnect_sql = 'SELECT `id`, `lastname`, `firstname`, `license`, `password`, `id_roles` FROM `users` WHERE `license`=:license';

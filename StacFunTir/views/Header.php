@@ -10,11 +10,11 @@ require_once dirname(__FILE__).'/../models/Users.php';
 
     <link rel="stylesheet" href="/../../assets/css/bootstrap.css">
     <link rel="stylesheet" href="/../../assets/css/style.css">
-    <script src="https://www.google.com/recaptcha/api.js?render=6LdKds4ZAAAAAN6fVi8huG_ns6bkjbT3Mxty1b20"></script>
+    <script src="https://www.google.com/recaptcha/api.js?render=6Ldz79AZAAAAAGFJR_FhphUaZQSBhFbirSUC5vCi"></script>
 
     <?php
         if(isset($_POST) && isset($_POST['SignInBtn'])){
-            $secretKey = '6LdKds4ZAAAAAK8E_bgtgal3MOhidtpNS1hLcSAZ';
+            $secretKey = '6Ldz79AZAAAAAJ99x-Y4TJGPLVWJhIiGIYibz7A_';
             $token = $_POST['g-token'];
             $ip = $_SERVER['REMOTE_ADDR'];
             $url = "https://www.google.com/recaptcha/api/siteverify?secret=".$secretKey."&response=".$token."&remoteip=".$ip;
@@ -27,7 +27,7 @@ require_once dirname(__FILE__).'/../models/Users.php';
 
 <body class="background">
 
-<nav class="navbar navbar-expand-md navbar-dark bg-dark p-1 text-md-center shadow-sm">
+<nav class="navbar navbar-expand-xl navbar-dark bg-dark p-1 text-md-center shadow-sm">
     <a href="#" class="navbar-brand pl-1 pr-2">Id: <?= $_SESSION['user']['license'] ?? " ...";?> </a>
     <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
         <span class="navbar-toggler-icon" role="button"></span>
