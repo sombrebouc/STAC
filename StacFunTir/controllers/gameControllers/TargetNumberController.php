@@ -28,8 +28,8 @@ if($isSubmitted && count($errors) == 0){
     if($id_session){
         //var_dump($id_session);
         $createSessionSuccess =true;
-        header('url:/SelectingListController.php?id_session='.$id_session);
-        
+        header('Location:/controllers/gameControllers/SelectingListController.php?id_session='.$id_session);
+
     }
 }
 require_once dirname(__FILE__).'/../HeaderController.php';
