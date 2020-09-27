@@ -2,17 +2,17 @@
   <table>
     <tbody>
       <?php 
-                    if (count($listUsers) > 0){ 
-                        foreach($listUsers as $number => $userId){
-                ?>
+        if (count($listUsers) > 0){ 
+        foreach($listUsers as $number => $userId){
+      ?>
       <tr>
         <td> <?= $userId->firstname; ?></td>
         <td> <?= $userId->lastname; ?></td>
       </tr>
-      <?
-                        }
-                    }
-                     ?>
+      <?php
+        }
+      }
+      ?>
     </tbody>
   </table>
 </div>

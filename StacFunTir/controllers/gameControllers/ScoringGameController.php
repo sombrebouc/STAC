@@ -21,7 +21,7 @@ $hiddenUserTurn = 1;
 
 if(isset($_POST['users']))
     {
-      // On assigne notre variable $_POST['checkbox_id']
+      // On assigne notre variable $_POST['users']
       $nombre=$_POST['users'];
       
       /* On crée une variable qui comptera le nombre de
@@ -81,7 +81,7 @@ if(isset($_POST['ScoreCalculator'])){
                     $game = new Game(null,null,null,null,null, $userId, $id_session);
                     $gameInfos=$game->updateGame();
                     //var_dump( $game);
-                    header('Refresh:1;url: /controllers/gameControllers/ScoringGameController.php?userId='.$userId);
+                    //header('Refresh:1;url: /controllers/gameControllers/ScoringGameController.php?userId='.$userId);
                 }
             }
 }

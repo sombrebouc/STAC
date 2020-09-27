@@ -12,21 +12,24 @@ $errors = [];
 // verif envoi du nombre de cibles
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $isSubmitted = true;
-    //var_dump($_POST['numberoftargets']);
     if (isset($_POST['numberoftargets'])){
         $numberoftargets = trim(htmlspecialchars($_POST['numberoftargets']));
     }
 }
 // création de la session et redirection vers la selection des joueurs
 if($isSubmitted && count($errors) == 0){
+    //var_dump($isSubmitted);
     $session = new Session(0, $numberoftargets);
+    //var_dump($numberoftargets);
     // initialisation de la session par sa création
     $id_session = $session->createSession();
     // si $id_session a fonctionné, on passe sur la page suivante
     //en récupérant(get) id de la session dans l'url de la page
     if($id_session){
+        //var_dump($id_session);
         $createSessionSuccess =true;
-      //header('Refresh:1;url: /SelectingListController.php?id_session='.$id_session);
+        header('url:/SelectingListController.php?id_session='.$id_session);
+        
     }
 }
 require_once dirname(__FILE__).'/../HeaderController.php';
