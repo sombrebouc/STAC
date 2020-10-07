@@ -1,5 +1,5 @@
-<div class="container-fluid usersTableContainer mt-5 text-center shadow rounded col-xs-12 col-sm-12 col-md-12 col-xl-6 pt-4 pb-3">
-    <form action="/../../controllers/gameControllers/ScoringGameController.php?id_session='.$id_session" method="POST">
+<div class="container-fluid usersTableContainer mt-5 text-center shadow rounded col-xs-12 col-sm-10 col-md-10 col-xl-6 pt-4 pb-3">
+    <form action="" method="POST">
         <table class="table table-striped">
             <div class="row">
                 <thead class="bg-dark align-middle p-2 text-light">

@@ -33,7 +33,7 @@
         public function createGame(){
 			$insertGames_sql = 'INSERT INTO `games` (`id`, `timing`, `score`, `nonshoot`, `ratio`, `id_users`, `id_sessions`) 
             VALUES (:id, :timing, :score, :nonshoot, :ratio, :id_users, :id_sessions);';
-            var_dump($insertGames_sql);
+            //var_dump($insertGames_sql);
             $gameStmt = $this->db->prepare($insertGames_sql);
 			$gameStmt->bindValue(':id', $this->id, PDO::PARAM_INT);
 			$gameStmt->bindValue(':timing', $this->timing, PDO::PARAM_INT);

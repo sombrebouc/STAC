@@ -13,12 +13,10 @@ $pointsOnDrill = '';
 $nonshootOnDrill = '';
 // temps donné en secondes au centième près
 $timeOnDrill = '';
-// $games = new Game();
-$usersInGame= new User();
 // init de la variable cachée dans le form ScoringGame.php
 $hiddenUserTurn = 1;
 // ===== COUNT & INCREMENT USERS  =====//
-
+var_dump($_POST);
 if(isset($_POST['users']))
     {
       // On assigne notre variable $_POST['users']
@@ -77,11 +75,11 @@ if(isset($_POST['ScoreCalculator'])){
         // récupération des utilisateurs selectionnés
             if(!empty($_POST['users'])){
                 foreach($_POST['users'] as $userId){
-                    //var_dump($user);
+                    //var_dump($_POST['users']);
                     $game = new Game(null,null,null,null,null, $userId, $id_session);
-                    $gameInfos=$game->updateGame();
+                    $gameInfos=$game->createGame();
                     //var_dump( $game);
-                    //header('Refresh:1;url: /controllers/gameControllers/ScoringGameController.php?userId='.$userId);
+                    //header('Location: /controllers/gameControllers/ScoringGameController.php?userId='.$userId);
                 }
             }
 }

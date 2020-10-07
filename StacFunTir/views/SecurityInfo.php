@@ -2,7 +2,7 @@
 	require_once dirname(__FILE__).'/../controllers/HeaderController.php';
 ?>
 
-<div class="usersTableContainer mt-5 ml-auto mr-auto shadow col-md-8 col-xs-10 rounded">
+<div class="usersTableContainer mt-5 ml-auto mr-auto shadow col-xs-12 col-sm-10 col-md-10 col-xl-6 rounded">
     <div class="row justify-content-center">
         <div class="containerInfosFftir p-3 m-3 text-dark justify-content-center rounded">
             <h1 class="titlebody m-1 p-1 text-uppercase bg-dark text-light rounded">INFOS CLUB</h1>
