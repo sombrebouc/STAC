@@ -37,10 +37,10 @@ if(isset($_POST['users']))
         echo "<br />",$player+1,"e choix : ".$nombre[$player];
       }
     }
-    else
-    {
-      echo "Veuillez sélectionner un critère";
-    }
+    //else
+    //{
+    //  echo "Veuillez sélectionner un critère";
+    //}
 
 // if($_SERVER['REQUEST_METHOD'] === 'POST'){
 //     $PlayersBySession = count($usersOnGame);

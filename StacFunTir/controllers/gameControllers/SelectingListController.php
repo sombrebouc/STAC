@@ -12,10 +12,10 @@ require_once dirname(__FILE__).'/../../models/Games.php';
     // récupération des utilisateurs selectionnés
     if(!empty($_POST['users'])){
         foreach($_POST['users'] as $userId){
-            var_dump($_POST['users']);
+            //var_dump($_POST['users']);
             $game = new Game( 0, 0, 0, 0, 0, $userId, $id_session);
             $game->createGame();
-            var_dump($game);
+            //var_dump($game);
             header('Location:/controllers/gameControllers/ScoringGameController.php?id_session='.$id_session);
         }
     }

@@ -1,4 +1,4 @@
-<div class="container-fluid usersTableContainer mt-5 text-center shadow rounded col-xs-12 col-sm-10 col-md-10 col-xl-6 pt-4 pb-3">
+<div class="container-fluid usersTableContainer mt-5 text-center shadow rounded col-xs-12 col-sm-10 col-md-10 col-xl-6 pt-3 pb-3">
     <form action="" method="POST">
         <table class="table table-striped">
             <div class="row">

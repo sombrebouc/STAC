@@ -1,8 +1,13 @@
-<div class="container-fluid usersTableContainer mt-5 text-center shadow rounded col-xs-12 col-sm-10 col-md-10 col-xl-6 pt-4 pb-3">
+<div
+    class="container-fluid usersTableContainer mt-5 text-center shadow rounded col-xs-12 col-sm-10 col-md-10 col-xl-6 pt-3 pb-3">
+
+    <h4 class="text-uppercase bg-dark rounded-bottom text-light text-center p-2">Ciblerie</h4>
+
     <div class="containerFormTarget shadow-sm rounded bg-dark col-md-12 col-xl-12 m-auto">
+
         <form action="" method="POST">
             <div>
-                <h4 class="text-uppercase text-light text-center">Ciblerie</h4>
+                <p class="m-3 p-3 text-light">Indiquer le nombre de cibles à atteindre, présentes sur le parcours</p>
             </div>
             <div class="row">
                 <input class="targetNbContainer bg-light rounded p-2 mt-0 m-auto col-2 text-center" type="text"
