@@ -74,13 +74,13 @@ if(isset($_POST['ScoreCalculator'])){
         var_dump($drillUserRatio);
         // récupération des utilisateurs selectionnés
             if(!empty($_POST['users'])){
-                foreach($_POST['users'] as $userId){
+                //foreach($_POST['users'] as $userId){
                     //var_dump($_POST['users']);
-                    $game = new Game(null,null,null,null,null, $userId, $id_session);
-                    $gameInfos=$game->createGame();
+                    $game = new Game(0,0,0,0,0, $userId, $id_session);
+                    $gameInfos=$game->updateGame();
                     //var_dump( $game);
                     //header('Location: /controllers/gameControllers/ScoringGameController.php?userId='.$userId);
-                }
+                //}
             }
 }
 

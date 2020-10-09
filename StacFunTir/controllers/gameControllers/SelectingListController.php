@@ -16,7 +16,7 @@ require_once dirname(__FILE__).'/../../models/Games.php';
             $game = new Game( 0, 0, 0, 0, 0, $userId, $id_session);
             $game->createGame();
             var_dump($game);
-            //header('Location:/controllers/gameControllers/ScoringGameController.php?id_session='.$id_session);
+            header('Location:/controllers/gameControllers/ScoringGameController.php?id_session='.$id_session);
         }
     }
 require_once dirname(__FILE__).'/../HeaderController.php';

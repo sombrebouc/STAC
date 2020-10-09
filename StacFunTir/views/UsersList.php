@@ -21,8 +21,8 @@
                     <td> <?= $user->firstname; ?></td>
                     <td> <?= $user->lastname; ?></td>
                     <td> <?= $user->license; ?></td>
-                    <td> <a class="btn btn-success" href="UsersProfileController.php?id=<?= $user->id; ?>">V</a></td>
-                    <td> <a class="btn btn-danger" href="UsersDeleteController.php?id=<?= $user->id; ?>">X</a></td>
+                    <td> <a type="submit" class="btn btn-success" href="MembersProfileController.php?id=<?= $user->id; ?>">V</a></td>
+                    <td> <a type="submit" class="btn btn-danger" href="MembersDeleteController.php?id=<?= $user->id; ?>">X</a></td>
                 </tr>
     <?php } ?>
             </tbody>

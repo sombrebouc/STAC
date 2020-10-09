@@ -4,10 +4,10 @@
 
 <div class="usersTableContainer mt-5 ml-auto mr-auto shadow col-xs-12 col-sm-10 col-md-10 col-xl-6 rounded">
     <div class="row justify-content-center">
-        <div class="containerInfosFftir p-3 m-3 text-dark justify-content-center rounded">
-            <h1 class="titlebody m-1 p-1 text-uppercase bg-dark text-light rounded">INFOS CLUB</h1>
+        <div class="containerInfosFftir p-3 text-dark justify-content-center rounded">
+            <h3 class="titlebody m-1 p-1 text-uppercase bg-dark text-light rounded">INFOS CLUB</h3>
             <h3 class="p-3">Le Fun Tir</h3>
-            <h4 class="p-3">La sécurité</h4>
+            <h5 class="pl-3">La sécurité</h5>
             <div class="p-3">
                 <p>
                     Le fun tir est une discipline de tir sportif demandant à ses participants

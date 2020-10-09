@@ -5,15 +5,13 @@ require_once dirname(__FILE__).'/../models/Sessions.php';
 require_once dirname(__FILE__).'/../models/Games.php';
 require_once dirname(__FILE__).'/HeaderController.php';
    
-
-// ==== Récupération et affichage du profil utilisateur
-if(isset($_SESSION['user']['id'])){
-    //var_dump($_SESSION['user']);
-    $id = (int) $_SESSION['user']['id'];
+// ==== Récupération et affichage du membre par le panneau Admin
+if(isset($_GET['id'])){
+    $id = (int) $_GET['id'];
     $user = new User($id,'', '', '', '');
-    $userInfos = $user->readOneUser();
-    //var_dump($userInfos);
+    $memberInfos = $user->readOneUser();
+    //var_dump($memberInfos->lastname);
 }
 
-require_once dirname(__FILE__).'/../views/UsersProfile.php';
+require_once dirname(__FILE__).'/../views/MembersProfile.php';
 require_once dirname(__FILE__).'/FooterController.php';

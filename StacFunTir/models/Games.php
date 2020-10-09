@@ -82,9 +82,9 @@
         }
 
 		public function updateGame(){
-            $gameScoreUpdate_sql = 'UPDATE `games` SET `timing`=:timing,`score`=:score,`nonshoot`=:nonshoot,`ratio`=:ratio WHERE `id`=:id;';
+            $gameScoreUpdate_sql = 'UPDATE `games` SET `timing`=:timing,`score`=:score,`nonshoot`=:nonshoot,`ratio`=:ratio WHERE `id_sessions`=:id_sessions;';
             $gameScoreUpdate = $this->db->prepare($userUpdate_sql);
-            $gameScoreUpdate->bindValue(':id', $this->id,PDO::PARAM_INT);
+            //$gameScoreUpdate->bindValue(':id', $this->id,PDO::PARAM_INT);
 			$gameScoreUpdate->bindValue(':timing', $this->timing,PDO::PARAM_INT);
             $gameScoreUpdate->bindValue(':score', $this->score,PDO::PARAM_INT);
             $gameScoreUpdate->bindValue(':nonshoot',$this->nonshoot,PDO::PARAM_INT);
