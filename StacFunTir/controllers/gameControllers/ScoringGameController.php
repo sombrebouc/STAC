@@ -16,7 +16,7 @@ $timeOnDrill = '';
 // init de la variable cachée dans le form ScoringGame.php
 $hiddenUserTurn = 1;
 // ===== COUNT & INCREMENT USERS  =====//
-var_dump($_POST);
+//var_dump($_POST);
 if(isset($_POST['users']))
     {
       // On assigne notre variable $_POST['users']

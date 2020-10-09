@@ -1,5 +1,5 @@
 <div
-    class="container-fluid usersTableContainer mt-5 text-center shadow rounded col-xs-12 col-sm-10 col-md-10 col-xl-6 pt-3 pb-3">
+    class="container-fluid usersTableContainer mt-3 text-center shadow rounded col-xs-12 col-sm-10 col-md-10 col-xl-6 pt-3 pb-3">
 
     <h4 class="text-uppercase bg-dark rounded-bottom text-light text-center p-2">Ciblerie</h4>
 
@@ -13,7 +13,7 @@
                 <input class="targetNbContainer bg-light rounded p-2 mt-0 m-auto col-2 text-center" type="text"
                     name="numberoftargets" value="" required="">
             </div>
-            <div class="row justify-content-center">
+            <div class="row justify-content-center mt-3">
                 <input type="submit" class="btn btn-success m-2 text-center col-3" name="targetsValidate"
                     value="SUIVANT">
             </div>

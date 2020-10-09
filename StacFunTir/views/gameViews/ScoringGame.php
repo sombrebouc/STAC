@@ -1,4 +1,4 @@
-<div class="container-fluid usersTableContainer mt-5 text-center shadow rounded col-xs-12 col-sm-10 col-md-10 col-xl-6 pt-3 pb-3">
+<div class="container-fluid usersTableContainer mt-3 text-center shadow rounded col-xs-12 col-sm-10 col-md-10 col-xl-6 pt-3 pb-3">
 
 <h4 class="text-uppercase bg-dark text-light rounded-bottom p-2 mb-0 text-center">- SCORE -</h4>
 
