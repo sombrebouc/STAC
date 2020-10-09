@@ -33,10 +33,10 @@ require_once dirname(__FILE__).'/../models/Users.php';
         <div class="container-fluid">
         
         <div class="row col-xs-12 col-sm-12 col-md-3 shadow-sm rounded">
-                <h5 class="nav-link pb-1 pt-1  mt-1 mb-1 text-light align-middle" style="background-color:#607278; border-radius:5px; border:solid 1px #282929" target="_blank" href="https://www.fftir.org/">
+                <a class="nav-link pb-1 pt-2  mt-1 mb-1 text-light align-middle" style="background-color:#156188; border-radius:5px; border:solid 1px #282929" target="_blank" href="https://www.fftir.org/">
                     <img src="\..\assets\img\1200px-FFTir_Logo.png" width="75" height="35"
-                        class="d-inline-block pr-4" alt="" loading="lazy"> <strong><em>Fédération Française de Tir</em></strong>
-                </h5>
+                        class="d-inline-block pr-4" alt="" loading="lazy"><em><h5>Fédération Française de Tir</h5></em>
+                </a>
         </div>
         <div class="row col-xs-12 col-sm-12 col-md-9">
             <a href="#" class="navbar-brand text-center col-12">Licence FFTIR n° <?= $_SESSION['user']['license'] ?? " ...";?> </a>
